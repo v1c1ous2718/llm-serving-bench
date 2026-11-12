@@ -1,0 +1,2 @@
+2026-11-11 16:03:01 baseline: starting server [] {}
+2026-11-11 16:04:05 waiting for a quiet GPU: {'mem_used_mib': 9716.0, 'dec_pct': 25.0, 'enc_pct': 0.0, 'sm_mhz': 532.0, 'mem_mhz': 5001.0, 'power_w': 29.76}

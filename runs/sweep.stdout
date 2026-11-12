@@ -1,0 +1,12 @@
+2026-11-11 16:03:01 baseline: starting server [] {}
+(EngineCore pid=74) WARNING 11-11 08:03:33 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=74) INFO 11-11 08:03:37 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=74) INFO 11-11 08:03:54 [gpu_worker.py:759] Available KV cache memory: 7.25 GiB
+(EngineCore pid=74) INFO 11-11 08:03:54 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=74) INFO 11-11 08:03:54 [kv_cache_utils.py:2327] GPU KV cache size: 633,904 tokens, Maximum concurrency for 8,192 tokens per request: 77.38x
+(EngineCore pid=74) INFO 11-11 08:04:01 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.53 GiB for peak activation, and 0.14 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7484011008` (6.97 GiB) to fit into requested memory, or `--kv-cache-memory=9609867776` (8.95 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.25 GiB.
+(EngineCore pid=74) INFO 11-11 08:04:02 [core.py:395] init engine (profile, create kv cache, warmup model) took 24.67 s (compilation: 12.36 s)
+(APIServer pid=1) INFO 11-11 08:04:04 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-11 08:04:04 [launcher.py:195] Route: /ping, Methods: POST
+ready: baseline
+2026-11-11 16:04:05 waiting for a quiet GPU: {'mem_used_mib': 9716.0, 'dec_pct': 25.0, 'enc_pct': 0.0, 'sm_mhz': 532.0, 'mem_mhz': 5001.0, 'power_w': 29.76}
