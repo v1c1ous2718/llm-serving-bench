@@ -1,3 +1,11 @@
 .venv/
 __pycache__/
 uv.lock.bak
+.triton-cache/
+# 原始逐請求紀錄與 profiler trace 太大，只提交 metrics 與 table.json
+*.pt.trace.json
+runs/**/[0-9].jsonl
+runs/**/*.tmp
+runs/_invalid-*/
+runs/_discarded-*/
+kernels/__pycache__/

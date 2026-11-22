@@ -126,3 +126,43 @@ reuse this load generator and these workloads, so their results are directly com
   waits for decoder/encoder at 0% and total memory < 11 GiB for 10 s before every point, and logs whole-card
   memory, decoder use, clocks and power at 1 Hz during every point. F0's own `runs/_server/baseline/` record
   was overwritten by this session's start; F0 ran with the arguments in its table header (0.85).
+- 2026-11-13, second baseline session stopped after its W1 capacity point, before any sweep point: once 256
+  sequences ran, vLLM's own memory grew from 9.4 to 11.3 GiB (+2.1 GiB past the 0.75 budget; it stays allocated)
+  and the runner's "quiet GPU" memory limit (11 GiB) blocked every later point. The memory term now only
+  rejects a nearly full card (12,000 MiB); decoder/encoder use > 0% remains the test for another application.
+  The partial session is kept in `runs/_discarded-baseline-2-memlimit/`. All Windows applications were closed
+  for this night run.
+- 2026-11-13, during the baseline session: the full sweep needs ~19 h (W2's low capacity makes its 0.1 C points
+  ~22 min each), so the session order changed (`scripts/night3.sh`): baseline, then the attention-backend
+  comparison that RESULTS.md's F0 analysis calls for, then F1, F2, F5, F3, F4. Order does not affect any
+  comparison: every session runs at the baseline's fixed absolute rates and carries its own drift check.
+- 2026-11-13, after baseline W1: W1 still met both SLO terms at 1.25 C (TPOT p95 17.9 ms), so goodput was not
+  bracketed. The cause is the capacity definition itself: closed loop at 256 in flight is past the throughput
+  peak at 64 (F0-r2), so C understates what the server sustains with fewer requests in flight. Every session
+  now also runs 1.5, 1.75 and 2.0 × C (≤ 33 req/s, under the 100 req/s client ceiling); the baseline gets them in
+  a separate session `baseline-hi` with the same arguments and its own drift check. `scripts/analyze.py` merges
+  the two for the baseline tables.
+- 2026-11-13 06:23, first `baseline-hi` session stopped after one point (W1 1.5 C): after that overloaded point
+  vLLM held 11.85 GiB (desktop 0.24 GiB), 2.9 GiB past its 0.75 budget, and the 12,000 MiB limit blocked the
+  runner again. Total card memory is still logged at 1 Hz but no longer gates a point; video decode/encode > 0%
+  remains the gate. Partial session in `runs/_discarded-baseline-hi-memlimit/`. FLASHINFER's rerun moved ahead
+  of F1 (`scripts/night4.sh`).
+- 2026-11-13 07:25, new factor added after the F0 attention-backend comparison, before its sweep ran:
+  **F6 attention backend** (default FLASH_ATTN vs `--attention-backend TRITON_ATTN`) on W1 and W3.
+  Prediction, written now: TRITON_ATTN raises W3 goodput the most, because W3's collapse at 0.8 C follows the
+  prefill-mixed-step mechanism that TRITON_ATTN made 1.9× cheaper at 256 in flight; W1 gains less.
+- 2026-11-13 15:15: control session `baseline-ctl` (baseline arguments, Wmix, 1.5–2.0 C only) queued at the end of
+  `scripts/night4.sh`, because F2-off and F2-chunk512 meet the SLO at 2.0 C while `baseline-hi` collapsed at 1.5 C
+  with non-monotonic TTFT (46 / 21 / 27 s). It separates "chunk 2,048 collapses" from "the collapse is metastable
+  and depends on the arrival sample".
+- 2026-11-13 16:40, sweep paused by hand. From ~15:04 the card's memory, flat at 11,694 MiB while only vLLM ran,
+  began to move by ±100 MiB: Windows applications (Discord, the Comet browser) were rendering on the GPU. The
+  runner's gate sees video decode/encode only, so it did not stop. F2-chunk8192 (run entirely under this load) failed
+  its drift check (+14.2%) and moved to `runs/_invalid-F2-chunk8192-drift/`. F2-chunk512 passed its drift check
+  (+1.6%); its seed-2 points from 0.9 C on ran under the same load and are flagged in RESULTS.md. Remaining sessions
+  (F2-chunk8192 rerun, baseline-ctl, F5, F3, F4, profile2) are in `scripts/night5.sh`, to run with those
+  applications closed.
+- 2026-11-14, scope cut: F3 (prefix caching), F4 (KV capacity), F5 (model size) and the second decode profile are
+  dropped. The project's question was answered by F0, F6 and F1 (the bottleneck, its cause, the fix, and a predicted
+  gain); the dropped factors would confirm documented vLLM behaviour without changing any conclusion. Only the
+  F2 open question is closed out: `baseline-ctl` then the F2-chunk8192 rerun (`scripts/night6.sh`).

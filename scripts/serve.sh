@@ -4,6 +4,7 @@
 #   scripts/serve.sh baseline
 #   scripts/serve.sh F1-seqs32 --max-num-seqs 32
 # Model defaults to Qwen2.5-0.5B-Instruct; override with MODEL=Qwen/Qwen2.5-1.5B-Instruct.
+# DOCKER_ARGS adds docker run options (e.g. a volume for profiler traces).
 # The full command, image digest and startup log are saved under runs/_server/<run-name>/.
 set -euo pipefail
 cd -- "$(dirname -- "$0")/.."
@@ -26,7 +27,7 @@ args=(--model "$MODEL" --served-model-name qwen --dtype bfloat16 --max-model-len
   nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader
 } > "$dir/server.txt"
 
-docker run -d --name sl-vllm --gpus all --ipc=host -p 8000:8000 \
+docker run -d --name sl-vllm --gpus all --ipc=host -p 8000:8000 ${DOCKER_ARGS:-} \
   -v "$HOME/.cache/huggingface:/root/.cache/huggingface" \
   "$IMAGE" "${args[@]}" >/dev/null
 

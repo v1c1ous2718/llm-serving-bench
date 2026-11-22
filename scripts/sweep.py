@@ -24,17 +24,26 @@ from sl.summarize import load, summarize  # noqa: E402
 
 RUNS = ROOT / "runs"
 MULTIPLES = [0.1, 0.25, 0.5, 0.7, 0.8, 0.9, 1.0, 1.1, 1.25]
+# Added 2026-11-13: the closed-loop capacity at 256 in flight sits past the throughput peak (F0-r2), so baseline W1
+# still met the SLO at 1.25 C. Every session also runs these; "baseline-hi" adds them to the baseline config.
+HIGH = [1.5, 1.75, 2.0]
 SEEDS = [0, 1, 2]
 N = 600
 CLIENT_CPUS = "10,11"
 CAP_CONCURRENCY = 256
 DRIFT_LIMIT = 0.05
 QUIET_S = 10
-MEM_LIMIT_MIB = 11_264  # vLLM at 0.75 holds ~9.2 GiB; the idle Windows desktop ~1 GiB
+# Card memory is logged but no longer gates a point: vLLM itself grows up to ~2.9 GiB past its
+# --gpu-memory-utilization budget under overload (2026-11-13), so total memory cannot tell vLLM from another
+# application. Decoder/encoder use is the test (it caught the Windows video player).
+MEM_LIMIT_MIB = 1 << 30
 
 # name -> (server args, workloads, env). The baseline value of each factor is not repeated.
 SESSIONS: dict[str, tuple[list[str], list[str], dict]] = {
     "baseline": ([], ["W1", "W2", "Wmix", "W3"], {}),
+    "baseline-hi": ([], ["W1", "W2", "Wmix", "W3"], {}),
+    # Control added 2026-11-13 15:15: F2-off and F2-chunk512 pass Wmix at 2.0 C, while baseline-hi collapsed at 1.5 C.
+    "baseline-ctl": ([], ["Wmix"], {}),
     "F1-seqs8": (["--max-num-seqs", "8"], ["W1"], {}),
     "F1-seqs32": (["--max-num-seqs", "32"], ["W1"], {}),
     "F1-seqs128": (["--max-num-seqs", "128"], ["W1"], {}),
@@ -45,6 +54,8 @@ SESSIONS: dict[str, tuple[list[str], list[str], dict]] = {
     "F4-kv16k": (["--num-gpu-blocks-override", "1000"], ["W1", "W2"], {}),
     "F4-kv64k": (["--num-gpu-blocks-override", "4000"], ["W1", "W2"], {}),
     "F5-1.5B": ([], ["W1"], {"MODEL": "Qwen/Qwen2.5-1.5B-Instruct"}),
+    # Added 2026-11-13 after the F0 backend comparison (RESULTS.md): does the cheaper mixed step move goodput?
+    "F6-triton": (["--attention-backend", "TRITON_ATTN"], ["W1", "W3"], {}),
 }
 METRICS = ("vllm:num_requests_running", "vllm:num_requests_waiting", "vllm:kv_cache_usage_perc",
            "vllm:num_preemptions_total")
@@ -149,13 +160,13 @@ def run_session(name: str, base_cap: dict[str, float]) -> None:
     start = drift(name, "bs1")
     log(f"{name}: batch-1 TPOT p50 {start:.2f} ms")
     for w in workloads:
-        c = capacity(name, w)
+        c = capacity(name, w) if name not in ("baseline-hi", "baseline-ctl") else float("nan")
         log(f"{name}: {w} closed-loop capacity {c:.2f} req/s")
         if name == "baseline":
             base_cap[w] = c
             (RUNS / "capacity.json").write_text(json.dumps(base_cap, indent=1))
         for seed in SEEDS:
-            for m in MULTIPLES:
+            for m in (HIGH if name in ("baseline-hi", "baseline-ctl") else MULTIPLES + HIGH):
                 rate = round(m * base_cap[w], 3)
                 out = point(RUNS / name / f"x{m}" / w / f"{seed}.jsonl", w, seed, N, "rate", rate)
                 s = summarize(load(out, 50))

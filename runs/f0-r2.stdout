@@ -1,0 +1,50 @@
+2026-11-13 00:49:14 F0-r2: starting server (F0, 0.85)
+(EngineCore pid=72) WARNING 11-12 16:50:45 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=72) INFO 11-12 16:51:01 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=72) INFO 11-12 16:51:26 [gpu_worker.py:759] Available KV cache memory: 8.45 GiB
+(EngineCore pid=72) INFO 11-12 16:51:26 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.8500 is equivalent to --gpu-memory-utilization=0.8267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.8733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=72) INFO 11-12 16:51:26 [kv_cache_utils.py:2327] GPU KV cache size: 738,752 tokens, Maximum concurrency for 8,192 tokens per request: 90.18x
+(EngineCore pid=72) INFO 11-12 16:51:32 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.85, 10.2 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.53 GiB for peak activation, and 0.2 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=8710775296` (8.11 GiB) to fit into requested memory, or `--kv-cache-memory=9548194304` (8.89 GiB) to fully utilize gpu memory. Current kv cache memory in use is 8.45 GiB.
+(EngineCore pid=72) INFO 11-12 16:51:34 [core.py:395] init engine (profile, create kv cache, warmup model) took 33.02 s (compilation: 13.57 s)
+(APIServer pid=1) INFO 11-12 16:51:36 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-12 16:51:36 [launcher.py:195] Route: /ping, Methods: POST
+ready: F0-r2
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/bs1/W1/0.tmp: 60 requests, 0 errors, 87.7 s
+2026-11-13 00:53:20 F0-r2: c=1 TPOT p50 4.57 ms, steady 216 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/c2/W1/0.tmp: 120 requests, 0 errors, 87.6 s
+2026-11-13 00:54:56 F0-r2: c=2 TPOT p50 5.04 ms, steady 392 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/c4/W1/0.tmp: 120 requests, 0 errors, 44.5 s
+2026-11-13 00:55:52 F0-r2: c=4 TPOT p50 5.09 ms, steady 777 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/c8/W1/0.tmp: 120 requests, 0 errors, 25.0 s
+2026-11-13 00:56:32 F0-r2: c=8 TPOT p50 5.43 ms, steady 1457 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/c16/W1/0.tmp: 120 requests, 0 errors, 15.4 s
+2026-11-13 00:57:02 F0-r2: c=16 TPOT p50 6.01 ms, steady 2634 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/c32/W1/0.tmp: 128 requests, 0 errors, 12.2 s
+2026-11-13 00:57:29 F0-r2: c=32 TPOT p50 8.01 ms, steady 3995 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/c64/W1/0.tmp: 256 requests, 0 errors, 16.0 s
+2026-11-13 00:58:00 F0-r2: c=64 TPOT p50 12.07 ms, steady 5392 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/c128/W1/0.tmp: 512 requests, 0 errors, 27.5 s
+2026-11-13 00:58:42 F0-r2: c=128 TPOT p50 25.01 ms, steady 5090 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/c256/W1/0.tmp: 1024 requests, 0 errors, 55.7 s
+2026-11-13 00:59:51 F0-r2: c=256 TPOT p50 55.78 ms, steady 4628 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-r2/bs1_end/W1/0.tmp: 60 requests, 0 errors, 87.5 s
+{'c': 1, 'tok_s': 216.16773263709536, 'tpot_p50': 4.572671381250735, 'tpot_p95': 4.590771977665822, 'ttft_p50_ms': 16.99249349621823}
+{'c': 2, 'tok_s': 391.7243452801011, 'tpot_p50': 5.0362660723814825, 'tpot_p95': 5.1182125592776035, 'ttft_p50_ms': 16.393606496421853}
+{'c': 4, 'tok_s': 777.3589964600852, 'tpot_p50': 5.089801389218337, 'tpot_p95': 5.155055064789851, 'ttft_p50_ms': 16.56103650384466}
+{'c': 8, 'tok_s': 1456.942301553432, 'tpot_p50': 5.428975934553708, 'tpot_p95': 5.493122867251001, 'ttft_p50_ms': 18.34110949857859}
+{'c': 16, 'tok_s': 2634.0498973649333, 'tpot_p50': 6.009563415735688, 'tpot_p95': 6.163552608573549, 'ttft_p50_ms': 21.81472750089597}
+{'c': 32, 'tok_s': 3994.598169222654, 'tpot_p50': 8.011566107462224, 'tpot_p95': 8.77133329746056, 'ttft_p50_ms': 29.560842496721307}
+{'c': 64, 'tok_s': 5391.9440303071115, 'tpot_p50': 12.066834884872351, 'tpot_p95': 13.443257075194483, 'ttft_p50_ms': 53.17618600020069}
+{'c': 128, 'tok_s': 5089.614320527208, 'tpot_p50': 25.006526988501893, 'tpot_p95': 28.94721910769331, 'ttft_p50_ms': 107.6572665006097}
+{'c': 256, 'tok_s': 4627.609077502485, 'tpot_p50': 55.776246330437196, 'tpot_p95': 64.5621074257533, 'ttft_p50_ms': 235.35651299971505}
+{'c': '1 (end)', 'tpot_p50': 4.568995629349646}

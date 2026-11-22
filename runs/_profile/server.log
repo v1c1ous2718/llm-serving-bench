@@ -1,0 +1,1004 @@
+With `vllm serve`, you should provide the model as a positional argument or in a config file instead of via the `--model` option. The `--model` option will be removed in a future version.
+Found duplicate keys --gpu-memory-utilization
+(APIServer pid=1) INFO 11-12 17:01:41 [api_utils.py:347] 
+(APIServer pid=1) INFO 11-12 17:01:41 [api_utils.py:347]        █     █     █▄   ▄█
+(APIServer pid=1) INFO 11-12 17:01:41 [api_utils.py:347]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.32.0
+(APIServer pid=1) INFO 11-12 17:01:41 [api_utils.py:347]   █▄█▀ █     █     █     █  model   Qwen/Qwen2.5-0.5B-Instruct
+(APIServer pid=1) INFO 11-12 17:01:41 [api_utils.py:347]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=1) INFO 11-12 17:01:41 [api_utils.py:347] 
+(APIServer pid=1) INFO 11-12 17:01:41 [api_utils.py:286] non-default args: {'model_tag': 'Qwen/Qwen2.5-0.5B-Instruct', 'model': 'Qwen/Qwen2.5-0.5B-Instruct', 'dtype': 'bfloat16', 'max_model_len': 8192, 'served_model_name': ['qwen'], 'gpu_memory_utilization': 0.85, 'profiler_config': ProfilerConfig(profiler='torch', torch_profiler_dir='/traces', torch_profiler_activities=None, proton_profiler_dir='', proton_context='shadow', proton_data='tree', proton_backend=None, proton_mode=None, proton_hook=None, proton_output_format=None, proton_graph_attribution=False, torch_profiler_with_stack=False, torch_profiler_with_flops=False, torch_profiler_use_gzip=False, torch_profiler_dump_cuda_time_total=True, torch_profiler_record_shapes=False, torch_profiler_with_memory=False, capture_torch_profiler=False, detailed_trace_annotation=False, ignore_frontend=True, delay_iterations=0, max_iterations=0, warmup_iterations=0, active_iterations=5, wait_iterations=0)}
+(APIServer pid=1) INFO 11-12 17:01:49 [model.py:733] Resolved architecture: Qwen2ForCausalLM
+(APIServer pid=1) INFO 11-12 17:01:49 [model.py:2152] Using max model len 8192
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+(APIServer pid=1) INFO 11-12 17:01:50 [kernel.py:467] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 1568.29it/s]
+(EngineCore pid=75) INFO 11-12 17:01:56 [core.py:133] Initializing a V1 LLM engine (v0.32.0) with config: model='Qwen/Qwen2.5-0.5B-Instruct', speculative_config=None, tokenizer='Qwen/Qwen2.5-0.5B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=qwen, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::qwen4_exp_qsa_prepare_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [2048], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=75) INFO 11-12 17:01:57 [parallel_state.py:1906] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_b79127b2d06e45f282736430f6198b28 backend=nccl
+(EngineCore pid=75) INFO 11-12 17:01:57 [parallel_state.py:2350] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=75) INFO 11-12 17:01:57 [gpu_worker.py:518] Using V2 Model Runner
+(EngineCore pid=75) WARNING 11-12 17:01:58 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=75) INFO 11-12 17:01:58 [model_runner.py:392] Loading model from scratch...
+(EngineCore pid=75) INFO 11-12 17:01:59 [cuda.py:506] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=75) INFO 11-12 17:01:59 [flash_attn.py:1117] Using FlashAttention version 2
+(EngineCore pid=75) INFO 11-12 17:01:59 [base_loader.py:82] Initializing model took 1.450387 seconds
+(EngineCore pid=75) INFO 11-12 17:02:00 [weight_utils.py:1108] Filesystem type for checkpoints: EXT4. Checkpoint size: 0.92 GiB. Available RAM: 12.00 GiB.
+(EngineCore pid=75) INFO 11-12 17:02:00 [weight_utils.py:1131] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  4.98it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  4.98it/s]
+
+(EngineCore pid=75) INFO 11-12 17:02:01 [default_loader.py:501] Loading weights took 0.20 seconds
+(EngineCore pid=75) INFO 11-12 17:02:01 [model_runner.py:424] Model loading took 0.93 GiB memory and 3.794440 seconds
+(EngineCore pid=75) INFO 11-12 17:02:02 [topk_topp_sampler.py:124] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=75) INFO 11-12 17:02:02 [torch_utils.py:295] Reducing Torch threads from 6 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=75) INFO 11-12 17:02:02 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=75) INFO 11-12 17:02:02 [monitor.py:40] [backbone] Starting torch.compile
+(EngineCore pid=75) INFO 11-12 17:02:05 [backends.py:1104] [backbone] Using cache directory: /root/.cache/vllm/torch_compile_cache/f10a348e63/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=75) INFO 11-12 17:02:05 [backends.py:1166] [backbone] Dynamo bytecode transform time: 3.30 s
+[rank0]:W1112 17:02:09.971000 75 torch/_inductor/utils.py:1953] Not enough SMs to use max_autotune_gemm mode
+(EngineCore pid=75) INFO 11-12 17:02:11 [backends.py:398] [backbone] Compiling a graph for compile range (1, 2048) takes 5.65 s
+(EngineCore pid=75) INFO 11-12 17:02:13 [backends.py:927] collected artifacts: 25 entries, 3 artifacts, 4894463 bytes total
+(EngineCore pid=75) INFO 11-12 17:02:13 [decorators.py:743] [backbone] saved AOT compiled function to /root/.cache/vllm/torch_compile_cache/torch_aot_compile/b21916ab41077f25f19196f3607f84253270706551fe2b67a5ea7cf56c480fd5/rank_0_0/model
+(EngineCore pid=75) INFO 11-12 17:02:13 [monitor.py:62] [backbone] torch.compile took 11.26 s in total
+(EngineCore pid=75) INFO 11-12 17:02:14 [monitor.py:91] [backbone] Initial profiling/warmup run took 0.23 s
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   2%|▏         | 1/51 [00:00<00:05,  9.96it/s]Capturing CUDA graphs (PIECEWISE):   6%|▌         | 3/51 [00:00<00:04, 10.79it/s]Capturing CUDA graphs (PIECEWISE):  10%|▉         | 5/51 [00:00<00:04, 11.11it/s]Capturing CUDA graphs (PIECEWISE):  14%|█▎        | 7/51 [00:00<00:03, 11.28it/s]Capturing CUDA graphs (PIECEWISE):  18%|█▊        | 9/51 [00:00<00:03, 11.35it/s]Capturing CUDA graphs (PIECEWISE):  22%|██▏       | 11/51 [00:00<00:03, 11.54it/s]Capturing CUDA graphs (PIECEWISE):  25%|██▌       | 13/51 [00:01<00:03, 11.58it/s]Capturing CUDA graphs (PIECEWISE):  29%|██▉       | 15/51 [00:01<00:03, 11.61it/s]Capturing CUDA graphs (PIECEWISE):  33%|███▎      | 17/51 [00:01<00:02, 12.67it/s]Capturing CUDA graphs (PIECEWISE):  39%|███▉      | 20/51 [00:01<00:01, 15.98it/s]Capturing CUDA graphs (PIECEWISE):  45%|████▌     | 23/51 [00:01<00:01, 18.98it/s]Capturing CUDA graphs (PIECEWISE):  51%|█████     | 26/51 [00:01<00:01, 21.38it/s]Capturing CUDA graphs (PIECEWISE):  57%|█████▋    | 29/51 [00:01<00:00, 22.87it/s]Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [00:01<00:00, 23.86it/s]Capturing CUDA graphs (PIECEWISE):  69%|██████▊   | 35/51 [00:02<00:00, 24.36it/s]Capturing CUDA graphs (PIECEWISE):  75%|███████▍  | 38/51 [00:02<00:00, 25.08it/s]Capturing CUDA graphs (PIECEWISE):  80%|████████  | 41/51 [00:02<00:00, 22.91it/s]Capturing CUDA graphs (PIECEWISE):  86%|████████▋ | 44/51 [00:02<00:00, 23.32it/s]Capturing CUDA graphs (PIECEWISE):  94%|█████████▍| 48/51 [00:02<00:00, 25.40it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 26.27it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 18.60it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00, 31.78it/s]
+(EngineCore pid=75) INFO 11-12 17:02:18 [model_runner.py:1127] Graph capturing finished in 3 secs, took 0.25 GiB
+(EngineCore pid=75) INFO 11-12 17:02:19 [gpu_worker.py:759] Available KV cache memory: 8.45 GiB
+(EngineCore pid=75) INFO 11-12 17:02:19 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.8500 is equivalent to --gpu-memory-utilization=0.8267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.8733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=75) INFO 11-12 17:02:19 [kv_cache_utils.py:2327] GPU KV cache size: 738,752 tokens, Maximum concurrency for 8,192 tokens per request: 90.18x
+(EngineCore pid=75) INFO 11-12 17:02:19 [kernel_warmup.py:176] JIT kernel warmup starting.
+(EngineCore pid=75) INFO 11-12 17:02:19 [kernel_warmup.py:189] JIT kernel warmup finished in 0.00s.
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   2%|▏         | 1/51 [00:00<00:07,  6.86it/s]Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:00<00:07,  6.99it/s]Capturing CUDA graphs (PIECEWISE):   8%|▊         | 4/51 [00:00<00:05,  9.19it/s]Capturing CUDA graphs (PIECEWISE):  12%|█▏        | 6/51 [00:00<00:04, 10.18it/s]Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:00<00:04, 10.53it/s]Capturing CUDA graphs (PIECEWISE):  20%|█▉        | 10/51 [00:00<00:03, 10.94it/s]Capturing CUDA graphs (PIECEWISE):  24%|██▎       | 12/51 [00:01<00:03, 11.14it/s]Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:01<00:03, 11.47it/s]Capturing CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:01<00:03, 11.52it/s]Capturing CUDA graphs (PIECEWISE):  37%|███▋      | 19/51 [00:01<00:02, 14.84it/s]Capturing CUDA graphs (PIECEWISE):  43%|████▎     | 22/51 [00:01<00:01, 17.60it/s]Capturing CUDA graphs (PIECEWISE):  49%|████▉     | 25/51 [00:01<00:01, 19.50it/s]Capturing CUDA graphs (PIECEWISE):  55%|█████▍    | 28/51 [00:01<00:01, 21.46it/s]Capturing CUDA graphs (PIECEWISE):  61%|██████    | 31/51 [00:02<00:00, 22.14it/s]Capturing CUDA graphs (PIECEWISE):  67%|██████▋   | 34/51 [00:02<00:00, 23.15it/s]Capturing CUDA graphs (PIECEWISE):  73%|███████▎  | 37/51 [00:02<00:00, 23.99it/s]Capturing CUDA graphs (PIECEWISE):  80%|████████  | 41/51 [00:02<00:00, 26.27it/s]Capturing CUDA graphs (PIECEWISE):  86%|████████▋ | 44/51 [00:02<00:00, 26.97it/s]Capturing CUDA graphs (PIECEWISE):  94%|█████████▍| 48/51 [00:02<00:00, 28.56it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 18.46it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):  11%|█▏        | 4/35 [00:00<00:00, 37.52it/s]Capturing CUDA graphs (FULL):  23%|██▎       | 8/35 [00:00<00:00, 37.81it/s]Capturing CUDA graphs (FULL):  37%|███▋      | 13/35 [00:00<00:00, 40.55it/s]Capturing CUDA graphs (FULL):  51%|█████▏    | 18/35 [00:00<00:00, 40.35it/s]Capturing CUDA graphs (FULL):  66%|██████▌   | 23/35 [00:00<00:00, 36.22it/s]Capturing CUDA graphs (FULL):  77%|███████▋  | 27/35 [00:00<00:00, 36.17it/s]Capturing CUDA graphs (FULL):  89%|████████▊ | 31/35 [00:00<00:00, 36.31it/s]Capturing CUDA graphs (FULL): 100%|██████████| 35/35 [00:00<00:00, 34.41it/s]Capturing CUDA graphs (FULL): 100%|██████████| 35/35 [00:00<00:00, 36.33it/s]
+(EngineCore pid=75) INFO 11-12 17:02:25 [model_runner.py:1127] Graph capturing finished in 4 secs, took 0.17 GiB
+(EngineCore pid=75) INFO 11-12 17:02:25 [gpu_worker.py:971] CUDA graph pool memory: 0.17 GiB (actual), 0.28 GiB (estimated), difference: 0.11 GiB (62.5%).
+(EngineCore pid=75) INFO 11-12 17:02:25 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.85, 10.2 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.53 GiB for peak activation, and 0.17 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=8736141824` (8.14 GiB) to fit into requested memory, or `--kv-cache-memory=9573560832` (8.92 GiB) to fully utilize gpu memory. Current kv cache memory in use is 8.45 GiB.
+(EngineCore pid=75) INFO 11-12 17:02:26 [jit_monitor.py:84] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=75) INFO 11-12 17:02:26 [core.py:395] init engine (profile, create kv cache, warmup model) took 24.47 s (compilation: 11.26 s)
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 1651.23it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+(EngineCore pid=75) INFO 11-12 17:02:25 [kernel.py:467] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(APIServer pid=1) INFO 11-12 17:02:25 [entry.py:136] Supported tasks: ['generate']
+(APIServer pid=1) WARNING 11-12 17:02:25 [api_router.py:60] Profiler with mode 'torch' is enabled in the API server. This should ONLY be used for local development!
+(APIServer pid=1) INFO 11-12 17:02:25 [factories.py:89] Scale-out endpoints are disabled. Restart vllm serve with --enable-scale-out to enable them.
+(APIServer pid=1) INFO 11-12 17:02:26 [hf.py:648] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(APIServer pid=1) WARNING 11-12 17:02:26 [model.py:1893] Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'repetition_penalty': 1.1, 'temperature': 0.7, 'top_k': 20, 'top_p': 0.8}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(APIServer pid=1) INFO 11-12 17:02:26 [entry.py:140] Starting vLLM server on http://0.0.0.0:8000
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:186] Available routes are:
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /openapi.json, Methods: HEAD, GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /docs, Methods: HEAD, GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /redoc, Methods: HEAD, GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /load, Methods: GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /version, Methods: GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /kv_event_sources, Methods: GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /health, Methods: GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /metrics, Methods: GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /start_profile, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /stop_profile, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /tokenize, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /detokenize, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/models, Methods: GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/systemone, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /ping, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /invocations, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/chat/completions, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/chat/completions/batch, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/responses, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/responses/{response_id}, Methods: GET
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/responses/{response_id}/cancel, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/completions, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/messages, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/messages/count_tokens, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /generative_scoring, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /scale_elastic_ep, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /is_scaling_elastic_ep, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/chat/completions/render, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/messages/render, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/completions/render, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/responses/render, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/chat/completions/derender, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /v1/completions/derender, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /inference/v1/generate, Methods: POST
+(APIServer pid=1) INFO 11-12 17:02:26 [launcher.py:195] Route: /inference/v1/abort_requests, Methods: POST
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     172.17.0.1:56504 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:56508 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.17.0.1:56152 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=75) WARNING 11-12 17:02:39 [jit_monitor.py:140] Triton kernel JIT compilation during inference: _gumbel_sample_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+INFO:     172.17.0.1:56152 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:56152 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:02:42 [api_router.py:39] Starting profiler...
+(EngineCore pid=75) INFO 11-12 17:02:42 [wrapper.py:243] Torch profiling enabled. Traces will be saved to: /traces
+USDT:2026-11-12 17:02:42 75:75 SyncActivityProfilerHandler.cpp:52] profiler_start
+(APIServer pid=1) INFO 11-12 17:02:42 [api_router.py:44] Profiler started.
+INFO:     172.17.0.1:56154 - "POST /start_profile HTTP/1.1" 200 OK
+(EngineCore pid=75) INFO 11-12 17:02:42 [wrapper.py:161] Max profiling iterations reached. Stopping profiler...
+USDT:2026-11-12 17:02:42 75:75 SyncActivityProfilerHandler.cpp:59] profiler_stop
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                   execute_context_0(0)_generation_1(1)         0.00%       0.000us         0.00%       0.000us       0.000us     374.079ms        83.73%     374.079ms       3.741ms           100  
+void gemv2T_kernel_val<int, int, __nv_bfloat16, __nv...         0.00%       0.000us         0.00%       0.000us       0.000us     231.055ms        51.72%     231.055ms      92.422us          2500  
+void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_...         0.00%       0.000us         0.00%       0.000us       0.000us      91.254ms        20.43%      91.254ms      38.023us          2400  
+                                               aten::mm         0.88%       3.679ms         1.22%       5.102ms      51.017us      88.248ms        19.75%      88.248ms     882.482us           100  
+void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us      27.613ms         6.18%      27.613ms      11.505us          2400  
+void flash::flash_fwd_splitkv_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us      24.604ms         5.51%      24.604ms      10.252us          2400  
+void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_...         0.00%       0.000us         0.00%       0.000us       0.000us      24.431ms         5.47%      24.431ms      10.179us          2400  
+void flash::flash_fwd_splitkv_combine_kernel<Flash_f...         0.00%       0.000us         0.00%       0.000us       0.000us      13.644ms         3.05%      13.644ms       5.685us          2400  
+                  triton_per_fused_fused_add_rms_norm_2         0.00%       0.000us         0.00%       0.000us       0.000us       4.736ms         1.06%       4.736ms       1.974us          2400  
+void vllm::reshape_and_cache_flash_kernel<__nv_bfloa...         0.00%       0.000us         0.00%       0.000us       0.000us       4.443ms         0.99%       4.443ms       1.851us          2400  
+                  triton_per_fused_fused_add_rms_norm_0         0.00%       0.000us         0.00%       0.000us       0.000us       4.368ms         0.98%       4.368ms       1.820us          2400  
+void cublasLt::splitKreduce_kernel<32, 16, int, __nv...         0.00%       0.000us         0.00%       0.000us       0.000us       4.072ms         0.91%       4.072ms       1.697us          2400  
+                                     triton_poi_fused_3         0.00%       0.000us         0.00%       0.000us       0.000us       4.055ms         0.91%       4.055ms       1.763us          2300  
+                      triton_poi_fused_mul_silu_slice_1         0.00%       0.000us         0.00%       0.000us       0.000us       3.671ms         0.82%       3.671ms       1.530us          2400  
+                                          memcpy32_post         0.00%       0.000us         0.00%       0.000us       0.000us       2.420ms         0.54%       2.420ms       0.968us          2500  
+                                  cudaStreamIsCapturing         0.24%       1.006ms         0.24%       1.006ms       0.398us       1.788ms         0.40%       1.788ms       0.708us          2524  
+                                            aten::copy_         2.73%      11.378ms         7.54%      31.444ms      14.804us       1.703ms         0.38%       1.704ms       0.802us          2124  
+                       Memcpy HtoD (Pageable -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us       1.048ms         0.23%       1.048ms       0.574us          1824  
+                                            aten::index         1.22%       5.105ms         2.97%      12.389ms      41.298us     976.536us         0.22%     976.536us       3.255us           300  
+                                      _penalties_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     844.529us         0.19%     844.529us       8.445us           100  
+                                           aten::argmax         0.60%       2.512ms         0.88%       3.652ms      36.523us     434.118us         0.10%     434.118us       4.341us           100  
+void at::native::reduce_kernel<512, 1, at::native::R...         0.00%       0.000us         0.00%       0.000us       0.000us     434.118us         0.10%     434.118us       4.341us           100  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     400.299us         0.09%     400.299us       4.003us           100  
+void at::native::unrolled_elementwise_kernel<at::nat...         0.00%       0.000us         0.00%       0.000us       0.000us     393.664us         0.09%     393.664us       3.937us           100  
+                                            aten::fill_         0.58%       2.416ms         1.42%       5.932ms      11.864us     300.745us         0.07%     300.745us       0.601us           500  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     296.274us         0.07%     296.274us       2.963us           100  
+                          _compute_slot_mappings_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     291.276us         0.07%     291.276us       2.913us           100  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     279.963us         0.06%     279.963us       2.800us           100  
+                         Memcpy DtoH (Device -> Pinned)         0.00%       0.000us         0.00%       0.000us       0.000us     261.493us         0.06%     261.493us       1.307us           200  
+                                  _gumbel_sample_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     257.801us         0.06%     257.801us       2.578us           100  
+                                    _post_update_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     243.118us         0.05%     243.118us       2.431us           100  
+                            _gather_block_tables_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     215.473us         0.05%     215.473us       2.155us           100  
+                                           aten::gather         0.41%       1.715ms         0.67%       2.801ms      28.011us     210.132us         0.05%     210.132us       2.101us           100  
+void at::native::_scatter_gather_elementwise_kernel<...         0.00%       0.000us         0.00%       0.000us       0.000us     210.132us         0.05%     210.132us       2.101us           100  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     195.645us         0.04%     195.645us       0.978us           200  
+         triton_per_fused__to_copy_embedding_rms_norm_0         0.00%       0.000us         0.00%       0.000us       0.000us     194.306us         0.04%     194.306us       1.943us           100  
+                                     triton_poi_fused_1         0.00%       0.000us         0.00%       0.000us       0.000us     163.003us         0.04%     163.003us       1.630us           100  
+                   _get_num_sampled_and_rejected_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     161.258us         0.04%     161.258us       1.613us           100  
+               _combine_sampled_and_draft_tokens_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     154.463us         0.03%     154.463us       1.545us           100  
+                           _prepare_pos_seq_lens_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     132.495us         0.03%     132.495us       1.325us           100  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     105.100us         0.02%     105.100us       1.051us           100  
+                                           aten::arange         0.30%       1.233ms         1.31%       5.452ms      27.261us      96.383us         0.02%     192.766us       0.964us           200  
+void (anonymous namespace)::elementwise_kernel_with_...         0.00%       0.000us         0.00%       0.000us       0.000us      96.383us         0.02%      96.383us       0.964us           100  
+                                       cuLaunchKernelEx         2.16%       9.012ms         2.16%       9.012ms      11.181us      53.946us         0.01%      53.946us       0.067us           806  
+                               cudaEventRecordWithFlags         0.24%       1.013ms         0.24%       1.013ms       2.532us      26.472us         0.01%      26.472us       0.066us           400  
+                                        cudaGraphLaunch         5.33%      22.221ms         6.22%      25.927ms     259.267us      12.134us         0.00%      12.134us       0.121us           100  
+                                    _apply_write_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      10.308us         0.00%      10.308us       1.718us             6  
+                                Activity Buffer Request         1.43%       5.977ms         1.56%       6.523ms       1.631ms       0.724us         0.00%     891.227us     222.807us             4  
+                                   cudaEventSynchronize        42.66%     177.830ms        42.66%     177.830ms       1.778ms       0.413us         0.00%       0.413us       0.004us           100  
+                                    cudaStreamWaitEvent         0.04%     167.972us         0.04%     167.972us       1.680us       0.379us         0.00%       0.379us       0.004us           100  
+                   execute_context_0(0)_generation_1(1)        25.91%     108.025ms        44.64%     186.070ms       1.861ms       0.000us         0.00%       1.397ms      13.972us           100  
+                                            aten::slice         1.87%       7.791ms         2.42%      10.097ms       2.178us       0.000us         0.00%       0.000us       0.000us          4636  
+                                       aten::as_strided         0.73%       3.055ms         0.73%       3.055ms       0.562us       0.000us         0.00%       0.000us       0.000us          5436  
+                                        cudaMemcpyAsync         4.01%      16.723ms         4.01%      16.723ms       8.262us       0.000us         0.00%       0.000us       0.000us          2024  
+                                       cudaLaunchKernel         3.75%      15.652ms         3.75%      15.652ms      14.229us       0.000us         0.00%       0.000us       0.000us          1100  
+                                       aten::lift_fresh         0.03%     114.812us         0.03%     114.812us       0.227us       0.000us         0.00%       0.000us       0.000us           506  
+                                               aten::to         0.13%     561.520us         2.40%       9.991ms      16.325us       0.000us         0.00%     320.163us       0.523us           612  
+                                         aten::_to_copy         0.26%       1.082ms         2.26%       9.430ms      30.816us       0.000us         0.00%     320.163us       1.046us           306  
+                                    aten::empty_strided         0.64%       2.655ms         0.73%       3.042ms       6.012us       0.000us         0.00%       0.000us       0.000us           506  
+                                            aten::empty         0.85%       3.529ms         0.85%       3.529ms       4.999us       0.000us         0.00%       0.000us       0.000us           706  
+                                          aten::resize_         0.08%     352.159us         0.08%     352.159us       3.522us       0.000us         0.00%       0.000us       0.000us           100  
+                                            aten::zeros         0.08%     339.583us         0.55%       2.299ms      22.991us       0.000us         0.00%      96.881us       0.969us           100  
+                                            aten::zero_         0.06%     230.800us         0.37%       1.524ms      15.238us       0.000us         0.00%      96.881us       0.969us           100  
+                                           aten::unbind         0.09%     360.663us         0.16%     657.247us       6.572us       0.000us         0.00%       0.000us       0.000us           100  
+                                           aten::select         0.12%     492.224us         0.13%     561.640us       2.808us       0.000us         0.00%       0.000us       0.000us           200  
+                                              aten::max         0.15%     611.497us         0.25%       1.060ms      10.597us       0.000us         0.00%       0.000us       0.000us           100  
+                                             aten::item         0.05%     195.577us         0.06%     257.586us       2.576us       0.000us         0.00%       0.000us       0.000us           100  
+                              aten::_local_scalar_dense         0.01%      62.009us         0.01%      62.009us       0.620us       0.000us         0.00%       0.000us       0.000us           100  
+                                          aten::reshape         0.07%     294.289us         0.13%     542.781us       1.809us       0.000us         0.00%       0.000us       0.000us           300  
+                                             aten::view         0.11%     457.461us         0.11%     457.461us       0.915us       0.000us         0.00%       0.000us       0.000us           500  
+                                           aten::linear         0.08%     351.001us         1.52%       6.349ms      63.491us       0.000us         0.00%      88.248ms     882.482us           100  
+                                                aten::t         0.08%     342.357us         0.15%     632.534us       6.325us       0.000us         0.00%       0.000us       0.000us           100  
+                                        aten::transpose         0.04%     170.430us         0.07%     290.177us       2.902us       0.000us         0.00%       0.000us       0.000us           100  
+                                           aten::matmul         0.06%     263.885us         1.29%       5.366ms      53.656us       0.000us         0.00%      88.248ms     882.482us           100  
+                                            aten::alias         0.03%     111.059us         0.03%     111.059us       1.111us       0.000us         0.00%       0.000us       0.000us           100  
+                                           aten::detach         0.07%     287.060us         0.07%     287.060us       0.957us       0.000us         0.00%       0.000us       0.000us           300  
+                                     aten::resolve_conj         0.02%      72.086us         0.02%      72.086us       0.240us       0.000us         0.00%       0.000us       0.000us           300  
+                                      aten::resolve_neg         0.01%      27.036us         0.01%      27.036us       0.090us       0.000us         0.00%       0.000us       0.000us           300  
+                                       aten::empty_like         0.09%     373.597us         0.33%       1.379ms       6.894us       0.000us         0.00%       0.000us       0.000us           200  
+                                        aten::new_empty         0.11%     438.591us         0.54%       2.263ms       7.544us       0.000us         0.00%       0.000us       0.000us           300  
+                                         aten::new_ones         0.08%     351.401us         0.55%       2.285ms      22.850us       0.000us         0.00%      98.764us       0.988us           100  
+                                         cudaEventQuery         0.09%     387.587us         0.09%     387.587us       0.984us       0.000us         0.00%       0.000us       0.000us           394  
+                                          aten::detach_         0.00%       3.277us         0.00%       3.277us       0.546us       0.000us         0.00%       0.000us       0.000us             6  
+                                           Buffer Flush         0.74%       3.065ms         0.74%       3.084ms       1.542ms       0.000us         0.00%       0.000us       0.000us             2  
+                                  cudaDeviceSynchronize         0.66%       2.754ms         0.66%       2.754ms       2.754ms       0.000us         0.00%       0.000us       0.000us             1  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 416.846ms
+Self CUDA time total: 446.753ms
+
+(EngineCore pid=75) INFO 11-12 17:02:45 [wrapper.py:98] Profiler stopped successfully.
+(APIServer pid=1) INFO 11-12 17:02:46 [loggers.py:335] Engine 000: Avg prompt throughput: 70.6 tokens/s, Avg generation throughput: 77.2 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.1%, Prefix cache hit rate: 0.0%
+INFO:     172.17.0.1:56152 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:56152 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:56152 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:02:47 [api_router.py:50] Stopping profiler...
+(APIServer pid=1) INFO 11-12 17:02:47 [api_router.py:52] Profiler stopped.
+INFO:     172.17.0.1:35136 - "POST /stop_profile HTTP/1.1" 200 OK
+INFO:     172.17.0.1:56152 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:56152 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:02:56 [loggers.py:335] Engine 000: Avg prompt throughput: 79.2 tokens/s, Avg generation throughput: 91.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(APIServer pid=1) INFO 11-12 17:03:03 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+INFO:     172.17.0.1:53416 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53362 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53402 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53382 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53380 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53386 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53366 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53338 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53326 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53350 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53264 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53348 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53300 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53346 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53262 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53344 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53286 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53316 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53278 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53448 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53462 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53458 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53494 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53420 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53422 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53470 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53496 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53468 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53512 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53522 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53542 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53526 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53558 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53568 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53582 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53588 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53600 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53618 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53602 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53622 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53630 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53642 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53644 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53652 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53656 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53662 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53676 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53686 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53688 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53722 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53710 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53732 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53744 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53738 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53748 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53756 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53766 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53760 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53768 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53784 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53796 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53806 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53820 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53836 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53494 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53568 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53662 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53630 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53496 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53386 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53286 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53642 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53346 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53806 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53402 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53748 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53380 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53300 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53642 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53366 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53458 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53542 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53286 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53820 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53470 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53796 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53768 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53346 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53362 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53588 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53348 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53622 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53602 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53380 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53494 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53642 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53316 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53568 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53326 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53738 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53588 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53462 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53402 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53582 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53448 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53382 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53642 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53512 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53756 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53806 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53662 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53264 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53458 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53380 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53522 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53494 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53366 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53420 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53644 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53496 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53602 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53316 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53522 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53688 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53588 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53300 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53348 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:53522 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:03:13 [loggers.py:335] Engine 000: Avg prompt throughput: 3034.7 tokens/s, Avg generation throughput: 3522.6 tokens/s, Running: 7 reqs, Waiting: 0 reqs, GPU KV cache usage: 1.0%, Prefix cache hit rate: 4.3%
+(APIServer pid=1) INFO 11-12 17:03:18 [api_router.py:39] Starting profiler...
+USDT:2026-11-12 17:03:18 75:75 SyncActivityProfilerHandler.cpp:52] profiler_start
+(APIServer pid=1) INFO 11-12 17:03:18 [api_router.py:44] Profiler started.
+INFO:     172.17.0.1:55860 - "POST /start_profile HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:03:23 [api_router.py:50] Stopping profiler...
+USDT:2026-11-12 17:03:23 75:75 SyncActivityProfilerHandler.cpp:59] profiler_stop
+(APIServer pid=1) INFO 11-12 17:03:23 [api_router.py:52] Profiler stopped.
+INFO:     172.17.0.1:40060 - "POST /stop_profile HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:03:23 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 126.9 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.3%
+(APIServer pid=1) INFO 11-12 17:03:31 [loggers.py:335] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 4.3%
+INFO:     172.17.0.1:46712 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46720 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46732 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46736 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46742 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46746 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46754 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46756 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46778 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46772 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46784 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46810 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46812 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46800 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46826 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46842 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46854 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46856 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46868 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46872 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46876 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46874 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46882 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46888 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46892 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46896 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46900 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46904 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46902 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46928 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46944 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46956 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46960 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46974 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46990 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47006 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47022 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47046 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47030 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47054 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47060 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47072 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47074 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47098 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47088 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47130 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47138 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47114 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47146 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47156 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47172 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47178 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47150 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47192 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47186 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47208 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47218 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47224 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47234 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47246 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47248 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47284 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47294 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47270 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47254 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47300 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47322 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47310 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47336 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47332 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47348 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47368 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47364 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47376 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47406 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47418 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47390 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47374 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47422 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47442 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47434 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47468 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47456 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47426 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47474 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47486 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47512 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47494 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47524 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47504 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47540 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47552 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47574 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47580 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47612 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47662 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47628 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47614 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47534 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47660 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47680 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47782 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47800 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47822 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47804 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47820 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47558 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47644 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47668 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47730 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47748 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47696 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47720 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47734 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47706 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47764 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47794 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47744 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47766 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47830 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47596 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47844 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47872 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47858 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47876 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47892 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47920 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47906 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47930 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47954 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47938 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47974 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47960 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47982 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47990 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47996 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48000 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48010 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48024 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48036 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48026 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48028 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48042 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48054 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48048 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48056 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48064 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48076 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48082 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48100 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48084 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48130 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48116 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48146 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48156 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48172 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48182 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48196 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48210 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48216 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48224 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48228 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48232 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48242 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48246 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48258 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48286 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48272 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48298 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48312 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48328 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48322 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48340 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48338 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48356 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48348 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48378 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48392 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48434 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48358 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48428 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48542 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48390 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48460 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48452 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48388 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48442 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48498 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48484 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48522 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48394 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48450 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48470 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48478 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48486 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48430 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48516 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48562 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48610 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48654 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48540 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48554 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48574 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48582 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48534 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48590 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48638 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48502 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48662 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48670 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48682 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48696 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48712 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48626 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48664 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48678 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48706 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48718 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48588 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48734 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48750 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48762 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48774 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48778 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48794 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48784 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48808 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48818 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48826 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48838 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48836 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48840 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48842 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48866 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48872 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48874 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48882 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48892 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48894 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48900 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48904 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48920 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48922 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48936 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48940 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48968 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48952 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48972 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48994 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48992 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49006 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48976 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49020 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49030 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49034 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49038 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:03:41 [loggers.py:335] Engine 000: Avg prompt throughput: 2722.3 tokens/s, Avg generation throughput: 155.0 tokens/s, Running: 218 reqs, Waiting: 38 reqs, GPU KV cache usage: 7.8%, Prefix cache hit rate: 30.4%
+INFO:     172.17.0.1:46778 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48298 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47072 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48196 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48322 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47270 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47224 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47054 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46882 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46990 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48638 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47494 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48224 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48340 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47332 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48626 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47088 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47426 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46712 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47574 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46810 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47938 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46784 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48706 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48818 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48390 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47322 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48322 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47990 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48892 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46872 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47456 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47030 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47644 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48036 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48286 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46856 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47552 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48378 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47486 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48976 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48430 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47844 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47374 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48338 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49006 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47540 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49020 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48784 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48082 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48778 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48322 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47614 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46826 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47336 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48894 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47146 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48654 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:03:51 [loggers.py:335] Engine 000: Avg prompt throughput: 2018.3 tokens/s, Avg generation throughput: 2459.7 tokens/s, Running: 254 reqs, Waiting: 0 reqs, GPU KV cache usage: 12.0%, Prefix cache hit rate: 28.8%
+INFO:     172.17.0.1:47782 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48026 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48258 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47800 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46874 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48084 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48662 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48900 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47270 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47030 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49038 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46876 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47364 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47766 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47820 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47524 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48522 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48000 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47512 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48696 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48028 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46842 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46974 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47310 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47558 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48182 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48894 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47844 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47434 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48442 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47930 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47114 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46712 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47284 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47422 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47822 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48940 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48246 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47098 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46732 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47662 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48242 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47830 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48706 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49006 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48356 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48610 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46888 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47468 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46960 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48064 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48196 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48428 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47974 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47072 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48450 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48540 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46990 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46772 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46800 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48664 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47172 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47734 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47872 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48590 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48638 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46736 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46784 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47628 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49030 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47224 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48994 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47982 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47146 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48216 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48434 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47782 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48840 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46746 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48836 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48026 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47720 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:03:59 [loggers.py:335] Engine 000: Avg prompt throughput: 1936.7 tokens/s, Avg generation throughput: 2154.2 tokens/s, Running: 254 reqs, Waiting: 0 reqs, GPU KV cache usage: 13.5%, Prefix cache hit rate: 24.5%
+INFO:     172.17.0.1:48920 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46810 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46754 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47046 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48892 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47696 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47186 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46882 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48662 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47960 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48084 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48900 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48904 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48338 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48778 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48116 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47982 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48430 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47954 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48872 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47720 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48794 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48542 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48010 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48818 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48866 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47006 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48054 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48712 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47270 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:04:04 [api_router.py:39] Starting profiler...
+USDT:2026-11-12 17:04:04 75:75 SyncActivityProfilerHandler.cpp:52] profiler_start
+(APIServer pid=1) INFO 11-12 17:04:04 [api_router.py:44] Profiler started.
+INFO:     172.17.0.1:52238 - "POST /start_profile HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48328 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48042 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47332 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47524 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46842 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48840 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47558 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47486 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47872 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46856 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48356 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48172 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47192 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46872 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49030 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47218 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47800 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49038 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46742 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47474 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48976 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48670 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48534 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47512 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48064 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46990 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46712 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47376 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48056 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48298 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47748 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46956 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48874 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:04:09 [loggers.py:335] Engine 000: Avg prompt throughput: 1620.4 tokens/s, Avg generation throughput: 1650.4 tokens/s, Running: 254 reqs, Waiting: 0 reqs, GPU KV cache usage: 14.8%, Prefix cache hit rate: 21.7%
+(APIServer pid=1) INFO 11-12 17:04:09 [api_router.py:50] Stopping profiler...
+USDT:2026-11-12 17:04:09 75:75 SyncActivityProfilerHandler.cpp:59] profiler_stop
+---------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                       Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+---------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+      cudaDeviceSynchronize        44.87%     225.319us        44.87%     225.319us     225.319us             1  
+    Activity Buffer Request        55.13%     276.883us        55.13%     276.883us     276.883us             1  
+---------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 502.202us
+
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                _vllm_fa2_C::varlen_fwd         0.24%      11.761ms         0.55%      27.594ms      60.513us        4.025s        82.20%        4.025s       8.826ms           456  
+void flash::flash_fwd_splitkv_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us        4.025s        82.20%        4.025s       8.826ms           456  
+                                               aten::mm         0.45%      22.245ms         0.84%      41.641ms      43.196us     456.009ms         9.31%     456.009ms     473.038us           964  
+            execute_context_3(1151)_generation_252(252)         0.00%       0.000us         0.00%       0.000us       0.000us     267.043ms         5.45%     267.043ms     267.043ms             1  
+             execute_context_3(978)_generation_252(252)         0.00%       0.000us         0.00%       0.000us       0.000us     263.734ms         5.39%     263.734ms     263.734ms             1  
+             execute_context_5(987)_generation_248(248)         0.00%       0.000us         0.00%       0.000us       0.000us     263.470ms         5.38%     263.470ms     263.470ms             1  
+void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us     261.260ms         5.34%     261.260ms     418.686us           624  
+             execute_context_2(700)_generation_251(251)         0.00%       0.000us         0.00%       0.000us       0.000us     250.567ms         5.12%     250.567ms     250.567ms             1  
+             execute_context_2(619)_generation_254(254)         0.00%       0.000us         0.00%       0.000us       0.000us     248.797ms         5.08%     248.797ms     248.797ms             1  
+             execute_context_2(669)_generation_251(251)         0.00%       0.000us         0.00%       0.000us       0.000us     247.958ms         5.06%     247.958ms     247.958ms             1  
+             execute_context_1(523)_generation_254(254)         0.00%       0.000us         0.00%       0.000us       0.000us     246.446ms         5.03%     246.446ms     246.446ms             1  
+             execute_context_1(517)_generation_252(252)         0.00%       0.000us         0.00%       0.000us       0.000us     245.070ms         5.01%     245.070ms     245.070ms             1  
+             execute_context_1(384)_generation_253(253)         0.00%       0.000us         0.00%       0.000us       0.000us     242.667ms         4.96%     242.667ms     242.667ms             1  
+             execute_context_2(402)_generation_250(250)         0.00%       0.000us         0.00%       0.000us       0.000us     240.532ms         4.91%     240.532ms     240.532ms             1  
+             execute_context_1(185)_generation_254(254)         0.00%       0.000us         0.00%       0.000us       0.000us     237.948ms         4.86%     237.948ms     237.948ms             1  
+             execute_context_2(163)_generation_253(253)         0.00%       0.000us         0.00%       0.000us       0.000us     236.241ms         4.82%     236.241ms     236.241ms             1  
+             execute_context_1(270)_generation_252(252)         0.00%       0.000us         0.00%       0.000us       0.000us     234.964ms         4.80%     234.964ms     234.964ms             1  
+             execute_context_1(271)_generation_251(251)         0.00%       0.000us         0.00%       0.000us       0.000us     233.908ms         4.78%     233.908ms     233.908ms             1  
+             execute_context_1(287)_generation_250(250)         0.00%       0.000us         0.00%       0.000us       0.000us     232.679ms         4.75%     232.679ms     232.679ms             1  
+             execute_context_1(108)_generation_253(253)         0.00%       0.000us         0.00%       0.000us       0.000us     229.012ms         4.68%     229.012ms     229.012ms             1  
+             execute_context_1(238)_generation_253(253)         0.00%       0.000us         0.00%       0.000us       0.000us     228.864ms         4.67%     228.864ms     228.864ms             1  
+              execute_context_1(79)_generation_254(254)         0.00%       0.000us         0.00%       0.000us       0.000us     226.105ms         4.62%     226.105ms     226.105ms             1  
+             execute_context_1(215)_generation_251(251)         0.00%       0.000us         0.00%       0.000us       0.000us     225.890ms         4.61%     225.890ms     225.890ms             1  
+ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_...         0.00%       0.000us         0.00%       0.000us       0.000us     198.944ms         4.06%     198.944ms     432.488us           460  
+               execute_context_0(0)_generation_254(254)         0.00%       0.000us         0.00%       0.000us       0.000us      63.601ms         1.30%      63.601ms      15.900ms             4  
+ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us      62.314ms         1.27%      62.314ms     185.459us           336  
+void flash::flash_fwd_splitkv_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us      47.841ms         0.98%      47.841ms     221.488us           216  
+                                      _penalties_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      43.544ms         0.89%      43.544ms       1.555ms            28  
+                      triton_poi_fused_mul_silu_slice_1         0.00%       0.000us         0.00%       0.000us       0.000us      39.709ms         0.81%      39.709ms      59.091us           672  
+                                            aten::addmm         0.16%       8.212ms         0.27%      13.272ms      42.540us      33.729ms         0.69%      33.729ms     108.107us           312  
+void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us      33.390ms         0.68%      33.390ms     154.581us           216  
+void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us      33.276ms         0.68%      33.276ms     462.173us            72  
+               execute_context_0(0)_generation_255(255)         0.00%       0.000us         0.00%       0.000us       0.000us      31.070ms         0.63%      31.070ms      15.535ms             2  
+                      triton_poi_fused_mul_silu_slice_1         0.08%       3.757ms         0.16%       7.993ms      25.620us      28.576ms         0.58%      28.576ms      91.591us           312  
+                                            aten::copy_         0.15%       7.700ms         0.52%      25.774ms      26.167us      23.341ms         0.48%      23.341ms      23.696us           985  
+void at::native::unrolled_elementwise_kernel<at::nat...         0.00%       0.000us         0.00%       0.000us       0.000us      22.598ms         0.46%      22.598ms     807.054us            28  
+void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us      21.071ms         0.43%      21.071ms      97.551us           216  
+         ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_tn         0.00%       0.000us         0.00%       0.000us       0.000us      18.772ms         0.38%      18.772ms     391.091us            48  
+                                  _gumbel_sample_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      17.948ms         0.37%      17.948ms     641.002us            28  
+               execute_context_0(0)_generation_250(250)         0.00%       0.000us         0.00%       0.000us       0.000us      16.523ms         0.34%      16.523ms      16.523ms             1  
+               execute_context_0(0)_generation_252(252)         0.00%       0.000us         0.00%       0.000us       0.000us      15.526ms         0.32%      15.526ms      15.526ms             1  
+               execute_context_0(0)_generation_253(253)         0.00%       0.000us         0.00%       0.000us       0.000us      15.517ms         0.32%      15.517ms      15.517ms             1  
+ampere_bf16_s16816gemm_bf16_128x64_ldg8_relu_f2f_sta...         0.00%       0.000us         0.00%       0.000us       0.000us      13.595ms         0.28%      13.595ms      43.575us           312  
+ampere_bf16_s1688gemm_bf16_128x128_ldg8_relu_f2f_sta...         0.00%       0.000us         0.00%       0.000us       0.000us      13.305ms         0.27%      13.305ms     110.878us           120  
+                  triton_per_fused_fused_add_rms_norm_2         0.00%       0.000us         0.00%       0.000us       0.000us      10.924ms         0.22%      10.924ms      16.257us           672  
+                  triton_per_fused_fused_add_rms_norm_2         0.11%       5.457ms         0.18%       9.181ms      29.425us       8.205ms         0.17%       8.205ms      26.298us           312  
+                  triton_per_fused_fused_add_rms_norm_0         0.00%       0.000us         0.00%       0.000us       0.000us       6.869ms         0.14%       6.869ms      10.222us           672  
+                  triton_per_fused_fused_add_rms_norm_0         0.12%       5.815ms         0.20%      10.106ms      32.391us       5.201ms         0.11%       5.201ms      16.670us           312  
+ampere_bf16_s16816gemm_bf16_128x64_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us       4.827ms         0.10%       4.827ms      22.345us           216  
+                                     triton_poi_fused_3         0.00%       0.000us         0.00%       0.000us       0.000us       4.689ms         0.10%       4.689ms       7.280us           644  
+ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f...         0.00%       0.000us         0.00%       0.000us       0.000us       3.545ms         0.07%       3.545ms      73.848us            48  
+void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       3.510ms         0.07%       3.510ms     146.234us            24  
+void vllm::reshape_and_cache_flash_kernel<__nv_bfloa...         0.00%       0.000us         0.00%       0.000us       0.000us       3.371ms         0.07%       3.371ms       5.016us           672  
+                                     triton_poi_fused_3         0.09%       4.532ms         0.17%       8.341ms      27.897us       3.336ms         0.07%       3.336ms      11.156us           299  
+                  _C_cache_ops::reshape_and_cache_flash         0.14%       7.078ms         0.31%      15.417ms      33.810us       2.787ms         0.06%       2.787ms       6.113us           456  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us       2.013ms         0.04%       2.013ms       4.660us           432  
+ampere_bf16_s16816gemm_bf16_128x128_ldg8_f2f_stages_...         0.00%       0.000us         0.00%       0.000us       0.000us     903.780us         0.02%     903.780us      37.657us            24  
+                       Memcpy HtoD (Pageable -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us     676.303us         0.01%     676.303us       0.751us           901  
+void at::native::elementwise_kernel<128, 2, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us     395.841us         0.01%     395.841us       1.833us           216  
+                                            aten::index         0.05%       2.606ms         0.10%       4.827ms      57.465us     280.015us         0.01%     280.015us       3.334us            84  
+         triton_per_fused__to_copy_embedding_rms_norm_0         0.00%       0.000us         0.00%       0.000us       0.000us     247.933us         0.01%     247.933us       8.855us            28  
+                                        Memset (Device)         0.00%       0.000us         0.00%       0.000us       0.000us     231.459us         0.00%     231.459us       0.536us           432  
+                                     triton_poi_fused_1         0.00%       0.000us         0.00%       0.000us       0.000us     203.613us         0.00%     203.613us       7.272us            28  
+         triton_per_fused__to_copy_embedding_rms_norm_0         0.01%     468.452us         0.02%     945.157us      72.704us     181.321us         0.00%     181.321us      13.948us            13  
+                                           aten::argmax         0.02%     968.553us         0.03%       1.497ms      53.452us     162.936us         0.00%     162.936us       5.819us            28  
+void at::native::reduce_kernel<512, 1, at::native::R...         0.00%       0.000us         0.00%       0.000us       0.000us     162.936us         0.00%     162.936us       5.819us            28  
+                          _compute_slot_mappings_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     157.860us         0.00%     157.860us       5.638us            28  
+                                    _apply_write_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     148.323us         0.00%     148.323us       1.745us            85  
+                                     triton_poi_fused_1         0.01%     360.365us         0.01%     637.177us      49.014us     144.205us         0.00%     144.205us      11.093us            13  
+                                      aten::index_fill_         0.01%     731.933us         0.03%       1.511ms      39.764us     130.621us         0.00%     130.621us       3.437us            38  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     130.621us         0.00%     130.621us       3.437us            38  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     114.091us         0.00%     114.091us       4.075us            28  
+                                            aten::fill_         0.03%       1.503ms         0.07%       3.246ms      18.874us     106.504us         0.00%     106.504us       0.619us           172  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      96.631us         0.00%      96.631us       3.451us            28  
+                                           aten::gather         0.01%     713.404us         0.02%       1.165ms      41.624us      88.914us         0.00%      88.914us       3.176us            28  
+void at::native::_scatter_gather_elementwise_kernel<...         0.00%       0.000us         0.00%       0.000us       0.000us      88.914us         0.00%      88.914us       3.176us            28  
+                                    _post_update_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      78.723us         0.00%      78.723us       2.812us            28  
+                            _gather_block_tables_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      77.382us         0.00%      77.382us       2.764us            28  
+void at::native::vectorized_gather_kernel<16, long>(...         0.00%       0.000us         0.00%       0.000us       0.000us      69.293us         0.00%      69.293us       2.475us            28  
+                                       _bincount_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      67.096us         0.00%      67.096us       3.531us            19  
+                         Memcpy DtoH (Device -> Pinned)         0.00%       0.000us         0.00%       0.000us       0.000us      66.785us         0.00%      66.785us       1.193us            56  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      58.789us         0.00%      58.789us       1.050us            56  
+                   _get_num_sampled_and_rejected_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      54.573us         0.00%      54.573us       1.949us            28  
+                           _prepare_pos_seq_lens_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      49.873us         0.00%      49.873us       1.781us            28  
+               _combine_sampled_and_draft_tokens_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      48.639us         0.00%      48.639us       1.737us            28  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      34.787us         0.00%      34.787us       1.200us            29  
+                         _prepare_prefill_inputs_kernel         0.00%       0.000us         0.00%       0.000us       0.000us      32.584us         0.00%      32.584us       1.715us            19  
+                                       Memset (Unknown)         0.00%       0.000us         0.00%       0.000us       0.000us      27.373us         0.00%      27.373us       1.141us            24  
+                                           aten::arange         0.01%     649.517us         0.06%       2.818ms      50.321us      27.098us         0.00%      54.196us       0.968us            56  
+void (anonymous namespace)::elementwise_kernel_with_...         0.00%       0.000us         0.00%       0.000us       0.000us      27.098us         0.00%      27.098us       0.968us            28  
+                                          memcpy32_post         0.00%       0.000us         0.00%       0.000us       0.000us      19.346us         0.00%      19.346us       2.150us             9  
+void at::native::unrolled_elementwise_kernel<at::nat...         0.00%       0.000us         0.00%       0.000us       0.000us       6.549us         0.00%       6.549us       0.936us             7  
+void at::native::vectorized_elementwise_kernel<2, at...         0.00%       0.000us         0.00%       0.000us       0.000us       6.379us         0.00%       6.379us       1.063us             6  
+                                Activity Buffer Request         0.01%     524.085us         0.01%     524.085us     524.085us       0.412us         0.00%       0.412us       0.412us             1  
+              execute_context_1(79)_generation_254(254)         0.09%       4.706ms         0.32%      15.768ms      15.768ms       0.000us         0.00%     209.869ms     209.869ms             1  
+                                           aten::select         0.01%     624.191us         0.02%     767.767us       8.725us       0.000us         0.00%       0.000us       0.000us            88  
+                                       aten::as_strided         0.10%       5.066ms         0.10%       5.066ms       0.703us       0.000us         0.00%       0.000us       0.000us          7203  
+                                            aten::zero_         0.00%     243.219us         0.02%       1.098ms      18.296us       0.000us         0.00%      29.054us       0.484us            60  
+                                            aten::slice         0.14%       7.100ms         0.20%       9.820ms       2.139us       0.000us         0.00%       0.000us       0.000us          4591  
+                                  cudaStreamIsCapturing         0.01%     686.477us         0.01%     686.477us       0.626us       0.000us         0.00%       0.000us       0.000us          1097  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 4.978s
+Self CUDA time total: 4.896s
+(APIServer pid=1) INFO 11-12 17:04:11 [api_router.py:52] Profiler stopped.
+INFO:     172.17.0.1:36330 - "POST /stop_profile HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48936 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48258 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47614 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47734 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46812 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48394 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47534 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48808 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48000 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47892 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48378 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47730 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47820 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47486 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48130 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48818 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47668 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47906 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48992 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48920 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47468 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46826 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48610 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48272 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48838 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47426 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47418 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47284 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48232 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47920 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48762 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46888 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48734 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46736 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48778 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48540 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:49006 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47534 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47098 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47662 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48116 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47332 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48348 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47974 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46810 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48940 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:46902 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:04:19 [loggers.py:335] Engine 000: Avg prompt throughput: 1119.9 tokens/s, Avg generation throughput: 1268.3 tokens/s, Running: 255 reqs, Waiting: 0 reqs, GPU KV cache usage: 15.0%, Prefix cache hit rate: 20.2%
+INFO:     172.17.0.1:47744 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48936 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:48358 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47534 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47030 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     172.17.0.1:47720 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=1) INFO 11-12 17:04:27 [loggers.py:335] Engine 000: Avg prompt throughput: 110.1 tokens/s, Avg generation throughput: 5412.1 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 20.1%

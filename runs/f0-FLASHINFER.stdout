@@ -1,0 +1,62 @@
+2026-11-13 06:11:27 F0-FLASHINFER: starting server (F0, 0.85)
+(EngineCore pid=75) WARNING 11-12 22:11:58 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=75) INFO 11-12 22:12:01 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=75) INFO 11-12 22:12:16 [gpu_worker.py:759] Available KV cache memory: 8.09 GiB
+(EngineCore pid=75) INFO 11-12 22:12:16 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.8500 is equivalent to --gpu-memory-utilization=0.7961 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9039. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=75) INFO 11-12 22:12:16 [kv_cache_utils.py:2327] GPU KV cache size: 706,672 tokens, Maximum concurrency for 8,192 tokens per request: 86.26x
+(EngineCore pid=75) INFO 11-12 22:12:21 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.85, 10.2 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.9 GiB for peak activation, and 0.44 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=8058761728` (7.51 GiB) to fit into requested memory, or `--kv-cache-memory=8896180736` (8.29 GiB) to fully utilize gpu memory. Current kv cache memory in use is 8.09 GiB.
+(EngineCore pid=75) INFO 11-12 22:12:22 [core.py:395] init engine (profile, create kv cache, warmup model) took 21.08 s (compilation: 11.32 s)
+(APIServer pid=1) INFO 11-12 22:12:24 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-12 22:12:24 [launcher.py:195] Route: /ping, Methods: POST
+ready: F0-FLASHINFER
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-FLASHINFER/bs1/W1/0.tmp: 60 requests, 0 errors, 83.8 s
+2026-11-13 06:14:00 F0-FLASHINFER: c=1 TPOT p50 4.36 ms, steady 226 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-FLASHINFER/c8/W1/0.tmp: 120 requests, 0 errors, 24.3 s
+2026-11-13 06:14:37 F0-FLASHINFER: c=8 TPOT p50 5.23 ms, steady 1490 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-FLASHINFER/c64/W1/0.tmp: 256 requests, 0 errors, 13.4 s
+2026-11-13 06:15:05 F0-FLASHINFER: c=64 TPOT p50 9.40 ms, steady 6846 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-FLASHINFER/c128/W1/0.tmp: 512 requests, 0 errors, 19.1 s
+2026-11-13 06:15:39 F0-FLASHINFER: c=128 TPOT p50 16.05 ms, steady 8106 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/vicious/ai-infra/serving-load/sl/client.py", line 123, in <module>
+    main()
+  File "/home/vicious/ai-infra/serving-load/sl/client.py", line 119, in main
+    asyncio.run(run_closed(a.url, a.model, reqs, a.concurrency, a.out))
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/vicious/ai-infra/serving-load/sl/client.py", line 89, in run_closed
+    write(out, sorted(results, key=lambda r: r["idx"]))
+  File "/home/vicious/ai-infra/serving-load/sl/client.py", line 98, in write
+    span = max(r["end"] for r in records) - min(r["send"] for r in records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vicious/ai-infra/serving-load/sl/client.py", line 98, in <genexpr>
+    span = max(r["end"] for r in records) - min(r["send"] for r in records)
+               ~^^^^^^^
+KeyError: 'end'
+Traceback (most recent call last):
+  File "/home/vicious/ai-infra/serving-load/scripts/f0.py", line 86, in <module>
+    main()
+  File "/home/vicious/ai-infra/serving-load/scripts/f0.py", line 77, in main
+    run(sys.argv[1], sys.argv[2:])
+  File "/home/vicious/ai-infra/serving-load/scripts/f0.py", line 66, in run
+    out = sweep.point(d / ("bs1" if c == 1 else f"c{c}") / "W1" / "0.jsonl", "W1", 0, n, "concurrency", c)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vicious/ai-infra/serving-load/scripts/sweep.py", line 123, in point
+    subprocess.run(cmd, cwd=ROOT, check=True)
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['taskset', '-c', '10,11', '/home/vicious/ai-infra/serving-load/.venv/bin/python3', '-m', 'sl.client', '--workload', 'W1', '--n', '1024', '--seed', '0', '--concurrency', '256', '--out', '/home/vicious/ai-infra/serving-load/runs/F0-FLASHINFER/c256/W1/0.tmp']' returned non-zero exit status 1.

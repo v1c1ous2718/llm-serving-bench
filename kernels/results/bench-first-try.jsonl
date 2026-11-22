@@ -1,0 +1,9 @@
+{"variant": "E1", "batch": 1, "step_ms": 7.441, "e2e_ms": 7.671, "date": "2026-11-13 16:35:33", "gpu": "NVIDIA GeForce RTX 3060", "eff_GBps": 132.8}
+{"variant": "E1", "batch": 4, "step_ms": 13.71, "date": "2026-11-13 16:35:33", "gpu": "NVIDIA GeForce RTX 3060", "eff_GBps": 72.1}
+{"variant": "E1", "batch": 8, "step_ms": 21.258, "date": "2026-11-13 16:35:33", "gpu": "NVIDIA GeForce RTX 3060", "eff_GBps": 46.5}
+{"variant": "E2", "batch": 1, "step_ms": 7.179, "e2e_ms": 7.443, "date": "2026-11-13 16:37:45", "gpu": "NVIDIA GeForce RTX 3060", "eff_GBps": 137.6}
+{"variant": "E2", "batch": 4, "step_ms": 13.598, "date": "2026-11-13 16:37:45", "gpu": "NVIDIA GeForce RTX 3060", "eff_GBps": 72.7}
+{"variant": "E2", "batch": 8, "step_ms": 23.771, "date": "2026-11-13 16:37:45", "gpu": "NVIDIA GeForce RTX 3060", "eff_GBps": 41.6}
+{"variant": "E3", "batch": 1, "step_ms": 4.628, "e2e_ms": 4.791, "date": "2026-11-13 16:37:51", "gpu": "NVIDIA GeForce RTX 3060", "eff_GBps": 213.5}
+{"variant": "E3", "batch": 4, "step_ms": 5.429, "date": "2026-11-13 16:37:51", "gpu": "NVIDIA GeForce RTX 3060", "eff_GBps": 182.0}
+{"variant": "E3", "batch": 8, "step_ms": 8.238, "date": "2026-11-13 16:37:51", "gpu": "NVIDIA GeForce RTX 3060", "eff_GBps": 119.9}

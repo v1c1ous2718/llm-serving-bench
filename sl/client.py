@@ -32,6 +32,7 @@ async def send(session: aiohttp.ClientSession, url: str, model: str, req: worklo
         async with session.post(url, json=body) as resp:
             if resp.status != 200:
                 rec["error"] = f"HTTP {resp.status}: {(await resp.text())[:200]}"
+                rec["end"] = time.perf_counter() - t0
                 return rec
             buf = b""
             async for data in resp.content.iter_any():

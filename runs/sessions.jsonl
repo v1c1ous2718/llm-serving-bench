@@ -1,0 +1,9 @@
+{"session": "baseline", "args": [], "env": {}, "bs1_start_ms": 4.543803705430007, "bs1_end_ms": 4.537596232116091, "drift": -0.0013661402904570075, "valid": true}
+{"session": "baseline-hi", "args": [], "env": {}, "bs1_start_ms": 4.495805557766262, "bs1_end_ms": 4.528562138724768, "drift": 0.007286031510397528, "valid": true}
+{"session": "F6-triton", "args": ["--attention-backend", "TRITON_ATTN"], "env": {}, "bs1_start_ms": 4.266217013988086, "bs1_end_ms": 4.248272931328734, "drift": -0.004206087641701606, "valid": true}
+{"session": "F1-seqs8", "args": ["--max-num-seqs", "8"], "env": {}, "bs1_start_ms": 4.4629022864309285, "bs1_end_ms": 4.4523271092018275, "drift": -0.0023695740014864075, "valid": true}
+{"session": "F1-seqs32", "args": ["--max-num-seqs", "32"], "env": {}, "bs1_start_ms": 4.447965159867071, "bs1_end_ms": 4.498668580586686, "drift": 0.011399239629190427, "valid": true}
+{"session": "F1-seqs128", "args": ["--max-num-seqs", "128"], "env": {}, "bs1_start_ms": 4.504660298789485, "bs1_end_ms": 4.43976547849116, "drift": -0.01440615185028804, "valid": true}
+{"session": "F2-off", "args": ["--no-enable-chunked-prefill"], "env": {}, "bs1_start_ms": 4.431415557589816, "bs1_end_ms": 4.421908377611407, "drift": -0.002145404748179369, "valid": true}
+{"session": "F2-chunk512", "args": ["--max-num-batched-tokens", "512"], "env": {}, "bs1_start_ms": 4.404737961880057, "bs1_end_ms": 4.474388012787894, "drift": 0.01581252994176019, "valid": true}
+{"session": "F2-chunk8192", "args": ["--max-num-batched-tokens", "8192"], "env": {}, "bs1_start_ms": 4.488041531572713, "bs1_end_ms": 5.123158770397389, "drift": 0.14151322672856725, "valid": false}

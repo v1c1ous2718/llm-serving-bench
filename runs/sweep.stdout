@@ -1,12 +1,1520 @@
-2026-11-11 16:03:01 baseline: starting server [] {}
-(EngineCore pid=74) WARNING 11-11 08:03:33 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
-(EngineCore pid=74) INFO 11-11 08:03:37 [utils.py:347] Using LBNHC KV cache layout.
-(EngineCore pid=74) INFO 11-11 08:03:54 [gpu_worker.py:759] Available KV cache memory: 7.25 GiB
-(EngineCore pid=74) INFO 11-11 08:03:54 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
-(EngineCore pid=74) INFO 11-11 08:03:54 [kv_cache_utils.py:2327] GPU KV cache size: 633,904 tokens, Maximum concurrency for 8,192 tokens per request: 77.38x
-(EngineCore pid=74) INFO 11-11 08:04:01 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.53 GiB for peak activation, and 0.14 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7484011008` (6.97 GiB) to fit into requested memory, or `--kv-cache-memory=9609867776` (8.95 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.25 GiB.
-(EngineCore pid=74) INFO 11-11 08:04:02 [core.py:395] init engine (profile, create kv cache, warmup model) took 24.67 s (compilation: 12.36 s)
-(APIServer pid=1) INFO 11-11 08:04:04 [launcher.py:195] Route: /ping, Methods: GET
-(APIServer pid=1) INFO 11-11 08:04:04 [launcher.py:195] Route: /ping, Methods: POST
+2026-11-13 01:09:31 baseline: starting server [] {}
+(EngineCore pid=75) WARNING 11-12 17:09:59 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=75) INFO 11-12 17:10:00 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=75) INFO 11-12 17:10:18 [gpu_worker.py:759] Available KV cache memory: 7.25 GiB
+(EngineCore pid=75) INFO 11-12 17:10:18 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7261 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7739. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=75) INFO 11-12 17:10:18 [kv_cache_utils.py:2327] GPU KV cache size: 633,216 tokens, Maximum concurrency for 8,192 tokens per request: 77.30x
+(EngineCore pid=75) INFO 11-12 17:10:25 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.54 GiB for peak activation, and 0.18 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7426732544` (6.92 GiB) to fit into requested memory, or `--kv-cache-memory=9552589312` (8.9 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.25 GiB.
+(EngineCore pid=75) INFO 11-12 17:10:25 [core.py:395] init engine (profile, create kv cache, warmup model) took 24.99 s (compilation: 11.72 s)
+(APIServer pid=1) INFO 11-12 17:10:27 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-12 17:10:27 [launcher.py:195] Route: /ping, Methods: POST
 ready: baseline
-2026-11-11 16:04:05 waiting for a quiet GPU: {'mem_used_mib': 9716.0, 'dec_pct': 25.0, 'enc_pct': 0.0, 'sm_mhz': 532.0, 'mem_mhz': 5001.0, 'power_w': 29.76}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/bs1/W1/0.tmp: 60 requests, 0 errors, 87.4 s
+2026-11-13 01:12:04 baseline: batch-1 TPOT p50 4.54 ms
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/capacity/W1/0.tmp: 600 requests, 0 errors, 33.5 s
+2026-11-13 01:12:52 baseline: W1 closed-loop capacity 16.42 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/W1/0.tmp: 600 requests, 0 errors, 325.2 s
+2026-11-13 01:18:10 baseline: W1 x0.1 (1.642 req/s) seed 0: TTFT p95 0.022 s, TPOT p95 5.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/W1/0.tmp: 600 requests, 0 errors, 131.9 s
+2026-11-13 01:20:30 baseline: W1 x0.25 (4.104 req/s) seed 0: TTFT p95 0.025 s, TPOT p95 5.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/W1/0.tmp: 600 requests, 0 errors, 69.0 s
+2026-11-13 01:21:49 baseline: W1 x0.5 (8.208 req/s) seed 0: TTFT p95 0.029 s, TPOT p95 7.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/W1/0.tmp: 600 requests, 0 errors, 51.1 s
+2026-11-13 01:22:53 baseline: W1 x0.7 (11.492 req/s) seed 0: TTFT p95 0.036 s, TPOT p95 8.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/W1/0.tmp: 600 requests, 0 errors, 45.5 s
+2026-11-13 01:23:51 baseline: W1 x0.8 (13.133 req/s) seed 0: TTFT p95 0.038 s, TPOT p95 8.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/W1/0.tmp: 600 requests, 0 errors, 41.2 s
+2026-11-13 01:24:44 baseline: W1 x0.9 (14.775 req/s) seed 0: TTFT p95 0.040 s, TPOT p95 8.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/W1/0.tmp: 600 requests, 0 errors, 37.8 s
+2026-11-13 01:25:37 baseline: W1 x1.0 (16.416 req/s) seed 0: TTFT p95 0.045 s, TPOT p95 9.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/W1/0.tmp: 600 requests, 0 errors, 35.0 s
+2026-11-13 01:26:25 baseline: W1 x1.1 (18.058 req/s) seed 0: TTFT p95 0.052 s, TPOT p95 11.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/W1/0.tmp: 600 requests, 0 errors, 32.6 s
+2026-11-13 01:27:10 baseline: W1 x1.25 (20.521 req/s) seed 0: TTFT p95 0.092 s, TPOT p95 19.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/W1/1.tmp: 600 requests, 0 errors, 351.4 s
+2026-11-13 01:32:53 baseline: W1 x0.1 (1.642 req/s) seed 1: TTFT p95 0.050 s, TPOT p95 5.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/W1/1.tmp: 600 requests, 0 errors, 142.6 s
+2026-11-13 01:35:22 baseline: W1 x0.25 (4.104 req/s) seed 1: TTFT p95 0.023 s, TPOT p95 5.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/W1/1.tmp: 600 requests, 0 errors, 74.2 s
+2026-11-13 01:36:47 baseline: W1 x0.5 (8.208 req/s) seed 1: TTFT p95 0.027 s, TPOT p95 7.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/W1/1.tmp: 600 requests, 0 errors, 54.9 s
+2026-11-13 01:37:54 baseline: W1 x0.7 (11.492 req/s) seed 1: TTFT p95 0.034 s, TPOT p95 7.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/W1/1.tmp: 600 requests, 0 errors, 48.8 s
+2026-11-13 01:38:55 baseline: W1 x0.8 (13.133 req/s) seed 1: TTFT p95 0.036 s, TPOT p95 8.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/W1/1.tmp: 600 requests, 0 errors, 44.1 s
+2026-11-13 01:39:52 baseline: W1 x0.9 (14.775 req/s) seed 1: TTFT p95 0.040 s, TPOT p95 8.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/W1/1.tmp: 600 requests, 0 errors, 40.4 s
+2026-11-13 01:40:47 baseline: W1 x1.0 (16.416 req/s) seed 1: TTFT p95 0.043 s, TPOT p95 9.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/W1/1.tmp: 600 requests, 0 errors, 37.4 s
+2026-11-13 01:41:36 baseline: W1 x1.1 (18.058 req/s) seed 1: TTFT p95 0.046 s, TPOT p95 9.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/W1/1.tmp: 600 requests, 0 errors, 34.2 s
+2026-11-13 01:42:25 baseline: W1 x1.25 (20.521 req/s) seed 1: TTFT p95 0.061 s, TPOT p95 12.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/W1/2.tmp: 600 requests, 0 errors, 358.8 s
+2026-11-13 01:48:15 baseline: W1 x0.1 (1.642 req/s) seed 2: TTFT p95 0.044 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/W1/2.tmp: 600 requests, 0 errors, 144.1 s
+2026-11-13 01:50:46 baseline: W1 x0.25 (4.104 req/s) seed 2: TTFT p95 0.023 s, TPOT p95 5.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/W1/2.tmp: 600 requests, 0 errors, 73.2 s
+2026-11-13 01:52:09 baseline: W1 x0.5 (8.208 req/s) seed 2: TTFT p95 0.029 s, TPOT p95 7.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/W1/2.tmp: 600 requests, 0 errors, 54.1 s
+2026-11-13 01:53:16 baseline: W1 x0.7 (11.492 req/s) seed 2: TTFT p95 0.034 s, TPOT p95 7.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/W1/2.tmp: 600 requests, 0 errors, 48.1 s
+2026-11-13 01:54:17 baseline: W1 x0.8 (13.133 req/s) seed 2: TTFT p95 0.036 s, TPOT p95 8.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/W1/2.tmp: 600 requests, 0 errors, 43.4 s
+2026-11-13 01:55:13 baseline: W1 x0.9 (14.775 req/s) seed 2: TTFT p95 0.040 s, TPOT p95 8.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/W1/2.tmp: 600 requests, 0 errors, 39.7 s
+2026-11-13 01:56:07 baseline: W1 x1.0 (16.416 req/s) seed 2: TTFT p95 0.046 s, TPOT p95 9.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/W1/2.tmp: 600 requests, 0 errors, 36.7 s
+2026-11-13 01:56:56 baseline: W1 x1.1 (18.058 req/s) seed 2: TTFT p95 0.060 s, TPOT p95 12.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/W1/2.tmp: 600 requests, 0 errors, 34.2 s
+2026-11-13 01:57:43 baseline: W1 x1.25 (20.521 req/s) seed 2: TTFT p95 0.087 s, TPOT p95 17.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/capacity/W2/0.tmp: 600 requests, 0 errors, 123.5 s
+2026-11-13 01:59:55 baseline: W2 closed-loop capacity 4.45 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/W2/0.tmp: 600 requests, 0 errors, 1195.1 s
+2026-11-13 02:18:45 baseline: W2 x0.1 (0.445 req/s) seed 0: TTFT p95 0.437 s, TPOT p95 7.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/W2/0.tmp: 600 requests, 0 errors, 478.2 s
+2026-11-13 02:26:28 baseline: W2 x0.25 (1.113 req/s) seed 0: TTFT p95 0.328 s, TPOT p95 9.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/W2/0.tmp: 600 requests, 0 errors, 239.5 s
+2026-11-13 02:30:27 baseline: W2 x0.5 (2.226 req/s) seed 0: TTFT p95 0.362 s, TPOT p95 14.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/W2/0.tmp: 600 requests, 0 errors, 171.9 s
+2026-11-13 02:33:22 baseline: W2 x0.7 (3.116 req/s) seed 0: TTFT p95 0.427 s, TPOT p95 18.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/W2/0.tmp: 600 requests, 0 errors, 151.2 s
+2026-11-13 02:35:59 baseline: W2 x0.8 (3.562 req/s) seed 0: TTFT p95 0.477 s, TPOT p95 22.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/W2/0.tmp: 600 requests, 0 errors, 135.0 s
+2026-11-13 02:38:20 baseline: W2 x0.9 (4.007 req/s) seed 0: TTFT p95 0.545 s, TPOT p95 30.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/W2/0.tmp: 600 requests, 0 errors, 122.3 s
+2026-11-13 02:40:30 baseline: W2 x1.0 (4.452 req/s) seed 0: TTFT p95 0.700 s, TPOT p95 39.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/W2/0.tmp: 600 requests, 0 errors, 111.9 s
+2026-11-13 02:42:30 baseline: W2 x1.1 (4.897 req/s) seed 0: TTFT p95 0.864 s, TPOT p95 56.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/W2/0.tmp: 600 requests, 0 errors, 123.3 s
+2026-11-13 02:44:40 baseline: W2 x1.25 (5.565 req/s) seed 0: TTFT p95 21.617 s, TPOT p95 187.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/W2/1.tmp: 600 requests, 0 errors, 1294.2 s
+2026-11-13 03:05:03 baseline: W2 x0.1 (0.445 req/s) seed 1: TTFT p95 0.455 s, TPOT p95 7.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/W2/1.tmp: 600 requests, 0 errors, 517.7 s
+2026-11-13 03:13:23 baseline: W2 x0.25 (1.113 req/s) seed 1: TTFT p95 0.322 s, TPOT p95 9.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/W2/1.tmp: 600 requests, 0 errors, 259.2 s
+2026-11-13 03:17:39 baseline: W2 x0.5 (2.226 req/s) seed 1: TTFT p95 0.335 s, TPOT p95 13.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/W2/1.tmp: 600 requests, 0 errors, 185.5 s
+2026-11-13 03:20:49 baseline: W2 x0.7 (3.116 req/s) seed 1: TTFT p95 0.395 s, TPOT p95 18.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/W2/1.tmp: 600 requests, 0 errors, 162.5 s
+2026-11-13 03:23:36 baseline: W2 x0.8 (3.562 req/s) seed 1: TTFT p95 0.436 s, TPOT p95 23.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/W2/1.tmp: 600 requests, 0 errors, 144.8 s
+2026-11-13 03:26:07 baseline: W2 x0.9 (4.007 req/s) seed 1: TTFT p95 0.520 s, TPOT p95 41.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/W2/1.tmp: 600 requests, 0 errors, 132.1 s
+2026-11-13 03:28:26 baseline: W2 x1.0 (4.452 req/s) seed 1: TTFT p95 0.630 s, TPOT p95 68.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/W2/1.tmp: 600 requests, 0 errors, 122.0 s
+2026-11-13 03:30:36 baseline: W2 x1.1 (4.897 req/s) seed 1: TTFT p95 0.931 s, TPOT p95 90.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/W2/1.tmp: 600 requests, 0 errors, 110.3 s
+2026-11-13 03:32:35 baseline: W2 x1.25 (5.565 req/s) seed 1: TTFT p95 2.619 s, TPOT p95 106.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/W2/2.tmp: 600 requests, 0 errors, 1323.3 s
+2026-11-13 03:53:29 baseline: W2 x0.1 (0.445 req/s) seed 2: TTFT p95 0.422 s, TPOT p95 6.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/W2/2.tmp: 600 requests, 0 errors, 529.2 s
+2026-11-13 04:02:00 baseline: W2 x0.25 (1.113 req/s) seed 2: TTFT p95 0.324 s, TPOT p95 8.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/W2/2.tmp: 600 requests, 0 errors, 264.8 s
+2026-11-13 04:06:22 baseline: W2 x0.5 (2.226 req/s) seed 2: TTFT p95 0.330 s, TPOT p95 12.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/W2/2.tmp: 600 requests, 0 errors, 189.2 s
+2026-11-13 04:09:36 baseline: W2 x0.7 (3.116 req/s) seed 2: TTFT p95 0.408 s, TPOT p95 18.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/W2/2.tmp: 600 requests, 0 errors, 165.6 s
+2026-11-13 04:12:26 baseline: W2 x0.8 (3.562 req/s) seed 2: TTFT p95 0.449 s, TPOT p95 23.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/W2/2.tmp: 600 requests, 0 errors, 147.3 s
+2026-11-13 04:14:59 baseline: W2 x0.9 (4.007 req/s) seed 2: TTFT p95 0.528 s, TPOT p95 35.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/W2/2.tmp: 600 requests, 1 errors, 132.7 s
+2026-11-13 04:17:20 baseline: W2 x1.0 (4.452 req/s) seed 2: TTFT p95 0.637 s, TPOT p95 52.2 ms, errors 1
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/W2/2.tmp: 600 requests, 0 errors, 121.5 s
+2026-11-13 04:19:30 baseline: W2 x1.1 (4.897 req/s) seed 2: TTFT p95 0.912 s, TPOT p95 82.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/W2/2.tmp: 600 requests, 0 errors, 119.7 s
+2026-11-13 04:21:38 baseline: W2 x1.25 (5.565 req/s) seed 2: TTFT p95 9.416 s, TPOT p95 190.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/capacity/Wmix/0.tmp: 600 requests, 0 errors, 55.5 s
+2026-11-13 04:22:44 baseline: Wmix closed-loop capacity 9.91 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/Wmix/0.tmp: 600 requests, 0 errors, 536.6 s
+2026-11-13 04:31:22 baseline: Wmix x0.1 (0.991 req/s) seed 0: TTFT p95 0.027 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/Wmix/0.tmp: 600 requests, 0 errors, 216.6 s
+2026-11-13 04:35:00 baseline: Wmix x0.25 (2.477 req/s) seed 0: TTFT p95 0.023 s, TPOT p95 5.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/Wmix/0.tmp: 600 requests, 0 errors, 110.1 s
+2026-11-13 04:36:59 baseline: Wmix x0.5 (4.954 req/s) seed 0: TTFT p95 0.026 s, TPOT p95 6.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/Wmix/0.tmp: 600 requests, 0 errors, 79.8 s
+2026-11-13 04:38:29 baseline: Wmix x0.7 (6.936 req/s) seed 0: TTFT p95 0.033 s, TPOT p95 7.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/Wmix/0.tmp: 600 requests, 0 errors, 70.4 s
+2026-11-13 04:39:52 baseline: Wmix x0.8 (7.927 req/s) seed 0: TTFT p95 0.034 s, TPOT p95 8.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/Wmix/0.tmp: 600 requests, 0 errors, 63.0 s
+2026-11-13 04:41:05 baseline: Wmix x0.9 (8.917 req/s) seed 0: TTFT p95 0.038 s, TPOT p95 9.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/Wmix/0.tmp: 600 requests, 0 errors, 57.2 s
+2026-11-13 04:42:15 baseline: Wmix x1.0 (9.908 req/s) seed 0: TTFT p95 0.042 s, TPOT p95 10.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/Wmix/0.tmp: 600 requests, 0 errors, 52.4 s
+2026-11-13 04:43:20 baseline: Wmix x1.1 (10.899 req/s) seed 0: TTFT p95 0.045 s, TPOT p95 10.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/Wmix/0.tmp: 600 requests, 0 errors, 46.7 s
+2026-11-13 04:44:19 baseline: Wmix x1.25 (12.385 req/s) seed 0: TTFT p95 0.050 s, TPOT p95 11.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/Wmix/1.tmp: 600 requests, 0 errors, 582.1 s
+2026-11-13 04:53:38 baseline: Wmix x0.1 (0.991 req/s) seed 1: TTFT p95 0.182 s, TPOT p95 6.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/Wmix/1.tmp: 600 requests, 0 errors, 233.9 s
+2026-11-13 04:57:34 baseline: Wmix x0.25 (2.477 req/s) seed 1: TTFT p95 0.023 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/Wmix/1.tmp: 600 requests, 0 errors, 119.0 s
+2026-11-13 04:59:39 baseline: Wmix x0.5 (4.954 req/s) seed 1: TTFT p95 0.027 s, TPOT p95 6.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/Wmix/1.tmp: 600 requests, 0 errors, 86.8 s
+2026-11-13 05:01:16 baseline: Wmix x0.7 (6.936 req/s) seed 1: TTFT p95 0.031 s, TPOT p95 7.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/Wmix/1.tmp: 600 requests, 0 errors, 76.8 s
+2026-11-13 05:02:43 baseline: Wmix x0.8 (7.927 req/s) seed 1: TTFT p95 0.032 s, TPOT p95 7.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/Wmix/1.tmp: 600 requests, 0 errors, 69.1 s
+2026-11-13 05:04:05 baseline: Wmix x0.9 (8.917 req/s) seed 1: TTFT p95 0.035 s, TPOT p95 8.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/Wmix/1.tmp: 600 requests, 0 errors, 62.8 s
+2026-11-13 05:05:18 baseline: Wmix x1.0 (9.908 req/s) seed 1: TTFT p95 0.040 s, TPOT p95 9.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/Wmix/1.tmp: 600 requests, 0 errors, 57.8 s
+2026-11-13 05:06:29 baseline: Wmix x1.1 (10.899 req/s) seed 1: TTFT p95 0.042 s, TPOT p95 10.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/Wmix/1.tmp: 600 requests, 0 errors, 51.7 s
+2026-11-13 05:07:33 baseline: Wmix x1.25 (12.385 req/s) seed 1: TTFT p95 0.046 s, TPOT p95 10.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/Wmix/2.tmp: 600 requests, 0 errors, 595.1 s
+2026-11-13 05:17:06 baseline: Wmix x0.1 (0.991 req/s) seed 2: TTFT p95 0.160 s, TPOT p95 6.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/Wmix/2.tmp: 600 requests, 0 errors, 238.9 s
+2026-11-13 05:21:06 baseline: Wmix x0.25 (2.477 req/s) seed 2: TTFT p95 0.024 s, TPOT p95 5.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/Wmix/2.tmp: 600 requests, 0 errors, 120.6 s
+2026-11-13 05:23:15 baseline: Wmix x0.5 (4.954 req/s) seed 2: TTFT p95 0.026 s, TPOT p95 6.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/Wmix/2.tmp: 600 requests, 0 errors, 87.7 s
+2026-11-13 05:24:53 baseline: Wmix x0.7 (6.936 req/s) seed 2: TTFT p95 0.029 s, TPOT p95 7.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/Wmix/2.tmp: 600 requests, 0 errors, 77.5 s
+2026-11-13 05:26:21 baseline: Wmix x0.8 (7.927 req/s) seed 2: TTFT p95 0.032 s, TPOT p95 8.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/Wmix/2.tmp: 600 requests, 0 errors, 69.6 s
+2026-11-13 05:27:42 baseline: Wmix x0.9 (8.917 req/s) seed 2: TTFT p95 0.036 s, TPOT p95 8.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/Wmix/2.tmp: 600 requests, 0 errors, 63.3 s
+2026-11-13 05:28:58 baseline: Wmix x1.0 (9.908 req/s) seed 2: TTFT p95 0.039 s, TPOT p95 9.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/Wmix/2.tmp: 600 requests, 0 errors, 58.1 s
+2026-11-13 05:30:07 baseline: Wmix x1.1 (10.899 req/s) seed 2: TTFT p95 0.041 s, TPOT p95 9.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/Wmix/2.tmp: 600 requests, 0 errors, 52.0 s
+2026-11-13 05:31:11 baseline: Wmix x1.25 (12.385 req/s) seed 2: TTFT p95 0.046 s, TPOT p95 10.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/capacity/W3/0.tmp: 600 requests, 0 errors, 19.0 s
+2026-11-13 05:31:45 baseline: W3 closed-loop capacity 28.99 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/W3/0.tmp: 600 requests, 0 errors, 183.8 s
+2026-11-13 05:34:53 baseline: W3 x0.1 (2.899 req/s) seed 0: TTFT p95 0.024 s, TPOT p95 5.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/W3/0.tmp: 600 requests, 0 errors, 73.8 s
+2026-11-13 05:36:17 baseline: W3 x0.25 (7.248 req/s) seed 0: TTFT p95 0.030 s, TPOT p95 6.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/W3/0.tmp: 600 requests, 0 errors, 37.4 s
+2026-11-13 05:37:07 baseline: W3 x0.5 (14.496 req/s) seed 0: TTFT p95 0.051 s, TPOT p95 12.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/W3/0.tmp: 600 requests, 0 errors, 28.0 s
+2026-11-13 05:37:50 baseline: W3 x0.7 (20.294 req/s) seed 0: TTFT p95 0.262 s, TPOT p95 56.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/W3/0.tmp: 600 requests, 0 errors, 34.5 s
+2026-11-13 05:38:37 baseline: W3 x0.8 (23.193 req/s) seed 0: TTFT p95 8.640 s, TPOT p95 181.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/W3/0.tmp: 600 requests, 0 errors, 32.6 s
+2026-11-13 05:39:24 baseline: W3 x0.9 (26.092 req/s) seed 0: TTFT p95 8.471 s, TPOT p95 166.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/W3/0.tmp: 600 requests, 0 errors, 36.1 s
+2026-11-13 05:40:13 baseline: W3 x1.0 (28.992 req/s) seed 0: TTFT p95 12.854 s, TPOT p95 177.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/W3/0.tmp: 600 requests, 0 errors, 35.1 s
+2026-11-13 05:41:03 baseline: W3 x1.1 (31.891 req/s) seed 0: TTFT p95 14.077 s, TPOT p95 170.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/W3/0.tmp: 600 requests, 0 errors, 33.1 s
+2026-11-13 05:41:49 baseline: W3 x1.25 (36.239 req/s) seed 0: TTFT p95 14.786 s, TPOT p95 158.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/W3/1.tmp: 600 requests, 0 errors, 199.1 s
+2026-11-13 05:45:10 baseline: W3 x0.1 (2.899 req/s) seed 1: TTFT p95 0.027 s, TPOT p95 5.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/W3/1.tmp: 600 requests, 0 errors, 80.0 s
+2026-11-13 05:46:40 baseline: W3 x0.25 (7.248 req/s) seed 1: TTFT p95 0.028 s, TPOT p95 6.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/W3/1.tmp: 600 requests, 0 errors, 40.4 s
+2026-11-13 05:47:35 baseline: W3 x0.5 (14.496 req/s) seed 1: TTFT p95 0.046 s, TPOT p95 10.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/W3/1.tmp: 600 requests, 0 errors, 29.4 s
+2026-11-13 05:48:18 baseline: W3 x0.7 (20.294 req/s) seed 1: TTFT p95 0.093 s, TPOT p95 22.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/W3/1.tmp: 600 requests, 0 errors, 27.5 s
+2026-11-13 05:49:00 baseline: W3 x0.8 (23.193 req/s) seed 1: TTFT p95 0.402 s, TPOT p95 79.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/W3/1.tmp: 600 requests, 0 errors, 34.4 s
+2026-11-13 05:49:47 baseline: W3 x0.9 (26.092 req/s) seed 1: TTFT p95 9.547 s, TPOT p95 179.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/W3/1.tmp: 600 requests, 0 errors, 35.5 s
+2026-11-13 05:50:37 baseline: W3 x1.0 (28.992 req/s) seed 1: TTFT p95 10.706 s, TPOT p95 178.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/W3/1.tmp: 600 requests, 0 errors, 33.9 s
+2026-11-13 05:51:24 baseline: W3 x1.1 (31.891 req/s) seed 1: TTFT p95 11.649 s, TPOT p95 167.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/W3/1.tmp: 600 requests, 0 errors, 35.3 s
+2026-11-13 05:52:14 baseline: W3 x1.25 (36.239 req/s) seed 1: TTFT p95 16.005 s, TPOT p95 168.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.1/W3/2.tmp: 600 requests, 0 errors, 203.6 s
+2026-11-13 05:55:40 baseline: W3 x0.1 (2.899 req/s) seed 2: TTFT p95 0.027 s, TPOT p95 5.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.25/W3/2.tmp: 600 requests, 0 errors, 81.7 s
+2026-11-13 05:57:12 baseline: W3 x0.25 (7.248 req/s) seed 2: TTFT p95 0.029 s, TPOT p95 6.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.5/W3/2.tmp: 600 requests, 0 errors, 41.2 s
+2026-11-13 05:58:06 baseline: W3 x0.5 (14.496 req/s) seed 2: TTFT p95 0.055 s, TPOT p95 11.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.7/W3/2.tmp: 600 requests, 0 errors, 30.0 s
+2026-11-13 05:58:51 baseline: W3 x0.7 (20.294 req/s) seed 2: TTFT p95 0.132 s, TPOT p95 27.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.8/W3/2.tmp: 600 requests, 0 errors, 28.3 s
+2026-11-13 05:59:32 baseline: W3 x0.8 (23.193 req/s) seed 2: TTFT p95 0.485 s, TPOT p95 97.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x0.9/W3/2.tmp: 600 requests, 0 errors, 30.3 s
+2026-11-13 06:00:17 baseline: W3 x0.9 (26.092 req/s) seed 2: TTFT p95 4.381 s, TPOT p95 141.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.0/W3/2.tmp: 600 requests, 0 errors, 31.8 s
+2026-11-13 06:01:02 baseline: W3 x1.0 (28.992 req/s) seed 2: TTFT p95 9.048 s, TPOT p95 164.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.1/W3/2.tmp: 600 requests, 0 errors, 31.3 s
+2026-11-13 06:01:48 baseline: W3 x1.1 (31.891 req/s) seed 2: TTFT p95 9.924 s, TPOT p95 163.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/x1.25/W3/2.tmp: 600 requests, 0 errors, 34.3 s
+2026-11-13 06:02:35 baseline: W3 x1.25 (36.239 req/s) seed 2: TTFT p95 13.407 s, TPOT p95 168.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline/bs1_end/W1/0.tmp: 60 requests, 0 errors, 87.0 s
+2026-11-13 06:04:15 baseline: drift 4.54 -> 4.54 ms (-0.1%), valid
+2026-11-13 06:04:15 F1-seqs8: starting server ['--max-num-seqs', '8'] {}
+2026-11-13 06:19:09 baseline-hi: starting server [] {}
+(EngineCore pid=74) WARNING 11-12 22:19:37 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=74) INFO 11-12 22:19:41 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=74) INFO 11-12 22:19:58 [gpu_worker.py:759] Available KV cache memory: 7.25 GiB
+(EngineCore pid=74) INFO 11-12 22:19:58 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=74) INFO 11-12 22:19:58 [kv_cache_utils.py:2327] GPU KV cache size: 633,904 tokens, Maximum concurrency for 8,192 tokens per request: 77.38x
+(EngineCore pid=74) INFO 11-12 22:20:05 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.53 GiB for peak activation, and 0.17 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7447704064` (6.94 GiB) to fit into requested memory, or `--kv-cache-memory=9573560832` (8.92 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.25 GiB.
+(EngineCore pid=74) INFO 11-12 22:20:06 [core.py:395] init engine (profile, create kv cache, warmup model) took 24.91 s (compilation: 11.77 s)
+(APIServer pid=1) INFO 11-12 22:20:07 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-12 22:20:07 [launcher.py:195] Route: /ping, Methods: POST
+ready: baseline-hi
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/bs1/W1/0.tmp: 60 requests, 0 errors, 86.9 s
+2026-11-13 06:21:44 baseline-hi: batch-1 TPOT p50 4.51 ms
+2026-11-13 06:21:44 baseline-hi: W1 closed-loop capacity nan req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W1/0.tmp: 600 requests, 0 errors, 75.9 s
+2026-11-13 06:23:11 baseline-hi: W1 x1.5 (24.625 req/s) seed 0: TTFT p95 37.496 s, TPOT p95 212.9 ms, errors 0
+2026-11-13 06:23:11 waiting for a quiet GPU: {'mem_used_mib': 12094.0, 'dec_pct': 0.0, 'enc_pct': 0.0, 'sm_mhz': 210.0, 'mem_mhz': 405.0, 'power_w': 10.15}
+2026-11-13 06:23:57 baseline-hi: starting server [] {}
+(EngineCore pid=73) WARNING 11-12 22:24:24 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=73) INFO 11-12 22:24:28 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=73) INFO 11-12 22:24:43 [gpu_worker.py:759] Available KV cache memory: 7.25 GiB
+(EngineCore pid=73) INFO 11-12 22:24:43 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=73) INFO 11-12 22:24:43 [kv_cache_utils.py:2327] GPU KV cache size: 633,904 tokens, Maximum concurrency for 8,192 tokens per request: 77.38x
+(EngineCore pid=73) INFO 11-12 22:24:49 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.53 GiB for peak activation, and 0.17 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7447704064` (6.94 GiB) to fit into requested memory, or `--kv-cache-memory=9573560832` (8.92 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.25 GiB.
+(EngineCore pid=73) INFO 11-12 22:24:50 [core.py:395] init engine (profile, create kv cache, warmup model) took 21.72 s (compilation: 11.22 s)
+(APIServer pid=1) INFO 11-12 22:24:52 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-12 22:24:52 [launcher.py:195] Route: /ping, Methods: POST
+ready: baseline-hi
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/bs1/W1/0.tmp: 60 requests, 0 errors, 86.2 s
+2026-11-13 06:26:29 baseline-hi: batch-1 TPOT p50 4.50 ms
+2026-11-13 06:26:29 baseline-hi: W1 closed-loop capacity nan req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W1/0.tmp: 600 requests, 0 errors, 75.8 s
+2026-11-13 06:27:56 baseline-hi: W1 x1.5 (24.625 req/s) seed 0: TTFT p95 37.345 s, TPOT p95 209.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/W1/0.tmp: 600 requests, 0 errors, 81.9 s
+2026-11-13 06:29:28 baseline-hi: W1 x1.75 (28.729 req/s) seed 0: TTFT p95 46.747 s, TPOT p95 193.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/W1/0.tmp: 600 requests, 0 errors, 84.1 s
+2026-11-13 06:31:03 baseline-hi: W1 x2.0 (32.833 req/s) seed 0: TTFT p95 51.034 s, TPOT p95 191.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W1/1.tmp: 600 requests, 0 errors, 92.4 s
+2026-11-13 06:32:46 baseline-hi: W1 x1.5 (24.625 req/s) seed 1: TTFT p95 52.672 s, TPOT p95 219.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/W1/1.tmp: 600 requests, 0 errors, 83.0 s
+2026-11-13 06:34:18 baseline-hi: W1 x1.75 (28.729 req/s) seed 1: TTFT p95 46.933 s, TPOT p95 194.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/W1/1.tmp: 600 requests, 0 errors, 82.1 s
+2026-11-13 06:35:50 baseline-hi: W1 x2.0 (32.833 req/s) seed 1: TTFT p95 47.656 s, TPOT p95 193.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W1/2.tmp: 600 requests, 0 errors, 89.3 s
+2026-11-13 06:37:30 baseline-hi: W1 x1.5 (24.625 req/s) seed 2: TTFT p95 49.536 s, TPOT p95 207.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/W1/2.tmp: 600 requests, 0 errors, 82.1 s
+2026-11-13 06:39:03 baseline-hi: W1 x1.75 (28.729 req/s) seed 2: TTFT p95 46.219 s, TPOT p95 196.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/W1/2.tmp: 600 requests, 0 errors, 77.3 s
+2026-11-13 06:40:31 baseline-hi: W1 x2.0 (32.833 req/s) seed 2: TTFT p95 44.328 s, TPOT p95 183.4 ms, errors 0
+2026-11-13 06:40:31 baseline-hi: W2 closed-loop capacity nan req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W2/0.tmp: 600 requests, 0 errors, 137.5 s
+2026-11-13 06:42:55 baseline-hi: W2 x1.5 (6.678 req/s) seed 0: TTFT p95 50.529 s, TPOT p95 210.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/W2/0.tmp: 600 requests, 0 errors, 136.6 s
+2026-11-13 06:45:20 baseline-hi: W2 x1.75 (7.791 req/s) seed 0: TTFT p95 61.194 s, TPOT p95 210.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/W2/0.tmp: 600 requests, 0 errors, 137.4 s
+2026-11-13 06:47:44 baseline-hi: W2 x2.0 (8.904 req/s) seed 0: TTFT p95 69.743 s, TPOT p95 215.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W2/1.tmp: 600 requests, 0 errors, 139.6 s
+2026-11-13 06:50:12 baseline-hi: W2 x1.5 (6.678 req/s) seed 1: TTFT p95 46.888 s, TPOT p95 210.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/W2/1.tmp: 600 requests, 0 errors, 139.4 s
+2026-11-13 06:52:38 baseline-hi: W2 x1.75 (7.791 req/s) seed 1: TTFT p95 58.505 s, TPOT p95 210.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/W2/1.tmp: 600 requests, 0 errors, 139.3 s
+2026-11-13 06:55:03 baseline-hi: W2 x2.0 (8.904 req/s) seed 1: TTFT p95 67.259 s, TPOT p95 210.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W2/2.tmp: 600 requests, 0 errors, 134.8 s
+2026-11-13 06:57:24 baseline-hi: W2 x1.5 (6.678 req/s) seed 2: TTFT p95 40.162 s, TPOT p95 221.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/W2/2.tmp: 600 requests, 0 errors, 136.2 s
+2026-11-13 06:59:49 baseline-hi: W2 x1.75 (7.791 req/s) seed 2: TTFT p95 53.722 s, TPOT p95 221.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/W2/2.tmp: 600 requests, 0 errors, 136.0 s
+2026-11-13 07:02:11 baseline-hi: W2 x2.0 (8.904 req/s) seed 2: TTFT p95 62.650 s, TPOT p95 222.0 ms, errors 0
+2026-11-13 07:02:11 baseline-hi: Wmix closed-loop capacity nan req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/Wmix/0.tmp: 600 requests, 0 errors, 101.0 s
+2026-11-13 07:04:01 baseline-hi: Wmix x1.5 (14.862 req/s) seed 0: TTFT p95 48.452 s, TPOT p95 269.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/Wmix/0.tmp: 600 requests, 0 errors, 70.5 s
+2026-11-13 07:05:24 baseline-hi: Wmix x1.75 (17.339 req/s) seed 0: TTFT p95 24.195 s, TPOT p95 206.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/Wmix/0.tmp: 600 requests, 0 errors, 71.2 s
+2026-11-13 07:06:46 baseline-hi: Wmix x2.0 (19.816 req/s) seed 0: TTFT p95 28.938 s, TPOT p95 215.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/Wmix/1.tmp: 600 requests, 0 errors, 100.3 s
+2026-11-13 07:08:35 baseline-hi: Wmix x1.5 (14.862 req/s) seed 1: TTFT p95 45.134 s, TPOT p95 255.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/Wmix/1.tmp: 600 requests, 0 errors, 70.1 s
+2026-11-13 07:09:57 baseline-hi: Wmix x1.75 (17.339 req/s) seed 1: TTFT p95 21.214 s, TPOT p95 200.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/Wmix/1.tmp: 600 requests, 0 errors, 72.8 s
+2026-11-13 07:11:21 baseline-hi: Wmix x2.0 (19.816 req/s) seed 1: TTFT p95 27.370 s, TPOT p95 201.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/Wmix/2.tmp: 600 requests, 0 errors, 98.8 s
+2026-11-13 07:13:08 baseline-hi: Wmix x1.5 (14.862 req/s) seed 2: TTFT p95 43.119 s, TPOT p95 270.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/Wmix/2.tmp: 600 requests, 0 errors, 61.1 s
+2026-11-13 07:14:22 baseline-hi: Wmix x1.75 (17.339 req/s) seed 2: TTFT p95 12.918 s, TPOT p95 186.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/Wmix/2.tmp: 600 requests, 0 errors, 68.0 s
+2026-11-13 07:15:41 baseline-hi: Wmix x2.0 (19.816 req/s) seed 2: TTFT p95 22.932 s, TPOT p95 192.0 ms, errors 0
+2026-11-13 07:15:41 baseline-hi: W3 closed-loop capacity nan req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W3/0.tmp: 600 requests, 0 errors, 36.9 s
+2026-11-13 07:16:33 baseline-hi: W3 x1.5 (43.487 req/s) seed 0: TTFT p95 21.792 s, TPOT p95 168.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/W3/0.tmp: 600 requests, 0 errors, 41.6 s
+2026-11-13 07:17:27 baseline-hi: W3 x1.75 (50.735 req/s) seed 0: TTFT p95 27.425 s, TPOT p95 196.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/W3/0.tmp: 600 requests, 0 errors, 40.1 s
+2026-11-13 07:18:20 baseline-hi: W3 x2.0 (57.983 req/s) seed 0: TTFT p95 27.606 s, TPOT p95 189.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W3/1.tmp: 600 requests, 0 errors, 46.6 s
+2026-11-13 07:19:19 baseline-hi: W3 x1.5 (43.487 req/s) seed 1: TTFT p95 29.914 s, TPOT p95 219.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/W3/1.tmp: 600 requests, 0 errors, 44.4 s
+2026-11-13 07:20:16 baseline-hi: W3 x1.75 (50.735 req/s) seed 1: TTFT p95 29.664 s, TPOT p95 211.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/W3/1.tmp: 600 requests, 0 errors, 41.4 s
+2026-11-13 07:21:10 baseline-hi: W3 x2.0 (57.983 req/s) seed 1: TTFT p95 28.325 s, TPOT p95 195.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.5/W3/2.tmp: 600 requests, 0 errors, 50.3 s
+2026-11-13 07:22:13 baseline-hi: W3 x1.5 (43.487 req/s) seed 2: TTFT p95 32.931 s, TPOT p95 237.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x1.75/W3/2.tmp: 600 requests, 0 errors, 46.0 s
+2026-11-13 07:23:12 baseline-hi: W3 x1.75 (50.735 req/s) seed 2: TTFT p95 30.332 s, TPOT p95 218.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/x2.0/W3/2.tmp: 600 requests, 0 errors, 42.2 s
+2026-11-13 07:24:09 baseline-hi: W3 x2.0 (57.983 req/s) seed 2: TTFT p95 28.208 s, TPOT p95 198.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/baseline-hi/bs1_end/W1/0.tmp: 60 requests, 0 errors, 87.0 s
+2026-11-13 07:25:45 baseline-hi: drift 4.50 -> 4.53 ms (+0.7%), valid
+2026-11-13 07:25:47 sweep finished
+2026-11-13 07:32:21 F6-triton: starting server ['--attention-backend', 'TRITON_ATTN'] {}
+(EngineCore pid=73) WARNING 11-12 23:32:50 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=73) INFO 11-12 23:32:54 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=73) INFO 11-12 23:33:12 [gpu_worker.py:759] Available KV cache memory: 7.25 GiB
+(EngineCore pid=73) INFO 11-12 23:33:12 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7262 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7738. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=73) INFO 11-12 23:33:12 [kv_cache_utils.py:2327] GPU KV cache size: 633,392 tokens, Maximum concurrency for 8,192 tokens per request: 77.32x
+(EngineCore pid=73) INFO 11-12 23:33:18 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.54 GiB for peak activation, and 0.13 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7483355648` (6.97 GiB) to fit into requested memory, or `--kv-cache-memory=9609212416` (8.95 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.25 GiB.
+(EngineCore pid=73) INFO 11-12 23:33:19 [core.py:395] init engine (profile, create kv cache, warmup model) took 24.67 s (compilation: 11.41 s)
+(APIServer pid=1) INFO 11-12 23:33:18 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-12 23:33:18 [launcher.py:195] Route: /ping, Methods: POST
+ready: F6-triton
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/bs1/W1/0.tmp: 60 requests, 0 errors, 82.4 s
+2026-11-13 07:34:52 F6-triton: batch-1 TPOT p50 4.27 ms
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/capacity/W1/0.tmp: 600 requests, 0 errors, 23.0 s
+2026-11-13 07:35:30 F6-triton: W1 closed-loop capacity 23.90 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.1/W1/0.tmp: 600 requests, 0 errors, 325.1 s
+2026-11-13 07:40:52 F6-triton: W1 x0.1 (1.642 req/s) seed 0: TTFT p95 0.025 s, TPOT p95 5.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.25/W1/0.tmp: 600 requests, 0 errors, 131.6 s
+2026-11-13 07:43:12 F6-triton: W1 x0.25 (4.104 req/s) seed 0: TTFT p95 0.024 s, TPOT p95 5.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.5/W1/0.tmp: 600 requests, 0 errors, 68.6 s
+2026-11-13 07:44:31 F6-triton: W1 x0.5 (8.208 req/s) seed 0: TTFT p95 0.029 s, TPOT p95 6.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.7/W1/0.tmp: 600 requests, 0 errors, 50.7 s
+2026-11-13 07:45:35 F6-triton: W1 x0.7 (11.492 req/s) seed 0: TTFT p95 0.034 s, TPOT p95 7.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.8/W1/0.tmp: 600 requests, 0 errors, 45.1 s
+2026-11-13 07:46:33 F6-triton: W1 x0.8 (13.133 req/s) seed 0: TTFT p95 0.031 s, TPOT p95 7.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.9/W1/0.tmp: 600 requests, 0 errors, 40.8 s
+2026-11-13 07:47:27 F6-triton: W1 x0.9 (14.775 req/s) seed 0: TTFT p95 0.034 s, TPOT p95 7.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.0/W1/0.tmp: 600 requests, 0 errors, 37.4 s
+2026-11-13 07:48:17 F6-triton: W1 x1.0 (16.416 req/s) seed 0: TTFT p95 0.041 s, TPOT p95 7.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.1/W1/0.tmp: 600 requests, 0 errors, 34.6 s
+2026-11-13 07:49:06 F6-triton: W1 x1.1 (18.058 req/s) seed 0: TTFT p95 0.042 s, TPOT p95 7.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.25/W1/0.tmp: 600 requests, 0 errors, 31.1 s
+2026-11-13 07:49:50 F6-triton: W1 x1.25 (20.521 req/s) seed 0: TTFT p95 0.039 s, TPOT p95 7.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.5/W1/0.tmp: 600 requests, 0 errors, 27.2 s
+2026-11-13 07:50:32 F6-triton: W1 x1.5 (24.625 req/s) seed 0: TTFT p95 0.044 s, TPOT p95 10.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.75/W1/0.tmp: 600 requests, 0 errors, 24.7 s
+2026-11-13 07:51:12 F6-triton: W1 x1.75 (28.729 req/s) seed 0: TTFT p95 0.058 s, TPOT p95 11.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x2.0/W1/0.tmp: 600 requests, 0 errors, 22.7 s
+2026-11-13 07:51:50 F6-triton: W1 x2.0 (32.833 req/s) seed 0: TTFT p95 0.073 s, TPOT p95 14.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.1/W1/1.tmp: 600 requests, 0 errors, 351.3 s
+2026-11-13 07:57:34 F6-triton: W1 x0.1 (1.642 req/s) seed 1: TTFT p95 0.049 s, TPOT p95 5.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.25/W1/1.tmp: 600 requests, 0 errors, 142.4 s
+2026-11-13 08:00:03 F6-triton: W1 x0.25 (4.104 req/s) seed 1: TTFT p95 0.024 s, TPOT p95 5.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.5/W1/1.tmp: 600 requests, 0 errors, 73.8 s
+2026-11-13 08:01:28 F6-triton: W1 x0.5 (8.208 req/s) seed 1: TTFT p95 0.027 s, TPOT p95 6.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.7/W1/1.tmp: 600 requests, 0 errors, 54.5 s
+2026-11-13 08:02:35 F6-triton: W1 x0.7 (11.492 req/s) seed 1: TTFT p95 0.030 s, TPOT p95 6.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.8/W1/1.tmp: 600 requests, 0 errors, 48.4 s
+2026-11-13 08:03:37 F6-triton: W1 x0.8 (13.133 req/s) seed 1: TTFT p95 0.032 s, TPOT p95 7.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.9/W1/1.tmp: 600 requests, 0 errors, 43.7 s
+2026-11-13 08:04:33 F6-triton: W1 x0.9 (14.775 req/s) seed 1: TTFT p95 0.032 s, TPOT p95 7.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.0/W1/1.tmp: 600 requests, 0 errors, 40.0 s
+2026-11-13 08:05:28 F6-triton: W1 x1.0 (16.416 req/s) seed 1: TTFT p95 0.035 s, TPOT p95 7.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.1/W1/1.tmp: 600 requests, 0 errors, 36.9 s
+2026-11-13 08:06:18 F6-triton: W1 x1.1 (18.058 req/s) seed 1: TTFT p95 0.033 s, TPOT p95 7.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.25/W1/1.tmp: 600 requests, 0 errors, 33.2 s
+2026-11-13 08:07:04 F6-triton: W1 x1.25 (20.521 req/s) seed 1: TTFT p95 0.035 s, TPOT p95 7.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.5/W1/1.tmp: 600 requests, 0 errors, 29.0 s
+2026-11-13 08:07:48 F6-triton: W1 x1.5 (24.625 req/s) seed 1: TTFT p95 0.038 s, TPOT p95 9.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.75/W1/1.tmp: 600 requests, 0 errors, 26.2 s
+2026-11-13 08:08:29 F6-triton: W1 x1.75 (28.729 req/s) seed 1: TTFT p95 0.047 s, TPOT p95 11.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x2.0/W1/1.tmp: 600 requests, 0 errors, 24.1 s
+2026-11-13 08:09:06 F6-triton: W1 x2.0 (32.833 req/s) seed 1: TTFT p95 0.055 s, TPOT p95 12.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.1/W1/2.tmp: 600 requests, 0 errors, 358.8 s
+2026-11-13 08:15:00 F6-triton: W1 x0.1 (1.642 req/s) seed 2: TTFT p95 0.042 s, TPOT p95 5.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.25/W1/2.tmp: 600 requests, 0 errors, 144.0 s
+2026-11-13 08:17:32 F6-triton: W1 x0.25 (4.104 req/s) seed 2: TTFT p95 0.026 s, TPOT p95 5.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.5/W1/2.tmp: 600 requests, 0 errors, 72.8 s
+2026-11-13 08:18:55 F6-triton: W1 x0.5 (8.208 req/s) seed 2: TTFT p95 0.027 s, TPOT p95 6.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.7/W1/2.tmp: 600 requests, 0 errors, 53.6 s
+2026-11-13 08:20:02 F6-triton: W1 x0.7 (11.492 req/s) seed 2: TTFT p95 0.029 s, TPOT p95 7.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.8/W1/2.tmp: 600 requests, 0 errors, 47.7 s
+2026-11-13 08:21:03 F6-triton: W1 x0.8 (13.133 req/s) seed 2: TTFT p95 0.030 s, TPOT p95 6.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.9/W1/2.tmp: 600 requests, 0 errors, 43.0 s
+2026-11-13 08:21:59 F6-triton: W1 x0.9 (14.775 req/s) seed 2: TTFT p95 0.031 s, TPOT p95 7.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.0/W1/2.tmp: 600 requests, 0 errors, 39.2 s
+2026-11-13 08:22:51 F6-triton: W1 x1.0 (16.416 req/s) seed 2: TTFT p95 0.034 s, TPOT p95 7.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.1/W1/2.tmp: 600 requests, 0 errors, 36.1 s
+2026-11-13 08:23:42 F6-triton: W1 x1.1 (18.058 req/s) seed 2: TTFT p95 0.034 s, TPOT p95 7.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.25/W1/2.tmp: 600 requests, 0 errors, 32.4 s
+2026-11-13 08:24:27 F6-triton: W1 x1.25 (20.521 req/s) seed 2: TTFT p95 0.035 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.5/W1/2.tmp: 600 requests, 0 errors, 28.6 s
+2026-11-13 08:25:11 F6-triton: W1 x1.5 (24.625 req/s) seed 2: TTFT p95 0.042 s, TPOT p95 10.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.75/W1/2.tmp: 600 requests, 0 errors, 25.6 s
+2026-11-13 08:25:51 F6-triton: W1 x1.75 (28.729 req/s) seed 2: TTFT p95 0.052 s, TPOT p95 11.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x2.0/W1/2.tmp: 600 requests, 0 errors, 23.4 s
+2026-11-13 08:26:28 F6-triton: W1 x2.0 (32.833 req/s) seed 2: TTFT p95 0.059 s, TPOT p95 12.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/capacity/W3/0.tmp: 600 requests, 0 errors, 11.1 s
+2026-11-13 08:26:54 F6-triton: W3 closed-loop capacity 49.69 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.1/W3/0.tmp: 600 requests, 0 errors, 183.7 s
+2026-11-13 08:30:02 F6-triton: W3 x0.1 (2.899 req/s) seed 0: TTFT p95 0.026 s, TPOT p95 5.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.25/W3/0.tmp: 600 requests, 0 errors, 73.8 s
+2026-11-13 08:31:27 F6-triton: W3 x0.25 (7.248 req/s) seed 0: TTFT p95 0.028 s, TPOT p95 5.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.5/W3/0.tmp: 600 requests, 0 errors, 37.2 s
+2026-11-13 08:32:19 F6-triton: W3 x0.5 (14.496 req/s) seed 0: TTFT p95 0.035 s, TPOT p95 7.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.7/W3/0.tmp: 600 requests, 0 errors, 26.8 s
+2026-11-13 08:32:59 F6-triton: W3 x0.7 (20.294 req/s) seed 0: TTFT p95 0.033 s, TPOT p95 8.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.8/W3/0.tmp: 600 requests, 0 errors, 23.6 s
+2026-11-13 08:33:37 F6-triton: W3 x0.8 (23.193 req/s) seed 0: TTFT p95 0.045 s, TPOT p95 8.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.9/W3/0.tmp: 600 requests, 0 errors, 21.1 s
+2026-11-13 08:34:13 F6-triton: W3 x0.9 (26.092 req/s) seed 0: TTFT p95 0.041 s, TPOT p95 8.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.0/W3/0.tmp: 600 requests, 0 errors, 19.0 s
+2026-11-13 08:34:47 F6-triton: W3 x1.0 (28.992 req/s) seed 0: TTFT p95 0.038 s, TPOT p95 8.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.1/W3/0.tmp: 600 requests, 0 errors, 17.4 s
+2026-11-13 08:35:19 F6-triton: W3 x1.1 (31.891 req/s) seed 0: TTFT p95 0.040 s, TPOT p95 8.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.25/W3/0.tmp: 600 requests, 0 errors, 15.4 s
+2026-11-13 08:35:50 F6-triton: W3 x1.25 (36.239 req/s) seed 0: TTFT p95 0.042 s, TPOT p95 9.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.5/W3/0.tmp: 600 requests, 0 errors, 13.1 s
+2026-11-13 08:36:18 F6-triton: W3 x1.5 (43.487 req/s) seed 0: TTFT p95 0.048 s, TPOT p95 11.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.75/W3/0.tmp: 600 requests, 0 errors, 11.4 s
+2026-11-13 08:36:44 F6-triton: W3 x1.75 (50.735 req/s) seed 0: TTFT p95 0.054 s, TPOT p95 12.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x2.0/W3/0.tmp: 600 requests, 0 errors, 10.2 s
+2026-11-13 08:37:09 F6-triton: W3 x2.0 (57.983 req/s) seed 0: TTFT p95 0.069 s, TPOT p95 13.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.1/W3/1.tmp: 600 requests, 0 errors, 199.1 s
+2026-11-13 08:40:33 F6-triton: W3 x0.1 (2.899 req/s) seed 1: TTFT p95 0.028 s, TPOT p95 5.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.25/W3/1.tmp: 600 requests, 0 errors, 79.9 s
+2026-11-13 08:42:04 F6-triton: W3 x0.25 (7.248 req/s) seed 1: TTFT p95 0.032 s, TPOT p95 5.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.5/W3/1.tmp: 600 requests, 0 errors, 40.3 s
+2026-11-13 08:42:57 F6-triton: W3 x0.5 (14.496 req/s) seed 1: TTFT p95 0.037 s, TPOT p95 6.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.7/W3/1.tmp: 600 requests, 0 errors, 29.0 s
+2026-11-13 08:43:39 F6-triton: W3 x0.7 (20.294 req/s) seed 1: TTFT p95 0.034 s, TPOT p95 7.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.8/W3/1.tmp: 600 requests, 0 errors, 25.4 s
+2026-11-13 08:44:19 F6-triton: W3 x0.8 (23.193 req/s) seed 1: TTFT p95 0.035 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.9/W3/1.tmp: 600 requests, 0 errors, 22.7 s
+2026-11-13 08:44:57 F6-triton: W3 x0.9 (26.092 req/s) seed 1: TTFT p95 0.036 s, TPOT p95 8.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.0/W3/1.tmp: 600 requests, 0 errors, 20.5 s
+2026-11-13 08:45:32 F6-triton: W3 x1.0 (28.992 req/s) seed 1: TTFT p95 0.038 s, TPOT p95 8.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.1/W3/1.tmp: 600 requests, 0 errors, 18.8 s
+2026-11-13 08:46:06 F6-triton: W3 x1.1 (31.891 req/s) seed 1: TTFT p95 0.040 s, TPOT p95 8.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.25/W3/1.tmp: 600 requests, 0 errors, 16.6 s
+2026-11-13 08:46:37 F6-triton: W3 x1.25 (36.239 req/s) seed 1: TTFT p95 0.040 s, TPOT p95 9.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.5/W3/1.tmp: 600 requests, 0 errors, 14.1 s
+2026-11-13 08:47:06 F6-triton: W3 x1.5 (43.487 req/s) seed 1: TTFT p95 0.046 s, TPOT p95 10.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.75/W3/1.tmp: 600 requests, 0 errors, 12.3 s
+2026-11-13 08:47:33 F6-triton: W3 x1.75 (50.735 req/s) seed 1: TTFT p95 0.052 s, TPOT p95 11.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x2.0/W3/1.tmp: 600 requests, 0 errors, 10.9 s
+2026-11-13 08:47:59 F6-triton: W3 x2.0 (57.983 req/s) seed 1: TTFT p95 0.066 s, TPOT p95 12.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.1/W3/2.tmp: 600 requests, 0 errors, 203.6 s
+2026-11-13 08:51:28 F6-triton: W3 x0.1 (2.899 req/s) seed 2: TTFT p95 0.027 s, TPOT p95 5.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.25/W3/2.tmp: 600 requests, 0 errors, 81.7 s
+2026-11-13 08:53:00 F6-triton: W3 x0.25 (7.248 req/s) seed 2: TTFT p95 0.027 s, TPOT p95 5.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.5/W3/2.tmp: 600 requests, 0 errors, 41.1 s
+2026-11-13 08:53:55 F6-triton: W3 x0.5 (14.496 req/s) seed 2: TTFT p95 0.031 s, TPOT p95 6.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.7/W3/2.tmp: 600 requests, 0 errors, 29.6 s
+2026-11-13 08:54:37 F6-triton: W3 x0.7 (20.294 req/s) seed 2: TTFT p95 0.034 s, TPOT p95 7.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.8/W3/2.tmp: 600 requests, 0 errors, 26.0 s
+2026-11-13 08:55:18 F6-triton: W3 x0.8 (23.193 req/s) seed 2: TTFT p95 0.036 s, TPOT p95 8.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x0.9/W3/2.tmp: 600 requests, 0 errors, 23.2 s
+2026-11-13 08:55:56 F6-triton: W3 x0.9 (26.092 req/s) seed 2: TTFT p95 0.036 s, TPOT p95 8.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.0/W3/2.tmp: 600 requests, 0 errors, 21.0 s
+2026-11-13 08:56:32 F6-triton: W3 x1.0 (28.992 req/s) seed 2: TTFT p95 0.039 s, TPOT p95 8.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.1/W3/2.tmp: 600 requests, 0 errors, 19.1 s
+2026-11-13 08:57:06 F6-triton: W3 x1.1 (31.891 req/s) seed 2: TTFT p95 0.041 s, TPOT p95 9.2 ms, errors 0
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.25/W3/2.tmp: 600 requests, 0 errors, 16.9 s
+2026-11-13 08:57:36 F6-triton: W3 x1.25 (36.239 req/s) seed 2: TTFT p95 0.042 s, TPOT p95 9.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.5/W3/2.tmp: 600 requests, 0 errors, 14.3 s
+2026-11-13 08:58:07 F6-triton: W3 x1.5 (43.487 req/s) seed 2: TTFT p95 0.047 s, TPOT p95 10.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x1.75/W3/2.tmp: 600 requests, 0 errors, 12.5 s
+2026-11-13 08:58:35 F6-triton: W3 x1.75 (50.735 req/s) seed 2: TTFT p95 0.056 s, TPOT p95 13.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/x2.0/W3/2.tmp: 600 requests, 0 errors, 11.1 s
+2026-11-13 08:59:01 F6-triton: W3 x2.0 (57.983 req/s) seed 2: TTFT p95 0.065 s, TPOT p95 12.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F6-triton/bs1_end/W1/0.tmp: 60 requests, 0 errors, 81.8 s
+2026-11-13 09:00:33 F6-triton: drift 4.27 -> 4.25 ms (-0.4%), valid
+2026-11-13 09:00:33 F1-seqs8: starting server ['--max-num-seqs', '8'] {}
+(EngineCore pid=74) WARNING 11-13 01:01:04 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=74) INFO 11-13 01:01:08 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=74) INFO 11-13 01:01:22 [gpu_worker.py:759] Available KV cache memory: 7.63 GiB
+(EngineCore pid=74) INFO 11-13 01:01:22 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7453 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7547. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=74) INFO 11-13 01:01:22 [kv_cache_utils.py:2327] GPU KV cache size: 666,672 tokens, Maximum concurrency for 8,192 tokens per request: 81.38x
+(EngineCore pid=74) INFO 11-13 01:01:25 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.06 GiB for consumed memory (weights + non-torch), 0.31 GiB for peak activation, and 0.03 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=8001409024` (7.45 GiB) to fit into requested memory, or `--kv-cache-memory=10127265792` (9.43 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.63 GiB.
+(EngineCore pid=74) INFO 11-13 01:01:25 [core.py:395] init engine (profile, create kv cache, warmup model) took 17.13 s (compilation: 12.11 s)
+(APIServer pid=1) INFO 11-13 01:01:27 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-13 01:01:27 [launcher.py:195] Route: /ping, Methods: POST
+ready: F1-seqs8
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/bs1/W1/0.tmp: 60 requests, 0 errors, 85.9 s
+2026-11-13 09:03:05 F1-seqs8: batch-1 TPOT p50 4.46 ms
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/capacity/W1/0.tmp: 600 requests, 0 errors, 111.8 s
+2026-11-13 09:05:06 F1-seqs8: W1 closed-loop capacity 4.92 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.1/W1/0.tmp: 600 requests, 0 errors, 325.2 s
+2026-11-13 09:10:27 F1-seqs8: W1 x0.1 (1.642 req/s) seed 0: TTFT p95 0.022 s, TPOT p95 5.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.25/W1/0.tmp: 600 requests, 0 errors, 133.8 s
+2026-11-13 09:12:50 F1-seqs8: W1 x0.25 (4.104 req/s) seed 0: TTFT p95 1.926 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.5/W1/0.tmp: 600 requests, 0 errors, 106.8 s
+2026-11-13 09:14:46 F1-seqs8: W1 x0.5 (8.208 req/s) seed 0: TTFT p95 36.159 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.7/W1/0.tmp: 600 requests, 0 errors, 107.4 s
+2026-11-13 09:16:42 F1-seqs8: W1 x0.7 (11.492 req/s) seed 0: TTFT p95 54.791 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.8/W1/0.tmp: 600 requests, 0 errors, 107.1 s
+2026-11-13 09:18:40 F1-seqs8: W1 x0.8 (13.133 req/s) seed 0: TTFT p95 60.142 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.9/W1/0.tmp: 600 requests, 0 errors, 107.0 s
+2026-11-13 09:20:36 F1-seqs8: W1 x0.9 (14.775 req/s) seed 0: TTFT p95 64.380 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.0/W1/0.tmp: 600 requests, 0 errors, 106.5 s
+2026-11-13 09:22:32 F1-seqs8: W1 x1.0 (16.416 req/s) seed 0: TTFT p95 67.378 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.1/W1/0.tmp: 600 requests, 0 errors, 106.8 s
+2026-11-13 09:24:28 F1-seqs8: W1 x1.1 (18.058 req/s) seed 0: TTFT p95 70.530 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.25/W1/0.tmp: 600 requests, 0 errors, 107.0 s
+2026-11-13 09:26:24 F1-seqs8: W1 x1.25 (20.521 req/s) seed 0: TTFT p95 74.180 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.5/W1/0.tmp: 600 requests, 0 errors, 106.7 s
+2026-11-13 09:28:22 F1-seqs8: W1 x1.5 (24.625 req/s) seed 0: TTFT p95 78.074 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.75/W1/0.tmp: 600 requests, 0 errors, 110.3 s
+2026-11-13 09:30:22 F1-seqs8: W1 x1.75 (28.729 req/s) seed 0: TTFT p95 81.716 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x2.0/W1/0.tmp: 600 requests, 0 errors, 108.3 s
+2026-11-13 09:32:20 F1-seqs8: W1 x2.0 (32.833 req/s) seed 0: TTFT p95 84.867 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.1/W1/1.tmp: 600 requests, 0 errors, 351.4 s
+2026-11-13 09:38:07 F1-seqs8: W1 x0.1 (1.642 req/s) seed 1: TTFT p95 0.049 s, TPOT p95 5.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.25/W1/1.tmp: 600 requests, 0 errors, 143.8 s
+2026-11-13 09:40:38 F1-seqs8: W1 x0.25 (4.104 req/s) seed 1: TTFT p95 1.605 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.5/W1/1.tmp: 600 requests, 0 errors, 108.4 s
+2026-11-13 09:42:36 F1-seqs8: W1 x0.5 (8.208 req/s) seed 1: TTFT p95 33.557 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.7/W1/1.tmp: 600 requests, 0 errors, 107.9 s
+2026-11-13 09:44:33 F1-seqs8: W1 x0.7 (11.492 req/s) seed 1: TTFT p95 52.277 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.8/W1/1.tmp: 600 requests, 0 errors, 107.6 s
+2026-11-13 09:46:30 F1-seqs8: W1 x0.8 (13.133 req/s) seed 1: TTFT p95 57.938 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.9/W1/1.tmp: 600 requests, 0 errors, 108.3 s
+2026-11-13 09:48:28 F1-seqs8: W1 x0.9 (14.775 req/s) seed 1: TTFT p95 63.531 s, TPOT p95 5.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.0/W1/1.tmp: 600 requests, 0 errors, 108.2 s
+2026-11-13 09:50:26 F1-seqs8: W1 x1.0 (16.416 req/s) seed 1: TTFT p95 67.020 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.1/W1/1.tmp: 600 requests, 0 errors, 107.6 s
+2026-11-13 09:52:23 F1-seqs8: W1 x1.1 (18.058 req/s) seed 1: TTFT p95 69.505 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.25/W1/1.tmp: 600 requests, 0 errors, 107.8 s
+2026-11-13 09:54:22 F1-seqs8: W1 x1.25 (20.521 req/s) seed 1: TTFT p95 73.309 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.5/W1/1.tmp: 600 requests, 0 errors, 108.1 s
+2026-11-13 09:56:20 F1-seqs8: W1 x1.5 (24.625 req/s) seed 1: TTFT p95 78.091 s, TPOT p95 5.6 ms, errors 0
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.75/W1/1.tmp: 600 requests, 0 errors, 107.5 s
+2026-11-13 09:58:17 F1-seqs8: W1 x1.75 (28.729 req/s) seed 1: TTFT p95 80.701 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x2.0/W1/1.tmp: 600 requests, 0 errors, 107.6 s
+2026-11-13 10:00:14 F1-seqs8: W1 x2.0 (32.833 req/s) seed 1: TTFT p95 83.347 s, TPOT p95 5.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.1/W1/2.tmp: 600 requests, 0 errors, 358.8 s
+2026-11-13 10:06:10 F1-seqs8: W1 x0.1 (1.642 req/s) seed 2: TTFT p95 0.043 s, TPOT p95 5.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.25/W1/2.tmp: 600 requests, 0 errors, 144.1 s
+2026-11-13 10:08:42 F1-seqs8: W1 x0.25 (4.104 req/s) seed 2: TTFT p95 2.365 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.5/W1/2.tmp: 600 requests, 0 errors, 105.4 s
+2026-11-13 10:10:38 F1-seqs8: W1 x0.5 (8.208 req/s) seed 2: TTFT p95 31.948 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.7/W1/2.tmp: 600 requests, 0 errors, 105.0 s
+2026-11-13 10:12:32 F1-seqs8: W1 x0.7 (11.492 req/s) seed 2: TTFT p95 51.118 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.8/W1/2.tmp: 600 requests, 0 errors, 105.1 s
+2026-11-13 10:14:27 F1-seqs8: W1 x0.8 (13.133 req/s) seed 2: TTFT p95 57.474 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x0.9/W1/2.tmp: 600 requests, 0 errors, 104.5 s
+2026-11-13 10:16:23 F1-seqs8: W1 x0.9 (14.775 req/s) seed 2: TTFT p95 61.592 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.0/W1/2.tmp: 600 requests, 0 errors, 105.1 s
+2026-11-13 10:18:18 F1-seqs8: W1 x1.0 (16.416 req/s) seed 2: TTFT p95 65.959 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.1/W1/2.tmp: 600 requests, 0 errors, 104.9 s
+2026-11-13 10:20:13 F1-seqs8: W1 x1.1 (18.058 req/s) seed 2: TTFT p95 68.930 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.25/W1/2.tmp: 600 requests, 0 errors, 105.4 s
+2026-11-13 10:22:08 F1-seqs8: W1 x1.25 (20.521 req/s) seed 2: TTFT p95 73.208 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.5/W1/2.tmp: 600 requests, 0 errors, 104.5 s
+2026-11-13 10:24:04 F1-seqs8: W1 x1.5 (24.625 req/s) seed 2: TTFT p95 76.920 s, TPOT p95 5.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x1.75/W1/2.tmp: 600 requests, 0 errors, 104.4 s
+2026-11-13 10:25:58 F1-seqs8: W1 x1.75 (28.729 req/s) seed 2: TTFT p95 79.916 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/x2.0/W1/2.tmp: 600 requests, 0 errors, 104.2 s
+2026-11-13 10:27:52 F1-seqs8: W1 x2.0 (32.833 req/s) seed 2: TTFT p95 82.559 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs8/bs1_end/W1/0.tmp: 60 requests, 0 errors, 85.5 s
+2026-11-13 10:29:29 F1-seqs8: drift 4.46 -> 4.45 ms (-0.2%), valid
+2026-11-13 10:29:29 F1-seqs32: starting server ['--max-num-seqs', '32'] {}
+(EngineCore pid=73) WARNING 11-13 02:29:59 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=73) INFO 11-13 02:30:03 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=73) INFO 11-13 02:30:16 [gpu_worker.py:759] Available KV cache memory: 7.58 GiB
+(EngineCore pid=73) INFO 11-13 02:30:16 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7410 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7590. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=73) INFO 11-13 02:30:16 [kv_cache_utils.py:2327] GPU KV cache size: 662,096 tokens, Maximum concurrency for 8,192 tokens per request: 80.82x
+(EngineCore pid=73) INFO 11-13 02:30:19 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.06 GiB for consumed memory (weights + non-torch), 0.36 GiB for peak activation, and 0.06 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7909527552` (7.37 GiB) to fit into requested memory, or `--kv-cache-memory=10035384320` (9.35 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.58 GiB.
+(EngineCore pid=73) INFO 11-13 02:30:20 [core.py:395] init engine (profile, create kv cache, warmup model) took 16.99 s (compilation: 11.23 s)
+(APIServer pid=1) INFO 11-13 02:30:22 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-13 02:30:22 [launcher.py:195] Route: /ping, Methods: POST
+ready: F1-seqs32
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/bs1/W1/0.tmp: 60 requests, 0 errors, 85.5 s
+2026-11-13 10:32:00 F1-seqs32: batch-1 TPOT p50 4.45 ms
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/capacity/W1/0.tmp: 600 requests, 0 errors, 47.4 s
+2026-11-13 10:33:01 F1-seqs32: W1 closed-loop capacity 11.61 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.1/W1/0.tmp: 600 requests, 0 errors, 325.2 s
+2026-11-13 10:38:25 F1-seqs32: W1 x0.1 (1.642 req/s) seed 0: TTFT p95 0.021 s, TPOT p95 5.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.25/W1/0.tmp: 600 requests, 0 errors, 131.8 s
+2026-11-13 10:40:45 F1-seqs32: W1 x0.25 (4.104 req/s) seed 0: TTFT p95 0.023 s, TPOT p95 5.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.5/W1/0.tmp: 600 requests, 0 errors, 68.9 s
+2026-11-13 10:42:06 F1-seqs32: W1 x0.5 (8.208 req/s) seed 0: TTFT p95 0.030 s, TPOT p95 6.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.7/W1/0.tmp: 600 requests, 0 errors, 51.1 s
+2026-11-13 10:43:10 F1-seqs32: W1 x0.7 (11.492 req/s) seed 0: TTFT p95 0.246 s, TPOT p95 7.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.8/W1/0.tmp: 600 requests, 0 errors, 45.6 s
+2026-11-13 10:44:09 F1-seqs32: W1 x0.8 (13.133 req/s) seed 0: TTFT p95 0.617 s, TPOT p95 8.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.9/W1/0.tmp: 600 requests, 0 errors, 42.6 s
+2026-11-13 10:45:05 F1-seqs32: W1 x0.9 (14.775 req/s) seed 0: TTFT p95 2.573 s, TPOT p95 8.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.0/W1/0.tmp: 600 requests, 0 errors, 42.4 s
+2026-11-13 10:46:02 F1-seqs32: W1 x1.0 (16.416 req/s) seed 0: TTFT p95 4.913 s, TPOT p95 8.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.1/W1/0.tmp: 600 requests, 0 errors, 42.4 s
+2026-11-13 10:46:58 F1-seqs32: W1 x1.1 (18.058 req/s) seed 0: TTFT p95 7.437 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.25/W1/0.tmp: 600 requests, 0 errors, 42.2 s
+2026-11-13 10:47:54 F1-seqs32: W1 x1.25 (20.521 req/s) seed 0: TTFT p95 10.645 s, TPOT p95 8.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.5/W1/0.tmp: 600 requests, 0 errors, 42.0 s
+2026-11-13 10:48:49 F1-seqs32: W1 x1.5 (24.625 req/s) seed 0: TTFT p95 14.663 s, TPOT p95 8.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.75/W1/0.tmp: 600 requests, 0 errors, 41.8 s
+2026-11-13 10:49:44 F1-seqs32: W1 x1.75 (28.729 req/s) seed 0: TTFT p95 17.502 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x2.0/W1/0.tmp: 600 requests, 0 errors, 41.7 s
+2026-11-13 10:50:41 F1-seqs32: W1 x2.0 (32.833 req/s) seed 0: TTFT p95 19.568 s, TPOT p95 8.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.1/W1/1.tmp: 600 requests, 0 errors, 351.4 s
+2026-11-13 10:56:28 F1-seqs32: W1 x0.1 (1.642 req/s) seed 1: TTFT p95 0.048 s, TPOT p95 5.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.25/W1/1.tmp: 600 requests, 0 errors, 142.5 s
+2026-11-13 10:58:59 F1-seqs32: W1 x0.25 (4.104 req/s) seed 1: TTFT p95 0.023 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.5/W1/1.tmp: 600 requests, 0 errors, 74.1 s
+2026-11-13 11:00:24 F1-seqs32: W1 x0.5 (8.208 req/s) seed 1: TTFT p95 0.028 s, TPOT p95 7.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.7/W1/1.tmp: 600 requests, 0 errors, 54.9 s
+2026-11-13 11:01:33 F1-seqs32: W1 x0.7 (11.492 req/s) seed 1: TTFT p95 0.211 s, TPOT p95 7.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.8/W1/1.tmp: 600 requests, 0 errors, 49.5 s
+2026-11-13 11:02:35 F1-seqs32: W1 x0.8 (13.133 req/s) seed 1: TTFT p95 0.780 s, TPOT p95 7.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.9/W1/1.tmp: 600 requests, 0 errors, 45.4 s
+2026-11-13 11:03:34 F1-seqs32: W1 x0.9 (14.775 req/s) seed 1: TTFT p95 1.395 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.0/W1/1.tmp: 600 requests, 0 errors, 43.9 s
+2026-11-13 11:04:32 F1-seqs32: W1 x1.0 (16.416 req/s) seed 1: TTFT p95 3.701 s, TPOT p95 8.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.1/W1/1.tmp: 600 requests, 0 errors, 43.2 s
+2026-11-13 11:05:30 F1-seqs32: W1 x1.1 (18.058 req/s) seed 1: TTFT p95 6.032 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.25/W1/1.tmp: 600 requests, 0 errors, 42.9 s
+2026-11-13 11:06:26 F1-seqs32: W1 x1.25 (20.521 req/s) seed 1: TTFT p95 9.293 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.5/W1/1.tmp: 600 requests, 0 errors, 42.6 s
+2026-11-13 11:07:22 F1-seqs32: W1 x1.5 (24.625 req/s) seed 1: TTFT p95 13.476 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.75/W1/1.tmp: 600 requests, 0 errors, 42.7 s
+2026-11-13 11:08:19 F1-seqs32: W1 x1.75 (28.729 req/s) seed 1: TTFT p95 16.765 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x2.0/W1/1.tmp: 600 requests, 0 errors, 42.5 s
+2026-11-13 11:09:15 F1-seqs32: W1 x2.0 (32.833 req/s) seed 1: TTFT p95 18.977 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.1/W1/2.tmp: 600 requests, 0 errors, 358.8 s
+2026-11-13 11:15:12 F1-seqs32: W1 x0.1 (1.642 req/s) seed 2: TTFT p95 0.065 s, TPOT p95 6.6 ms, errors 0
+2026-11-13 11:15:12 waiting for a quiet GPU: {'mem_used_mib': 9808.0, 'dec_pct': 9.0, 'enc_pct': 0.0, 'sm_mhz': 232.0, 'mem_mhz': 5001.0, 'power_w': 31.74}
+2026-11-13 11:15:30 GPU quiet again, continuing
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.25/W1/2.tmp: 600 requests, 0 errors, 144.1 s
+2026-11-13 11:17:52 F1-seqs32: W1 x0.25 (4.104 req/s) seed 2: TTFT p95 0.023 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.5/W1/2.tmp: 600 requests, 0 errors, 73.1 s
+2026-11-13 11:19:19 F1-seqs32: W1 x0.5 (8.208 req/s) seed 2: TTFT p95 0.030 s, TPOT p95 7.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.7/W1/2.tmp: 600 requests, 0 errors, 54.0 s
+2026-11-13 11:20:25 F1-seqs32: W1 x0.7 (11.492 req/s) seed 2: TTFT p95 0.495 s, TPOT p95 7.8 ms, errors 0
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.8/W1/2.tmp: 600 requests, 0 errors, 48.3 s
+2026-11-13 11:21:27 F1-seqs32: W1 x0.8 (13.133 req/s) seed 2: TTFT p95 1.561 s, TPOT p95 8.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x0.9/W1/2.tmp: 600 requests, 0 errors, 45.8 s
+2026-11-13 11:22:26 F1-seqs32: W1 x0.9 (14.775 req/s) seed 2: TTFT p95 2.832 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.0/W1/2.tmp: 600 requests, 0 errors, 44.4 s
+2026-11-13 11:23:26 F1-seqs32: W1 x1.0 (16.416 req/s) seed 2: TTFT p95 4.813 s, TPOT p95 9.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.1/W1/2.tmp: 600 requests, 0 errors, 42.5 s
+2026-11-13 11:24:22 F1-seqs32: W1 x1.1 (18.058 req/s) seed 2: TTFT p95 6.024 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.25/W1/2.tmp: 600 requests, 0 errors, 41.7 s
+2026-11-13 11:25:17 F1-seqs32: W1 x1.25 (20.521 req/s) seed 2: TTFT p95 8.934 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.5/W1/2.tmp: 600 requests, 0 errors, 41.4 s
+2026-11-13 11:26:12 F1-seqs32: W1 x1.5 (24.625 req/s) seed 2: TTFT p95 13.215 s, TPOT p95 8.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x1.75/W1/2.tmp: 600 requests, 0 errors, 41.3 s
+2026-11-13 11:27:06 F1-seqs32: W1 x1.75 (28.729 req/s) seed 2: TTFT p95 16.347 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/x2.0/W1/2.tmp: 600 requests, 0 errors, 41.1 s
+2026-11-13 11:28:03 F1-seqs32: W1 x2.0 (32.833 req/s) seed 2: TTFT p95 18.645 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs32/bs1_end/W1/0.tmp: 60 requests, 0 errors, 86.5 s
+2026-11-13 11:29:39 F1-seqs32: drift 4.45 -> 4.50 ms (+1.1%), valid
+2026-11-13 11:29:39 F1-seqs128: starting server ['--max-num-seqs', '128'] {}
+(EngineCore pid=73) WARNING 11-13 03:30:12 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=73) INFO 11-13 03:30:16 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=73) INFO 11-13 03:30:32 [gpu_worker.py:759] Available KV cache memory: 7.4 GiB
+(EngineCore pid=73) INFO 11-13 03:30:32 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7323 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7677. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=73) INFO 11-13 03:30:32 [kv_cache_utils.py:2327] GPU KV cache size: 646,192 tokens, Maximum concurrency for 8,192 tokens per request: 78.88x
+(EngineCore pid=73) INFO 11-13 03:30:37 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.14 GiB for consumed memory (weights + non-torch), 0.47 GiB for peak activation, and 0.11 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7663766528` (7.14 GiB) to fit into requested memory, or `--kv-cache-memory=9789623296` (9.12 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.4 GiB.
+(EngineCore pid=73) INFO 11-13 03:30:38 [core.py:395] init engine (profile, create kv cache, warmup model) took 21.67 s (compilation: 11.46 s)
+(APIServer pid=1) INFO 11-13 03:30:39 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-13 03:30:39 [launcher.py:195] Route: /ping, Methods: POST
+ready: F1-seqs128
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/bs1/W1/0.tmp: 60 requests, 0 errors, 86.4 s
+2026-11-13 11:32:18 F1-seqs128: batch-1 TPOT p50 4.50 ms
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/capacity/W1/0.tmp: 600 requests, 0 errors, 36.0 s
+2026-11-13 11:33:09 F1-seqs128: W1 closed-loop capacity 15.26 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.1/W1/0.tmp: 600 requests, 0 errors, 325.2 s
+2026-11-13 11:38:32 F1-seqs128: W1 x0.1 (1.642 req/s) seed 0: TTFT p95 0.021 s, TPOT p95 5.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.25/W1/0.tmp: 600 requests, 0 errors, 131.8 s
+2026-11-13 11:40:54 F1-seqs128: W1 x0.25 (4.104 req/s) seed 0: TTFT p95 0.022 s, TPOT p95 5.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.5/W1/0.tmp: 600 requests, 0 errors, 69.0 s
+2026-11-13 11:42:15 F1-seqs128: W1 x0.5 (8.208 req/s) seed 0: TTFT p95 0.029 s, TPOT p95 7.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.7/W1/0.tmp: 600 requests, 0 errors, 51.0 s
+2026-11-13 11:43:19 F1-seqs128: W1 x0.7 (11.492 req/s) seed 0: TTFT p95 0.037 s, TPOT p95 7.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.8/W1/0.tmp: 600 requests, 0 errors, 45.4 s
+2026-11-13 11:44:18 F1-seqs128: W1 x0.8 (13.133 req/s) seed 0: TTFT p95 0.038 s, TPOT p95 8.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.9/W1/0.tmp: 600 requests, 0 errors, 41.2 s
+2026-11-13 11:45:13 F1-seqs128: W1 x0.9 (14.775 req/s) seed 0: TTFT p95 0.041 s, TPOT p95 8.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.0/W1/0.tmp: 600 requests, 0 errors, 37.7 s
+2026-11-13 11:46:04 F1-seqs128: W1 x1.0 (16.416 req/s) seed 0: TTFT p95 0.052 s, TPOT p95 9.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.1/W1/0.tmp: 600 requests, 0 errors, 34.9 s
+2026-11-13 11:46:54 F1-seqs128: W1 x1.1 (18.058 req/s) seed 0: TTFT p95 0.052 s, TPOT p95 9.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.25/W1/0.tmp: 600 requests, 0 errors, 32.3 s
+2026-11-13 11:47:40 F1-seqs128: W1 x1.25 (20.521 req/s) seed 0: TTFT p95 0.089 s, TPOT p95 18.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.5/W1/0.tmp: 600 requests, 0 errors, 30.8 s
+2026-11-13 11:48:26 F1-seqs128: W1 x1.5 (24.625 req/s) seed 0: TTFT p95 2.030 s, TPOT p95 25.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.75/W1/0.tmp: 600 requests, 0 errors, 30.9 s
+2026-11-13 11:49:12 F1-seqs128: W1 x1.75 (28.729 req/s) seed 0: TTFT p95 5.010 s, TPOT p95 24.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x2.0/W1/0.tmp: 600 requests, 0 errors, 30.9 s
+2026-11-13 11:49:56 F1-seqs128: W1 x2.0 (32.833 req/s) seed 0: TTFT p95 7.144 s, TPOT p95 25.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.1/W1/1.tmp: 600 requests, 0 errors, 351.3 s
+2026-11-13 11:55:46 F1-seqs128: W1 x0.1 (1.642 req/s) seed 1: TTFT p95 0.047 s, TPOT p95 5.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.25/W1/1.tmp: 600 requests, 0 errors, 142.5 s
+2026-11-13 11:58:17 F1-seqs128: W1 x0.25 (4.104 req/s) seed 1: TTFT p95 0.022 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.5/W1/1.tmp: 600 requests, 0 errors, 74.1 s
+2026-11-13 11:59:42 F1-seqs128: W1 x0.5 (8.208 req/s) seed 1: TTFT p95 0.029 s, TPOT p95 7.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.7/W1/1.tmp: 600 requests, 0 errors, 54.9 s
+2026-11-13 12:00:51 F1-seqs128: W1 x0.7 (11.492 req/s) seed 1: TTFT p95 0.033 s, TPOT p95 7.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.8/W1/1.tmp: 600 requests, 0 errors, 48.7 s
+2026-11-13 12:01:53 F1-seqs128: W1 x0.8 (13.133 req/s) seed 1: TTFT p95 0.036 s, TPOT p95 8.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.9/W1/1.tmp: 600 requests, 0 errors, 44.0 s
+2026-11-13 12:02:51 F1-seqs128: W1 x0.9 (14.775 req/s) seed 1: TTFT p95 0.038 s, TPOT p95 8.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.0/W1/1.tmp: 600 requests, 0 errors, 40.4 s
+2026-11-13 12:03:44 F1-seqs128: W1 x1.0 (16.416 req/s) seed 1: TTFT p95 0.041 s, TPOT p95 8.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.1/W1/1.tmp: 600 requests, 0 errors, 37.4 s
+2026-11-13 12:04:37 F1-seqs128: W1 x1.1 (18.058 req/s) seed 1: TTFT p95 0.046 s, TPOT p95 9.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.25/W1/1.tmp: 600 requests, 0 errors, 34.2 s
+2026-11-13 12:05:25 F1-seqs128: W1 x1.25 (20.521 req/s) seed 1: TTFT p95 0.056 s, TPOT p95 12.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.5/W1/1.tmp: 600 requests, 0 errors, 31.7 s
+2026-11-13 12:06:12 F1-seqs128: W1 x1.5 (24.625 req/s) seed 1: TTFT p95 1.251 s, TPOT p95 23.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.75/W1/1.tmp: 600 requests, 0 errors, 31.3 s
+2026-11-13 12:06:56 F1-seqs128: W1 x1.75 (28.729 req/s) seed 1: TTFT p95 4.013 s, TPOT p95 23.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x2.0/W1/1.tmp: 600 requests, 0 errors, 30.7 s
+2026-11-13 12:07:42 F1-seqs128: W1 x2.0 (32.833 req/s) seed 1: TTFT p95 5.898 s, TPOT p95 23.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.1/W1/2.tmp: 600 requests, 0 errors, 358.8 s
+2026-11-13 12:13:39 F1-seqs128: W1 x0.1 (1.642 req/s) seed 2: TTFT p95 0.042 s, TPOT p95 5.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.25/W1/2.tmp: 600 requests, 0 errors, 144.1 s
+2026-11-13 12:16:11 F1-seqs128: W1 x0.25 (4.104 req/s) seed 2: TTFT p95 0.023 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.5/W1/2.tmp: 600 requests, 0 errors, 73.1 s
+2026-11-13 12:17:37 F1-seqs128: W1 x0.5 (8.208 req/s) seed 2: TTFT p95 0.028 s, TPOT p95 7.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.7/W1/2.tmp: 600 requests, 0 errors, 54.0 s
+2026-11-13 12:18:44 F1-seqs128: W1 x0.7 (11.492 req/s) seed 2: TTFT p95 0.033 s, TPOT p95 7.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.8/W1/2.tmp: 600 requests, 0 errors, 48.1 s
+2026-11-13 12:19:46 F1-seqs128: W1 x0.8 (13.133 req/s) seed 2: TTFT p95 0.036 s, TPOT p95 7.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x0.9/W1/2.tmp: 600 requests, 0 errors, 43.4 s
+2026-11-13 12:20:43 F1-seqs128: W1 x0.9 (14.775 req/s) seed 2: TTFT p95 0.039 s, TPOT p95 8.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.0/W1/2.tmp: 600 requests, 0 errors, 39.6 s
+2026-11-13 12:21:38 F1-seqs128: W1 x1.0 (16.416 req/s) seed 2: TTFT p95 0.046 s, TPOT p95 9.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.1/W1/2.tmp: 600 requests, 0 errors, 36.6 s
+2026-11-13 12:22:28 F1-seqs128: W1 x1.1 (18.058 req/s) seed 2: TTFT p95 0.055 s, TPOT p95 11.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.25/W1/2.tmp: 600 requests, 0 errors, 34.1 s
+2026-11-13 12:23:16 F1-seqs128: W1 x1.25 (20.521 req/s) seed 2: TTFT p95 0.080 s, TPOT p95 17.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.5/W1/2.tmp: 600 requests, 0 errors, 31.6 s
+2026-11-13 12:24:02 F1-seqs128: W1 x1.5 (24.625 req/s) seed 2: TTFT p95 1.570 s, TPOT p95 23.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x1.75/W1/2.tmp: 600 requests, 0 errors, 30.8 s
+2026-11-13 12:24:47 F1-seqs128: W1 x1.75 (28.729 req/s) seed 2: TTFT p95 3.976 s, TPOT p95 23.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/x2.0/W1/2.tmp: 600 requests, 0 errors, 30.3 s
+2026-11-13 12:25:33 F1-seqs128: W1 x2.0 (32.833 req/s) seed 2: TTFT p95 5.986 s, TPOT p95 23.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F1-seqs128/bs1_end/W1/0.tmp: 60 requests, 0 errors, 86.1 s
+2026-11-13 12:27:11 F1-seqs128: drift 4.50 -> 4.44 ms (-1.4%), valid
+2026-11-13 12:27:11 F2-off: starting server ['--no-enable-chunked-prefill'] {}
+(EngineCore pid=74) WARNING 11-13 04:27:42 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=74) INFO 11-13 04:27:45 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=74) INFO 11-13 04:28:01 [gpu_worker.py:759] Available KV cache memory: 7.24 GiB
+(EngineCore pid=74) INFO 11-13 04:28:01 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=74) INFO 11-13 04:28:01 [kv_cache_utils.py:2327] GPU KV cache size: 632,624 tokens, Maximum concurrency for 8,192 tokens per request: 77.22x
+(EngineCore pid=74) INFO 11-13 04:28:07 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.55 GiB for peak activation, and 0.17 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7432004096` (6.92 GiB) to fit into requested memory, or `--kv-cache-memory=9557860864` (8.9 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.24 GiB.
+(EngineCore pid=74) INFO 11-13 04:28:07 [core.py:395] init engine (profile, create kv cache, warmup model) took 22.32 s (compilation: 11.34 s)
+(APIServer pid=1) INFO 11-13 04:28:09 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-13 04:28:09 [launcher.py:195] Route: /ping, Methods: POST
+ready: F2-off
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/bs1/W1/0.tmp: 60 requests, 0 errors, 85.1 s
+2026-11-13 12:29:48 F2-off: batch-1 TPOT p50 4.43 ms
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/capacity/Wmix/0.tmp: 600 requests, 0 errors, 51.6 s
+2026-11-13 12:30:52 F2-off: Wmix closed-loop capacity 10.66 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.1/Wmix/0.tmp: 600 requests, 0 errors, 536.6 s
+2026-11-13 12:39:37 F2-off: Wmix x0.1 (0.991 req/s) seed 0: TTFT p95 0.030 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.25/Wmix/0.tmp: 600 requests, 0 errors, 216.6 s
+2026-11-13 12:43:19 F2-off: Wmix x0.25 (2.477 req/s) seed 0: TTFT p95 0.023 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.5/Wmix/0.tmp: 600 requests, 0 errors, 110.0 s
+2026-11-13 12:45:19 F2-off: Wmix x0.5 (4.954 req/s) seed 0: TTFT p95 0.026 s, TPOT p95 6.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.7/Wmix/0.tmp: 600 requests, 0 errors, 79.7 s
+2026-11-13 12:46:51 F2-off: Wmix x0.7 (6.936 req/s) seed 0: TTFT p95 0.032 s, TPOT p95 7.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.8/Wmix/0.tmp: 600 requests, 0 errors, 70.3 s
+2026-11-13 12:48:15 F2-off: Wmix x0.8 (7.927 req/s) seed 0: TTFT p95 0.036 s, TPOT p95 8.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.9/Wmix/0.tmp: 600 requests, 0 errors, 62.9 s
+2026-11-13 12:49:30 F2-off: Wmix x0.9 (8.917 req/s) seed 0: TTFT p95 0.037 s, TPOT p95 9.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.0/Wmix/0.tmp: 600 requests, 0 errors, 57.1 s
+2026-11-13 12:50:41 F2-off: Wmix x1.0 (9.908 req/s) seed 0: TTFT p95 0.041 s, TPOT p95 9.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.1/Wmix/0.tmp: 600 requests, 0 errors, 52.3 s
+2026-11-13 12:51:46 F2-off: Wmix x1.1 (10.899 req/s) seed 0: TTFT p95 0.044 s, TPOT p95 10.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.25/Wmix/0.tmp: 600 requests, 0 errors, 46.5 s
+2026-11-13 12:52:47 F2-off: Wmix x1.25 (12.385 req/s) seed 0: TTFT p95 0.047 s, TPOT p95 11.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.5/Wmix/0.tmp: 600 requests, 0 errors, 39.9 s
+2026-11-13 12:53:40 F2-off: Wmix x1.5 (14.862 req/s) seed 0: TTFT p95 0.055 s, TPOT p95 12.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.75/Wmix/0.tmp: 600 requests, 0 errors, 35.5 s
+2026-11-13 12:54:31 F2-off: Wmix x1.75 (17.339 req/s) seed 0: TTFT p95 0.079 s, TPOT p95 16.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x2.0/Wmix/0.tmp: 600 requests, 0 errors, 34.1 s
+2026-11-13 12:55:18 F2-off: Wmix x2.0 (19.816 req/s) seed 0: TTFT p95 0.159 s, TPOT p95 35.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.1/Wmix/1.tmp: 600 requests, 0 errors, 582.0 s
+2026-11-13 13:04:47 F2-off: Wmix x0.1 (0.991 req/s) seed 1: TTFT p95 0.177 s, TPOT p95 5.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.25/Wmix/1.tmp: 600 requests, 0 errors, 233.8 s
+2026-11-13 13:08:46 F2-off: Wmix x0.25 (2.477 req/s) seed 1: TTFT p95 0.023 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.5/Wmix/1.tmp: 600 requests, 0 errors, 118.9 s
+2026-11-13 13:10:55 F2-off: Wmix x0.5 (4.954 req/s) seed 1: TTFT p95 0.026 s, TPOT p95 6.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.7/Wmix/1.tmp: 600 requests, 0 errors, 86.6 s
+2026-11-13 13:12:32 F2-off: Wmix x0.7 (6.936 req/s) seed 1: TTFT p95 0.029 s, TPOT p95 6.7 ms, errors 0
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.8/Wmix/1.tmp: 600 requests, 0 errors, 76.7 s
+2026-11-13 13:14:03 F2-off: Wmix x0.8 (7.927 req/s) seed 1: TTFT p95 0.031 s, TPOT p95 7.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.9/Wmix/1.tmp: 600 requests, 0 errors, 68.9 s
+2026-11-13 13:15:24 F2-off: Wmix x0.9 (8.917 req/s) seed 1: TTFT p95 0.035 s, TPOT p95 8.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.0/Wmix/1.tmp: 600 requests, 0 errors, 62.7 s
+2026-11-13 13:16:38 F2-off: Wmix x1.0 (9.908 req/s) seed 1: TTFT p95 0.038 s, TPOT p95 9.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.1/Wmix/1.tmp: 600 requests, 0 errors, 57.7 s
+2026-11-13 13:17:51 F2-off: Wmix x1.1 (10.899 req/s) seed 1: TTFT p95 0.040 s, TPOT p95 9.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.25/Wmix/1.tmp: 600 requests, 0 errors, 51.5 s
+2026-11-13 13:18:56 F2-off: Wmix x1.25 (12.385 req/s) seed 1: TTFT p95 0.046 s, TPOT p95 10.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.5/Wmix/1.tmp: 600 requests, 0 errors, 44.1 s
+2026-11-13 13:19:54 F2-off: Wmix x1.5 (14.862 req/s) seed 1: TTFT p95 0.051 s, TPOT p95 11.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.75/Wmix/1.tmp: 600 requests, 0 errors, 39.2 s
+2026-11-13 13:20:47 F2-off: Wmix x1.75 (17.339 req/s) seed 1: TTFT p95 0.067 s, TPOT p95 13.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x2.0/Wmix/1.tmp: 600 requests, 0 errors, 36.1 s
+2026-11-13 13:21:37 F2-off: Wmix x2.0 (19.816 req/s) seed 1: TTFT p95 0.109 s, TPOT p95 24.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.1/Wmix/2.tmp: 600 requests, 0 errors, 595.1 s
+2026-11-13 13:31:20 F2-off: Wmix x0.1 (0.991 req/s) seed 2: TTFT p95 0.159 s, TPOT p95 5.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.25/Wmix/2.tmp: 600 requests, 0 errors, 238.9 s
+2026-11-13 13:35:23 F2-off: Wmix x0.25 (2.477 req/s) seed 2: TTFT p95 0.023 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.5/Wmix/2.tmp: 600 requests, 0 errors, 120.5 s
+2026-11-13 13:37:35 F2-off: Wmix x0.5 (4.954 req/s) seed 2: TTFT p95 0.025 s, TPOT p95 6.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.7/Wmix/2.tmp: 600 requests, 0 errors, 87.5 s
+2026-11-13 13:39:15 F2-off: Wmix x0.7 (6.936 req/s) seed 2: TTFT p95 0.029 s, TPOT p95 6.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.8/Wmix/2.tmp: 600 requests, 0 errors, 77.3 s
+2026-11-13 13:40:45 F2-off: Wmix x0.8 (7.927 req/s) seed 2: TTFT p95 0.030 s, TPOT p95 7.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x0.9/Wmix/2.tmp: 600 requests, 0 errors, 69.5 s
+2026-11-13 13:42:07 F2-off: Wmix x0.9 (8.917 req/s) seed 2: TTFT p95 0.034 s, TPOT p95 8.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.0/Wmix/2.tmp: 600 requests, 0 errors, 63.1 s
+2026-11-13 13:43:23 F2-off: Wmix x1.0 (9.908 req/s) seed 2: TTFT p95 0.037 s, TPOT p95 9.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.1/Wmix/2.tmp: 600 requests, 0 errors, 58.0 s
+2026-11-13 13:44:34 F2-off: Wmix x1.1 (10.899 req/s) seed 2: TTFT p95 0.040 s, TPOT p95 9.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.25/Wmix/2.tmp: 600 requests, 0 errors, 51.8 s
+2026-11-13 13:45:40 F2-off: Wmix x1.25 (12.385 req/s) seed 2: TTFT p95 0.044 s, TPOT p95 10.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.5/Wmix/2.tmp: 600 requests, 0 errors, 44.2 s
+2026-11-13 13:46:38 F2-off: Wmix x1.5 (14.862 req/s) seed 2: TTFT p95 0.050 s, TPOT p95 11.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x1.75/Wmix/2.tmp: 600 requests, 0 errors, 39.4 s
+2026-11-13 13:47:31 F2-off: Wmix x1.75 (17.339 req/s) seed 2: TTFT p95 0.066 s, TPOT p95 15.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/x2.0/Wmix/2.tmp: 600 requests, 0 errors, 36.5 s
+2026-11-13 13:48:23 F2-off: Wmix x2.0 (19.816 req/s) seed 2: TTFT p95 0.123 s, TPOT p95 26.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-off/bs1_end/W1/0.tmp: 60 requests, 0 errors, 84.8 s
+2026-11-13 13:50:00 F2-off: drift 4.43 -> 4.42 ms (-0.2%), valid
+2026-11-13 13:50:00 F2-chunk512: starting server ['--max-num-batched-tokens', '512'] {}
+(EngineCore pid=74) WARNING 11-13 05:50:31 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=74) INFO 11-13 05:50:35 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=74) INFO 11-13 05:50:50 [gpu_worker.py:759] Available KV cache memory: 7.26 GiB
+(EngineCore pid=74) INFO 11-13 05:50:50 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=74) INFO 11-13 05:50:50 [kv_cache_utils.py:2327] GPU KV cache size: 634,352 tokens, Maximum concurrency for 8,192 tokens per request: 77.44x
+(EngineCore pid=74) INFO 11-13 05:50:56 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.53 GiB for peak activation, and 0.17 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7453268480` (6.94 GiB) to fit into requested memory, or `--kv-cache-memory=9579125248` (8.92 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.26 GiB.
+(EngineCore pid=74) INFO 11-13 05:50:57 [core.py:395] init engine (profile, create kv cache, warmup model) took 21.95 s (compilation: 11.27 s)
+(APIServer pid=1) INFO 11-13 05:50:59 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-13 05:50:59 [launcher.py:195] Route: /ping, Methods: POST
+ready: F2-chunk512
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/bs1/W1/0.tmp: 60 requests, 0 errors, 84.6 s
+2026-11-13 13:52:37 F2-chunk512: batch-1 TPOT p50 4.40 ms
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/capacity/Wmix/0.tmp: 600 requests, 0 errors, 65.8 s
+2026-11-13 13:53:55 F2-chunk512: Wmix closed-loop capacity 8.36 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.1/Wmix/0.tmp: 600 requests, 0 errors, 536.6 s
+2026-11-13 14:02:42 F2-chunk512: Wmix x0.1 (0.991 req/s) seed 0: TTFT p95 0.031 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.25/Wmix/0.tmp: 600 requests, 0 errors, 216.5 s
+2026-11-13 14:06:26 F2-chunk512: Wmix x0.25 (2.477 req/s) seed 0: TTFT p95 0.022 s, TPOT p95 5.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.5/Wmix/0.tmp: 600 requests, 0 errors, 110.0 s
+2026-11-13 14:08:26 F2-chunk512: Wmix x0.5 (4.954 req/s) seed 0: TTFT p95 0.026 s, TPOT p95 6.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.7/Wmix/0.tmp: 600 requests, 0 errors, 79.7 s
+2026-11-13 14:09:58 F2-chunk512: Wmix x0.7 (6.936 req/s) seed 0: TTFT p95 0.032 s, TPOT p95 7.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.8/Wmix/0.tmp: 600 requests, 0 errors, 70.2 s
+2026-11-13 14:11:21 F2-chunk512: Wmix x0.8 (7.927 req/s) seed 0: TTFT p95 0.035 s, TPOT p95 8.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.9/Wmix/0.tmp: 600 requests, 0 errors, 62.9 s
+2026-11-13 14:12:38 F2-chunk512: Wmix x0.9 (8.917 req/s) seed 0: TTFT p95 0.037 s, TPOT p95 8.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.0/Wmix/0.tmp: 600 requests, 0 errors, 57.1 s
+2026-11-13 14:13:47 F2-chunk512: Wmix x1.0 (9.908 req/s) seed 0: TTFT p95 0.041 s, TPOT p95 9.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.1/Wmix/0.tmp: 600 requests, 0 errors, 52.3 s
+2026-11-13 14:14:53 F2-chunk512: Wmix x1.1 (10.899 req/s) seed 0: TTFT p95 0.043 s, TPOT p95 10.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.25/Wmix/0.tmp: 600 requests, 0 errors, 46.5 s
+2026-11-13 14:15:54 F2-chunk512: Wmix x1.25 (12.385 req/s) seed 0: TTFT p95 0.047 s, TPOT p95 11.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.5/Wmix/0.tmp: 600 requests, 0 errors, 39.8 s
+2026-11-13 14:16:49 F2-chunk512: Wmix x1.5 (14.862 req/s) seed 0: TTFT p95 0.054 s, TPOT p95 12.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.75/Wmix/0.tmp: 600 requests, 0 errors, 35.4 s
+2026-11-13 14:17:38 F2-chunk512: Wmix x1.75 (17.339 req/s) seed 0: TTFT p95 0.075 s, TPOT p95 16.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x2.0/Wmix/0.tmp: 600 requests, 0 errors, 33.4 s
+2026-11-13 14:18:26 F2-chunk512: Wmix x2.0 (19.816 req/s) seed 0: TTFT p95 0.135 s, TPOT p95 29.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.1/Wmix/1.tmp: 600 requests, 0 errors, 582.1 s
+2026-11-13 14:27:57 F2-chunk512: Wmix x0.1 (0.991 req/s) seed 1: TTFT p95 0.196 s, TPOT p95 5.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.25/Wmix/1.tmp: 600 requests, 0 errors, 233.8 s
+2026-11-13 14:31:56 F2-chunk512: Wmix x0.25 (2.477 req/s) seed 1: TTFT p95 0.022 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.5/Wmix/1.tmp: 600 requests, 0 errors, 118.9 s
+2026-11-13 14:34:06 F2-chunk512: Wmix x0.5 (4.954 req/s) seed 1: TTFT p95 0.026 s, TPOT p95 6.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.7/Wmix/1.tmp: 600 requests, 0 errors, 86.6 s
+2026-11-13 14:35:45 F2-chunk512: Wmix x0.7 (6.936 req/s) seed 1: TTFT p95 0.029 s, TPOT p95 6.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.8/Wmix/1.tmp: 600 requests, 0 errors, 76.6 s
+2026-11-13 14:37:14 F2-chunk512: Wmix x0.8 (7.927 req/s) seed 1: TTFT p95 0.031 s, TPOT p95 7.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.9/Wmix/1.tmp: 600 requests, 0 errors, 68.9 s
+2026-11-13 14:38:35 F2-chunk512: Wmix x0.9 (8.917 req/s) seed 1: TTFT p95 0.034 s, TPOT p95 8.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.0/Wmix/1.tmp: 600 requests, 0 errors, 62.7 s
+2026-11-13 14:39:52 F2-chunk512: Wmix x1.0 (9.908 req/s) seed 1: TTFT p95 0.037 s, TPOT p95 9.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.1/Wmix/1.tmp: 600 requests, 0 errors, 57.6 s
+2026-11-13 14:41:04 F2-chunk512: Wmix x1.1 (10.899 req/s) seed 1: TTFT p95 0.041 s, TPOT p95 9.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.25/Wmix/1.tmp: 600 requests, 0 errors, 51.5 s
+2026-11-13 14:42:07 F2-chunk512: Wmix x1.25 (12.385 req/s) seed 1: TTFT p95 0.045 s, TPOT p95 10.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.5/Wmix/1.tmp: 600 requests, 0 errors, 44.1 s
+2026-11-13 14:43:07 F2-chunk512: Wmix x1.5 (14.862 req/s) seed 1: TTFT p95 0.053 s, TPOT p95 11.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.75/Wmix/1.tmp: 600 requests, 0 errors, 39.3 s
+2026-11-13 14:44:01 F2-chunk512: Wmix x1.75 (17.339 req/s) seed 1: TTFT p95 0.066 s, TPOT p95 13.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x2.0/Wmix/1.tmp: 600 requests, 0 errors, 36.0 s
+2026-11-13 14:44:51 F2-chunk512: Wmix x2.0 (19.816 req/s) seed 1: TTFT p95 0.106 s, TPOT p95 24.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.1/Wmix/2.tmp: 600 requests, 0 errors, 595.1 s
+2026-11-13 14:54:35 F2-chunk512: Wmix x0.1 (0.991 req/s) seed 2: TTFT p95 0.178 s, TPOT p95 5.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.25/Wmix/2.tmp: 600 requests, 0 errors, 238.9 s
+2026-11-13 14:58:40 F2-chunk512: Wmix x0.25 (2.477 req/s) seed 2: TTFT p95 0.023 s, TPOT p95 5.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.5/Wmix/2.tmp: 600 requests, 0 errors, 120.5 s
+2026-11-13 15:00:52 F2-chunk512: Wmix x0.5 (4.954 req/s) seed 2: TTFT p95 0.025 s, TPOT p95 6.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.7/Wmix/2.tmp: 600 requests, 0 errors, 87.5 s
+2026-11-13 15:02:33 F2-chunk512: Wmix x0.7 (6.936 req/s) seed 2: TTFT p95 0.028 s, TPOT p95 6.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.8/Wmix/2.tmp: 600 requests, 0 errors, 77.3 s
+2026-11-13 15:04:03 F2-chunk512: Wmix x0.8 (7.927 req/s) seed 2: TTFT p95 0.031 s, TPOT p95 7.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x0.9/Wmix/2.tmp: 600 requests, 0 errors, 75.5 s
+2026-11-13 15:05:31 F2-chunk512: Wmix x0.9 (8.917 req/s) seed 2: TTFT p95 0.110 s, TPOT p95 17.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.0/Wmix/2.tmp: 600 requests, 0 errors, 63.3 s
+2026-11-13 15:06:49 F2-chunk512: Wmix x1.0 (9.908 req/s) seed 2: TTFT p95 0.044 s, TPOT p95 10.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.1/Wmix/2.tmp: 600 requests, 0 errors, 58.2 s
+2026-11-13 15:07:59 F2-chunk512: Wmix x1.1 (10.899 req/s) seed 2: TTFT p95 0.042 s, TPOT p95 10.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.25/Wmix/2.tmp: 600 requests, 0 errors, 52.0 s
+2026-11-13 15:09:06 F2-chunk512: Wmix x1.25 (12.385 req/s) seed 2: TTFT p95 0.048 s, TPOT p95 10.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.5/Wmix/2.tmp: 600 requests, 0 errors, 44.3 s
+2026-11-13 15:10:04 F2-chunk512: Wmix x1.5 (14.862 req/s) seed 2: TTFT p95 0.051 s, TPOT p95 11.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x1.75/Wmix/2.tmp: 600 requests, 0 errors, 39.8 s
+2026-11-13 15:10:59 F2-chunk512: Wmix x1.75 (17.339 req/s) seed 2: TTFT p95 0.089 s, TPOT p95 19.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/x2.0/Wmix/2.tmp: 600 requests, 0 errors, 36.5 s
+2026-11-13 15:11:50 F2-chunk512: Wmix x2.0 (19.816 req/s) seed 2: TTFT p95 0.116 s, TPOT p95 25.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk512/bs1_end/W1/0.tmp: 60 requests, 0 errors, 86.2 s
+2026-11-13 15:13:29 F2-chunk512: drift 4.40 -> 4.47 ms (+1.6%), valid
+2026-11-13 15:13:29 F2-chunk8192: starting server ['--max-num-batched-tokens', '8192'] {}
+(EngineCore pid=74) WARNING 11-13 07:14:03 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=74) INFO 11-13 07:14:06 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=74) INFO 11-13 07:14:23 [gpu_worker.py:759] Available KV cache memory: 7.24 GiB
+(EngineCore pid=74) INFO 11-13 07:14:23 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=74) INFO 11-13 07:14:23 [kv_cache_utils.py:2327] GPU KV cache size: 632,624 tokens, Maximum concurrency for 8,192 tokens per request: 77.22x
+(EngineCore pid=74) INFO 11-13 07:14:29 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.55 GiB for peak activation, and 0.18 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7427416576` (6.92 GiB) to fit into requested memory, or `--kv-cache-memory=9553273344` (8.9 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.24 GiB.
+(EngineCore pid=74) INFO 11-13 07:14:30 [core.py:395] init engine (profile, create kv cache, warmup model) took 23.70 s (compilation: 11.88 s)
+(APIServer pid=1) INFO 11-13 07:14:32 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-13 07:14:32 [launcher.py:195] Route: /ping, Methods: POST
+ready: F2-chunk8192
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/bs1/W1/0.tmp: 60 requests, 0 errors, 87.2 s
+2026-11-13 15:16:11 F2-chunk8192: batch-1 TPOT p50 4.49 ms
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/capacity/Wmix/0.tmp: 600 requests, 0 errors, 50.9 s
+2026-11-13 15:17:16 F2-chunk8192: Wmix closed-loop capacity 10.81 req/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.1/Wmix/0.tmp: 600 requests, 0 errors, 536.9 s
+2026-11-13 15:26:05 F2-chunk8192: Wmix x0.1 (0.991 req/s) seed 0: TTFT p95 0.030 s, TPOT p95 6.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.25/Wmix/0.tmp: 600 requests, 0 errors, 216.6 s
+2026-11-13 15:29:49 F2-chunk8192: Wmix x0.25 (2.477 req/s) seed 0: TTFT p95 0.027 s, TPOT p95 6.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.5/Wmix/0.tmp: 600 requests, 0 errors, 110.1 s
+2026-11-13 15:31:50 F2-chunk8192: Wmix x0.5 (4.954 req/s) seed 0: TTFT p95 0.028 s, TPOT p95 6.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.7/Wmix/0.tmp: 600 requests, 0 errors, 79.7 s
+2026-11-13 15:33:23 F2-chunk8192: Wmix x0.7 (6.936 req/s) seed 0: TTFT p95 0.032 s, TPOT p95 7.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.8/Wmix/0.tmp: 600 requests, 0 errors, 70.3 s
+2026-11-13 15:34:47 F2-chunk8192: Wmix x0.8 (7.927 req/s) seed 0: TTFT p95 0.045 s, TPOT p95 9.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.9/Wmix/0.tmp: 600 requests, 0 errors, 63.0 s
+2026-11-13 15:36:03 F2-chunk8192: Wmix x0.9 (8.917 req/s) seed 0: TTFT p95 0.038 s, TPOT p95 9.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.0/Wmix/0.tmp: 600 requests, 0 errors, 57.1 s
+2026-11-13 15:37:15 F2-chunk8192: Wmix x1.0 (9.908 req/s) seed 0: TTFT p95 0.042 s, TPOT p95 9.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.1/Wmix/0.tmp: 600 requests, 0 errors, 52.3 s
+2026-11-13 15:38:21 F2-chunk8192: Wmix x1.1 (10.899 req/s) seed 0: TTFT p95 0.044 s, TPOT p95 10.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.25/Wmix/0.tmp: 600 requests, 0 errors, 47.5 s
+2026-11-13 15:39:23 F2-chunk8192: Wmix x1.25 (12.385 req/s) seed 0: TTFT p95 0.052 s, TPOT p95 11.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.5/Wmix/0.tmp: 600 requests, 0 errors, 41.4 s
+2026-11-13 15:40:19 F2-chunk8192: Wmix x1.5 (14.862 req/s) seed 0: TTFT p95 0.100 s, TPOT p95 21.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.75/Wmix/0.tmp: 600 requests, 0 errors, 40.6 s
+2026-11-13 15:41:14 F2-chunk8192: Wmix x1.75 (17.339 req/s) seed 0: TTFT p95 0.234 s, TPOT p95 55.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x2.0/Wmix/0.tmp: 600 requests, 0 errors, 38.4 s
+2026-11-13 15:42:07 F2-chunk8192: Wmix x2.0 (19.816 req/s) seed 0: TTFT p95 0.324 s, TPOT p95 70.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.1/Wmix/1.tmp: 600 requests, 0 errors, 582.3 s
+2026-11-13 15:51:41 F2-chunk8192: Wmix x0.1 (0.991 req/s) seed 1: TTFT p95 0.209 s, TPOT p95 6.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.25/Wmix/1.tmp: 600 requests, 0 errors, 234.2 s
+2026-11-13 15:55:41 F2-chunk8192: Wmix x0.25 (2.477 req/s) seed 1: TTFT p95 0.031 s, TPOT p95 6.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.5/Wmix/1.tmp: 600 requests, 0 errors, 119.9 s
+2026-11-13 15:57:53 F2-chunk8192: Wmix x0.5 (4.954 req/s) seed 1: TTFT p95 0.036 s, TPOT p95 7.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.7/Wmix/1.tmp: 600 requests, 0 errors, 88.0 s
+2026-11-13 15:59:35 F2-chunk8192: Wmix x0.7 (6.936 req/s) seed 1: TTFT p95 0.041 s, TPOT p95 9.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.8/Wmix/1.tmp: 600 requests, 0 errors, 77.7 s
+2026-11-13 16:01:05 F2-chunk8192: Wmix x0.8 (7.927 req/s) seed 1: TTFT p95 0.042 s, TPOT p95 10.0 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.9/Wmix/1.tmp: 600 requests, 0 errors, 69.9 s
+2026-11-13 16:02:29 F2-chunk8192: Wmix x0.9 (8.917 req/s) seed 1: TTFT p95 0.045 s, TPOT p95 11.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.0/Wmix/1.tmp: 600 requests, 0 errors, 63.9 s
+2026-11-13 16:03:45 F2-chunk8192: Wmix x1.0 (9.908 req/s) seed 1: TTFT p95 0.052 s, TPOT p95 12.1 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.1/Wmix/1.tmp: 600 requests, 0 errors, 58.6 s
+2026-11-13 16:04:58 F2-chunk8192: Wmix x1.1 (10.899 req/s) seed 1: TTFT p95 0.053 s, TPOT p95 12.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.25/Wmix/1.tmp: 600 requests, 0 errors, 52.8 s
+2026-11-13 16:06:06 F2-chunk8192: Wmix x1.25 (12.385 req/s) seed 1: TTFT p95 0.059 s, TPOT p95 12.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.5/Wmix/1.tmp: 600 requests, 0 errors, 45.7 s
+2026-11-13 16:07:06 F2-chunk8192: Wmix x1.5 (14.862 req/s) seed 1: TTFT p95 0.076 s, TPOT p95 15.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.75/Wmix/1.tmp: 600 requests, 0 errors, 40.6 s
+2026-11-13 16:08:01 F2-chunk8192: Wmix x1.75 (17.339 req/s) seed 1: TTFT p95 0.094 s, TPOT p95 20.6 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x2.0/Wmix/1.tmp: 600 requests, 0 errors, 38.4 s
+2026-11-13 16:08:55 F2-chunk8192: Wmix x2.0 (19.816 req/s) seed 1: TTFT p95 0.197 s, TPOT p95 43.4 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.1/Wmix/2.tmp: 600 requests, 0 errors, 595.2 s
+2026-11-13 16:18:43 F2-chunk8192: Wmix x0.1 (0.991 req/s) seed 2: TTFT p95 0.169 s, TPOT p95 6.9 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.25/Wmix/2.tmp: 600 requests, 0 errors, 239.2 s
+2026-11-13 16:22:49 F2-chunk8192: Wmix x0.25 (2.477 req/s) seed 2: TTFT p95 0.028 s, TPOT p95 6.5 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.5/Wmix/2.tmp: 600 requests, 0 errors, 120.9 s
+2026-11-13 16:25:00 F2-chunk8192: Wmix x0.5 (4.954 req/s) seed 2: TTFT p95 0.031 s, TPOT p95 7.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.7/Wmix/2.tmp: 600 requests, 0 errors, 88.5 s
+2026-11-13 16:26:42 F2-chunk8192: Wmix x0.7 (6.936 req/s) seed 2: TTFT p95 0.036 s, TPOT p95 8.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.8/Wmix/2.tmp: 600 requests, 0 errors, 78.2 s
+2026-11-13 16:28:14 F2-chunk8192: Wmix x0.8 (7.927 req/s) seed 2: TTFT p95 0.040 s, TPOT p95 9.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x0.9/Wmix/2.tmp: 600 requests, 0 errors, 70.3 s
+2026-11-13 16:29:38 F2-chunk8192: Wmix x0.9 (8.917 req/s) seed 2: TTFT p95 0.045 s, TPOT p95 10.7 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.0/Wmix/2.tmp: 600 requests, 0 errors, 64.2 s
+2026-11-13 16:30:56 F2-chunk8192: Wmix x1.0 (9.908 req/s) seed 2: TTFT p95 0.050 s, TPOT p95 11.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.1/Wmix/2.tmp: 600 requests, 0 errors, 59.1 s
+2026-11-13 16:32:10 F2-chunk8192: Wmix x1.1 (10.899 req/s) seed 2: TTFT p95 0.051 s, TPOT p95 11.4 ms, errors 0
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.25/Wmix/2.tmp: 600 requests, 0 errors, 52.8 s
+2026-11-13 16:33:15 F2-chunk8192: Wmix x1.25 (12.385 req/s) seed 2: TTFT p95 0.056 s, TPOT p95 12.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.5/Wmix/2.tmp: 600 requests, 0 errors, 45.2 s
+2026-11-13 16:34:16 F2-chunk8192: Wmix x1.5 (14.862 req/s) seed 2: TTFT p95 0.069 s, TPOT p95 14.2 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x1.75/Wmix/2.tmp: 600 requests, 0 errors, 41.6 s
+2026-11-13 16:35:13 F2-chunk8192: Wmix x1.75 (17.339 req/s) seed 2: TTFT p95 0.136 s, TPOT p95 29.3 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/x2.0/Wmix/2.tmp: 600 requests, 0 errors, 39.8 s
+2026-11-13 16:36:07 F2-chunk8192: Wmix x2.0 (19.816 req/s) seed 2: TTFT p95 0.253 s, TPOT p95 55.8 ms, errors 0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F2-chunk8192/bs1_end/W1/0.tmp: 60 requests, 0 errors, 97.7 s
+2026-11-13 16:37:57 F2-chunk8192: drift 4.49 -> 5.12 ms (+14.2%), INVALID
+2026-11-13 16:37:57 F5-1.5B: starting server [] {'MODEL': 'Qwen/Qwen2.5-1.5B-Instruct'}
+2026-11-14 00:19:25 baseline-ctl: starting server [] {}
+(EngineCore pid=74) WARNING 11-13 16:21:06 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=74) INFO 11-13 16:21:26 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=74) INFO 11-13 16:21:54 [gpu_worker.py:759] Available KV cache memory: 7.25 GiB
+(EngineCore pid=74) INFO 11-13 16:21:54 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.7500 is equivalent to --gpu-memory-utilization=0.7267 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.7733. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=74) INFO 11-13 16:21:54 [kv_cache_utils.py:2327] GPU KV cache size: 633,904 tokens, Maximum concurrency for 8,192 tokens per request: 77.38x
+(EngineCore pid=74) INFO 11-13 16:21:59 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.75, 9.0 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.53 GiB for peak activation, and 0.17 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=7447704064` (6.94 GiB) to fit into requested memory, or `--kv-cache-memory=9573560832` (8.92 GiB) to fully utilize gpu memory. Current kv cache memory in use is 7.25 GiB.
+(EngineCore pid=74) INFO 11-13 16:22:02 [core.py:395] init engine (profile, create kv cache, warmup model) took 36.21 s (compilation: 13.65 s)
+(APIServer pid=1) INFO 11-13 16:22:04 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-13 16:22:04 [launcher.py:195] Route: /ping, Methods: POST
+ready: baseline-ctl
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.

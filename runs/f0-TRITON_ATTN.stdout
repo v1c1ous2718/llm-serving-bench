@@ -1,0 +1,33 @@
+2026-11-13 06:04:55 F0-TRITON_ATTN: starting server (F0, 0.85)
+(EngineCore pid=73) WARNING 11-12 22:05:23 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
+(EngineCore pid=73) INFO 11-12 22:05:25 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=73) INFO 11-12 22:05:43 [gpu_worker.py:759] Available KV cache memory: 8.45 GiB
+(EngineCore pid=73) INFO 11-12 22:05:43 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.8500 is equivalent to --gpu-memory-utilization=0.8262 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.8738. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=73) INFO 11-12 22:05:43 [kv_cache_utils.py:2327] GPU KV cache size: 738,240 tokens, Maximum concurrency for 8,192 tokens per request: 90.12x
+(EngineCore pid=73) INFO 11-12 22:05:49 [gpu_worker.py:1034] Free memory on device (10.98/12.0 GiB) on startup. Desired GPU memory utilization is (0.85, 10.2 GiB). Actual usage is 1.21 GiB for consumed memory (weights + non-torch), 0.54 GiB for peak activation, and 0.13 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=8771793408` (8.17 GiB) to fit into requested memory, or `--kv-cache-memory=9609212416` (8.95 GiB) to fully utilize gpu memory. Current kv cache memory in use is 8.45 GiB.
+(EngineCore pid=73) INFO 11-12 22:05:50 [core.py:395] init engine (profile, create kv cache, warmup model) took 24.98 s (compilation: 11.52 s)
+(APIServer pid=1) INFO 11-12 22:05:51 [launcher.py:195] Route: /ping, Methods: GET
+(APIServer pid=1) INFO 11-12 22:05:51 [launcher.py:195] Route: /ping, Methods: POST
+ready: F0-TRITON_ATTN
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-TRITON_ATTN/bs1/W1/0.tmp: 60 requests, 0 errors, 82.5 s
+2026-11-13 06:07:26 F0-TRITON_ATTN: c=1 TPOT p50 4.27 ms, steady 231 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-TRITON_ATTN/c8/W1/0.tmp: 120 requests, 0 errors, 24.2 s
+2026-11-13 06:08:03 F0-TRITON_ATTN: c=8 TPOT p50 5.17 ms, steady 1498 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-TRITON_ATTN/c64/W1/0.tmp: 256 requests, 0 errors, 13.7 s
+2026-11-13 06:08:31 F0-TRITON_ATTN: c=64 TPOT p50 9.79 ms, steady 6648 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-TRITON_ATTN/c128/W1/0.tmp: 512 requests, 0 errors, 19.5 s
+2026-11-13 06:09:06 F0-TRITON_ATTN: c=128 TPOT p50 16.15 ms, steady 8054 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-TRITON_ATTN/c256/W1/0.tmp: 1024 requests, 0 errors, 33.4 s
+2026-11-13 06:09:54 F0-TRITON_ATTN: c=256 TPOT p50 29.62 ms, steady 8868 tok/s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/vicious/ai-infra/serving-load/runs/F0-TRITON_ATTN/bs1_end/W1/0.tmp: 60 requests, 0 errors, 82.2 s
+{'c': 8, 'tok_s': 1497.5742228073761, 'tpot_p50': 5.171988038768042, 'tpot_p95': 5.584828081919113, 'ttft_p50_ms': 21.00161899579689}
+{'c': 64, 'tok_s': 6648.103677743611, 'tpot_p50': 9.79355476007851, 'tpot_p95': 10.505447920925612, 'ttft_p50_ms': 37.880354502703995}
+{'c': 128, 'tok_s': 8054.164987990083, 'tpot_p50': 16.145529463951412, 'tpot_p95': 18.18269245474609, 'ttft_p50_ms': 60.79978699563071}
+{'c': 256, 'tok_s': 8868.471081361144, 'tpot_p50': 29.61953076675446, 'tpot_p95': 32.935130348215786, 'ttft_p50_ms': 117.9848064930411}
+{'c': '1 (end)', 'tpot_p50': 4.274028394963339}
